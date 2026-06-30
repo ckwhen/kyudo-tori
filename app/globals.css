@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* 確保整個網站預設就是充滿禪意的和紙色 */
+@layer base {
+  body {
+    background-color: #F4F4F0;
+    color: #2A363B;
+  }
+}
