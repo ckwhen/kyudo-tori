@@ -1,9 +1,19 @@
 @import "tailwindcss";
 
-/* 確保整個網站預設就是充滿禪意的和紙色 */
+@theme {
+  --color-canvas: #F4F4F0;
+  --color-ink: #2A363B;
+  --color-moss: #3A4D39;
+  --color-gold: #E6AD12;
+
+  --font-serif: var(--font-serif), serif;
+  --font-sans: var(--font-sans), sans-serif;
+}
+
 @layer base {
   body {
-    background-color: #F4F4F0;
-    color: #2A363B;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
   }
 }
