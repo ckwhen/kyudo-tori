@@ -1,9 +1,14 @@
 import { db } from "@/shared/database";
-import { ShinsaResponse } from './types';
+import { ShinsaResponse, ShinsaRequest } from './types';
 
 export const shinsaService = {
-  async getFilteredShinsas(): Promise<Array<ShinsaResponse>> {
+  async getFilteredShinsas({
+    offset,
+    limit,
+  }: ShinsaRequest): Promise<Array<ShinsaResponse>> {
     const rawShinsas = await db.query.shinsas.findMany({
+      offset,
+      limit,
       with: {
         ranksShinsas: {
           with: {
@@ -23,5 +28,12 @@ export const shinsaService = {
         ranks: extractedRanks,
       };
     });
-  }
+  },
+
+  async getShinsasCount(): Promise<number> {
+    const result = await db.query.shinsas.findMany({
+      columns: { id: true },
+    });
+    return result.length;
+  },
 };

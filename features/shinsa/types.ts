@@ -6,6 +6,11 @@ export type RankResponse = {
   type: number;
 }
 
+export type ShinsaRequest = {
+  offset: number,
+  limit: number
+}
+
 export type ShinsaResponse = {
   id: string;
   name: string;

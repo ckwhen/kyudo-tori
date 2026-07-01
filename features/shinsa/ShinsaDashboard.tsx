@@ -1,12 +1,27 @@
 'use client';
 
+import { useRouter, useSearchParams } from 'next/navigation'; 
+import { Pagination } from '@/shared/components';
 import { ShinsaResponse } from './types';
 
-interface ShinsaDashboardProps {
-  data: ShinsaResponse[];
+type Props = {
+  data: ShinsaResponse[],
+  pagination: {
+    offset: number,
+    limit: number,
+    count: number,
+  },
 }
 
-export default function ShinsaDashboard({ data }: ShinsaDashboardProps) {
+export default function ShinsaDashboard({
+  data,
+  pagination,
+}: Props) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const { limit } = pagination;
+
   const renderItem = ({
     id,
     name,
@@ -84,6 +99,18 @@ export default function ShinsaDashboard({ data }: ShinsaDashboardProps) {
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-0 m-0">
         {data.map(renderItem)}
       </ul>
+      <Pagination
+        {...pagination}
+        onChange={(nextOffset) => {
+          const nextPage = Math.floor(nextOffset / limit) + 1;
+          const currentParams = new URLSearchParams(Array.from(searchParams.entries()));
+
+          currentParams.set('page', nextPage + '');
+
+          router.push(`/?${currentParams + ''}`);
+          window.scrollTo({ top: 350, behavior: 'smooth' });
+        }}
+      />
     </div>
   )
 }
