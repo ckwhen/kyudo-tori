@@ -1,8 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation'; 
+import { SlidersHorizontal } from 'lucide-react';
 import { Pagination } from '@/shared/components';
 import { ShinsaResponse } from './types';
+import ShinsaFilterModal from './ShinsaFiltersModal'; 
 
 type Props = {
   data: ShinsaResponse[],
@@ -21,6 +24,8 @@ export default function ShinsaDashboard({
   const searchParams = useSearchParams();
 
   const { limit } = pagination;
+
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const renderItem = ({
     id,
@@ -53,7 +58,7 @@ export default function ShinsaDashboard({
               連盟名稱
             </span>
           </div>
-          <h4 className="text-base md:text-lg font-serif font-bold text-ink mb-2 leading-snug group-hover:text-moss transition-colors line-clamp-2 min-h-[56px]">
+          <h4 className="text-base md:text-lg font-serif font-bold text-ink mb-2 leading-snug group-hover:text-moss transition-colors line-clamp-2 min-h-14">
             {name}
           </h4>
           <div className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-ink/70">
@@ -96,6 +101,24 @@ export default function ShinsaDashboard({
 
   return (
     <div className="w-full flex flex-col">
+      <div className="mb-8 text-right">
+        <button
+          type="button"
+          className={`
+            px-3 py-2 rounded-sm
+            bg-white border border-ink/10 text-ink/80 text-sm font-medium shadow-2xs
+            transition-all duration-200 cursor-pointer select-none
+            hover:border-moss/40 hover:text-moss
+            active:scale-95
+          `}
+          onClick={() => setIsFilterOpen(true)}
+        >
+          <div className="flex items-center gap-2.5">
+            <SlidersHorizontal className="w-4 h-4 text-moss/70" />
+            <span className="tracking-wide">篩選條件</span>
+          </div>
+        </button>
+      </div>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-0 m-0">
         {data.map(renderItem)}
       </ul>
@@ -110,6 +133,10 @@ export default function ShinsaDashboard({
           router.push(`/?${currentParams + ''}`);
           window.scrollTo({ top: 350, behavior: 'smooth' });
         }}
+      />
+      <ShinsaFilterModal
+        isOpen={isFilterOpen}
+        onClose={() => setIsFilterOpen(false)}
       />
     </div>
   )
