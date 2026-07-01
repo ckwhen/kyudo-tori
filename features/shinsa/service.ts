@@ -1,21 +1,5 @@
 import { db } from "@/shared/database";
-
-type ShinsaResponse = {
-  id: string;
-  name: string;
-  type: number | null;
-  location: string | null;
-  startAt: Date | null;
-  deliveryMethodType: number | null;
-  note: string | null;
-  ranks: {
-    id: string;
-    code: string;
-    name: string;
-    weight: number;
-    type: number;
-  }[];
-}
+import { ShinsaResponse } from './types';
 
 export const shinsaService = {
   async getFilteredShinsas(): Promise<Array<ShinsaResponse>> {
