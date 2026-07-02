@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KYUDO TORI
 
-## Getting Started
+> Kyudo Tori  
+> 建構一個簡潔且易於使用的查詢介面，讓弓道學習者能快速檢索日本各地的審查資訊
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 專案相關連結
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [shinsa-tori](https://github.com/ckwhen/shinsa-tori)：提供審查資料模組
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 開發目標
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Kyudo Tori 專案旨在提供：
+- 簡潔、直覺的使用者介面
+- 快速搜尋與篩選審查資訊
+- 清晰的結果呈現（時間、地點、主辦單位、審查段位）
+- 可於電腦與手機裝置上使用（RWD）
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 技術規劃
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| 項目         | 技術                           |
+|--------------|--------------------------------|
+| Frameworks | React |
+| UI | Tailwind CSS |
+| API 通訊     | Axios |
+| 狀態管理     | React Context / Zustand（視需要 |
+| Routing      | Next.js Router |
+| 建構工具     | Next.js |
+| 型別, Coding Style 管理     | TypeScript / ESLint |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 頁面架構
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **首頁（Landing Page）**
+   - 地區選擇（下拉選單或分區按鈕）
+   - 關鍵字搜尋（主辦單位 / 地點）
+   - 日期篩選（年、月）
+   - 查詢結果列表（可展開細節）
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 未來發展
+- 支援多語系（i18n）
+- 搜尋結果可下載為 CSV / PDF
+- 支援審查公告訂閱 / 通知
