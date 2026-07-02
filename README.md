@@ -9,6 +9,12 @@
 
 - [shinsa-tori](https://github.com/ckwhen/shinsa-tori)：提供審查資料模組
 
+## 專案展示
+
+桌機 | 平板 | 手機
+:--:|:--:|:--:
+![Desktop](./public/col-3.jpg) | ![Tablet](./public/col-2.jpg) | ![Mobile](./public/col-1.jpg)
+
 ## 開發目標
 
 Kyudo Tori 專案旨在提供：
