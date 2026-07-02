@@ -31,7 +31,6 @@ Kyudo Tori 專案旨在提供：
 |--------------|--------------------------------|
 | Frameworks | React |
 | UI | Tailwind CSS |
-| API 通訊     | Axios |
 | 狀態管理     | React Context / Zustand（視需要 |
 | Routing      | Next.js Router |
 | 建構工具     | Next.js |
