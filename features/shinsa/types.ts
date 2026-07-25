@@ -16,7 +16,7 @@ export type ShinsaResponse = {
   name: string;
   type: number | null;
   location: string | null;
-  startAt: Date | null;
+  startAt: string | null;
   deliveryMethodType: number | null;
   note: string | null;
   ranks: RankResponse[];

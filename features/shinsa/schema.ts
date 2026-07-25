@@ -11,7 +11,7 @@ export const shinsas = pgTable("shinsas", {
   type: integer("type"),
   location: text("location"),
   deliveryMethodType: integer("delivery_method_type"),
-  startAt: timestamp("start_at"),
+  startAt: timestamp("start_at", { mode: "string" }),
   note: text("note"),
 });
 

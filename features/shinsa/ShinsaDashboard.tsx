@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation'; 
 import { SlidersHorizontal } from 'lucide-react';
+import { parse } from 'date-fns';
+import { useFormatter } from 'next-intl';
 import { Pagination } from '@/shared/components';
 import { ShinsaResponse } from './types';
 import ShinsaFilterModal from './ShinsaFiltersModal'; 
@@ -22,6 +24,7 @@ export default function ShinsaDashboard({
 }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const format = useFormatter();
 
   const { limit } = pagination;
 
@@ -35,6 +38,16 @@ export default function ShinsaDashboard({
     ranks,
   }: ShinsaResponse) => {
     const locationLink = encodeURIComponent(location || '');
+    const parsedStartAt = startAt ? parse(startAt, 'yyyy-MM-dd HH:mm:ss', new Date()) : null;
+    let formatStartAt = '隨時公告';
+
+    if (parsedStartAt) {
+      formatStartAt = format.dateTime(parsedStartAt, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
+    }
 
     return (
       <li
@@ -71,9 +84,7 @@ export default function ShinsaDashboard({
             <div className="flex items-center">
               <span className="w-14 text-xs text-ink/40 font-bold tracking-wider shrink-0">實施日</span>
               <span className="font-medium text-ink/90">
-                {startAt 
-                  ? new Date(startAt).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' }) 
-                  : '隨時公告'}
+                {formatStartAt}
               </span>
             </div>
             <div className="flex items-start">
