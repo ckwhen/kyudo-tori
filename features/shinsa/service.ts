@@ -25,8 +25,6 @@ export async function getFilteredShinsas({
       ...shinsaData
     } = shinsa;
 
-    console.log(shinsa);
-
     return {
       ...shinsaData,
       ranks: extractedRanks,
