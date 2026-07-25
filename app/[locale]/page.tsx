@@ -1,4 +1,4 @@
-import { shinsaService, ShinsaDashboard } from '@/features/shinsa';
+import { services as shinsaServices, ShinsaDashboard } from '@/features/shinsa';
 import { constants } from '@/shared/utils';
 
 const { SHINSA_PAGE_LIMIT } = constants;
@@ -15,11 +15,11 @@ export default async function Home({ searchParams }: Props) {
   const computedOffset = (currentPage - 1) * SHINSA_PAGE_LIMIT;
 
   const [shinsas, totalCount] = await Promise.all([
-    shinsaService.getFilteredShinsas({
+    shinsaServices.getFilteredShinsas({
       offset: computedOffset,
       limit: SHINSA_PAGE_LIMIT,
     }),
-    shinsaService.getShinsasCount(),
+    shinsaServices.getShinsasCount(),
   ]);
 
   return (
