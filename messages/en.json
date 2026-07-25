@@ -1,5 +1,10 @@
 {
   "LandingPage": {
     "subtitle": "All Japan Kyudo Shinsa Information. Structured Search Platform."
+  },
+  "LocaleSwitcher": {
+    "zh-TW": "Chinese (Traditional)",
+    "ja": "Japanese",
+    "en": "English"
   }
 }

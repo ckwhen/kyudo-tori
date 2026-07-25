@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import LocaleSwitcher from './LocaleSwitcher';
 
 export default function Header() {
   const t = useTranslations('LandingPage');
@@ -15,6 +16,9 @@ export default function Header() {
         <p className="opacity-70 text-[11px] md:text-xs tracking-wider font-sans font-medium leading-none">
           {t('subtitle')}
         </p>
+      </div>
+      <div className="shrink-0">
+        <LocaleSwitcher />
       </div>
     </header>
   );
