@@ -21,7 +21,12 @@ export const shinsaService = {
 
     return rawShinsas.map((shinsa) => {
       const extractedRanks = shinsa.ranksShinsas?.map((item) => item.rank) || [];
-      const { ranksShinsas, ...shinsaData } = shinsa;
+      const {
+        ranksShinsas: _ranksShinsas,
+        ...shinsaData
+      } = shinsa;
+
+      console.log(shinsa);
 
       return {
         ...shinsaData,
