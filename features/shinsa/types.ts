@@ -1,3 +1,36 @@
+export type PrefectureResponse = {
+  id: string;
+  code: string;
+  nameJa: string;
+  nameEn: string;
+};
+
+export type RegionResponse = {
+  id: string;
+  code: string;
+  nameJa: string;
+  weight: number;
+};
+
+export type FederationResponse = {
+  id: string;
+  name: string;
+  prefectureCode: string | null;
+  regionId: string | null;
+  region: RegionResponse | null;
+  prefecture: PrefectureResponse | null;
+};
+
+export type KyudojoResponse = {
+  id: string;
+  name: string;
+  address: string | null;
+  phone: string | null;
+  prefectureCode: string | null;
+  latitude: string | null;
+  longitude: string | null;
+};
+
 export type RankResponse = {
   id: string;
   code: string;
@@ -20,4 +53,9 @@ export type ShinsaResponse = {
   deliveryMethodType: number | null;
   note: string | null;
   ranks: RankResponse[];
+  createdAt: Date;
+  federationId: string | null;
+  kyudojoId: string | null;
+  federation: FederationResponse | null;
+  kyudojo: KyudojoResponse | null;
 }
