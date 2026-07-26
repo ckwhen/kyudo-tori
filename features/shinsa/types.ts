@@ -3,7 +3,7 @@ export type RankResponse = {
   code: string;
   name: string;
   weight: number;
-  type: number;
+  type: string;
 }
 
 export type ShinsaRequest = {

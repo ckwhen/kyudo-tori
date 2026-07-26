@@ -54,7 +54,7 @@ export const ranks = pgTable("ranks", {
   code: varchar("code", { length: 50 }).notNull().unique(),
   name: varchar("name", { length: 50 }).notNull().unique(),
   weight: integer("weight").notNull(),
-  type: integer("type").notNull(),
+  type: varchar("type", { length: 50 }).notNull(),
 });
 
 export const ranksShinsas = pgTable("ranks_shinsas", {
