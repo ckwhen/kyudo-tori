@@ -32,6 +32,25 @@ export default function ShinsaCard({
       });
   }
 
+  const renderRankGrid = () => {
+    return (
+      <div className="grid grid-cols-5 gap-0 w-full">
+        {ranks.map((rank) => (
+          <div 
+            key={rank.id} 
+            className={`
+              px-1 py-1 border border-ink/10
+              text-xs font-mono font-bold text-ink/80 text-center
+              tracking-wide leading-none flex items-center justify-center
+            `}
+          >
+            {rank.name}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   const renderLocationMap = (
     kyudojo: ShinsaResponse['kyudojo'],
     location: string | null
@@ -92,21 +111,16 @@ export default function ShinsaCard({
         <h4 className="text-base md:text-lg font-serif font-bold text-ink mb-2 leading-snug group-hover:text-moss transition-colors line-clamp-2 min-h-14">
           {name}
         </h4>
-        <div className="mb-5 flex flex-wrap items-center gap-1.5 text-xs text-ink/70">
-          <span className="text-moss font-bold font-serif">對象</span>
-          <span className="font-mono bg-canvas border border-ink/10 px-2 py-0.5 rounded-md tracking-wider shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]">
-            {ranks.map(rank => rank.name).join(', ')}
-          </span>
-        </div>
-        <div className=" md:text-sm space-y-3.5 pt-5 border-t mb-1 text-xs text-ink/80 border-ink/5">
+        <div className="md:text-sm space-y-3.5 pt-4 border-t mb-1 text-sm text-ink/80 border-ink/5">
+          {ranks && renderRankGrid()}
           <div className="flex items-center">
-            <span className="w-14 text-xs text-ink/40 font-bold tracking-wider shrink-0">實施日</span>
+            <span className="w-14 text-sm text-ink/40 font-bold tracking-wider shrink-0">實施日</span>
             <span className="font-medium text-ink/90">
               {formatStartAt}
             </span>
           </div>
-          <div className="flex items-start">
-            <span className="w-14 text-xs text-ink/40 font-bold tracking-wider shrink-0 pt-0.5">地點</span>
+          <div className="flex items-start min-h-7">
+            <span className="w-14 text-sm text-ink/40 font-bold tracking-wider shrink-0">地點</span>
             <div className="flex-1 min-w-0">
               {renderLocationMap(kyudojo, location)}
             </div>
