@@ -13,6 +13,11 @@
     "history": "実施済み"
   },
   "ShinsaCard": {
-    "openInMaps": "Googleマップで開く"
+    "openInMaps": "Googleマップで開く",
+    "defaultKyudojo": "指定弓道場",
+    "unknownPrefecture": "不明な県",
+    "unknownFederation": "未知の連盟",
+    "startDate": "実施日",
+    "locationName": "場所"
   }
 }

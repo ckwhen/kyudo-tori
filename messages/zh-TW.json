@@ -13,6 +13,11 @@
     "history": "歷史資料"
   },
   "ShinsaCard": {
-    "openInMaps": "點擊開啟 Google 地圖"
+    "openInMaps": "點擊開啟 Google 地圖",
+    "defaultKyudojo": "指定弓道場",
+    "unknownPrefecture": "未知縣市",
+    "unknownFederation": "未知連盟",
+    "startDate": "日期",
+    "locationName": "地點"
   }
 }

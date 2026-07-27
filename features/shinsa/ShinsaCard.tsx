@@ -61,7 +61,7 @@ export default function ShinsaCard({
           : (kyudojo.address || kyudojo.name || ''))
       : '';
     const locationLink = encodeURIComponent(mapQuery);
-    const displayName = kyudojo?.name || location || '指定弓道場';
+    const displayName = kyudojo?.name || location || t('defaultKyudojo');
 
     if (kyudojo && mapQuery) {
       return (
@@ -100,27 +100,27 @@ export default function ShinsaCard({
         <div className="mb-3">
           {federation ? (
             <>
-              <span>{federation.prefecture?.nameJa || '未知縣市'}</span>
+              <span>{federation.prefecture?.nameJa || t('unknownPrefecture')}</span>
               <span className="text-ink mx-2">|</span>
               <span className="truncate">{federation.name}</span>
             </>
           ) : (
-            <span>未知連盟</span>
+            <span>{t('unknownFederation')}</span>
           )}
         </div>
         <h4 className="text-base md:text-lg font-serif font-bold text-ink mb-2 leading-snug group-hover:text-moss transition-colors line-clamp-2 min-h-14">
           {name}
         </h4>
-        <div className="md:text-sm space-y-3.5 pt-4 border-t mb-1 text-sm text-ink/80 border-ink/5">
+        <div className="space-y-4 text-xs md:text-sm text-ink/80 border-t border-ink/5 pt-5">
           {ranks && renderRankGrid()}
-          <div className="flex items-center">
-            <span className="w-14 text-sm text-ink/40 font-bold tracking-wider shrink-0">實施日</span>
+          <div className="flex flex-col gap-0.5">
+            <span className="text-sm text-ink/40 font-bold tracking-wider">{t('startDate')}</span>
             <span className="font-medium text-ink/90">
               {formatStartAt}
             </span>
           </div>
-          <div className="flex items-start min-h-7">
-            <span className="w-14 text-sm text-ink/40 font-bold tracking-wider shrink-0">地點</span>
+          <div className="flex flex-col gap-0.5">
+            <span className="text-sm text-ink/40 font-bold tracking-wider">{t('locationName')}</span>
             <div className="flex-1 min-w-0">
               {renderLocationMap(kyudojo, location)}
             </div>
