@@ -11,5 +11,8 @@
     "future": "超過 2 個月",
     "recent": "即將舉辦",
     "history": "歷史資料"
+  },
+  "ShinsaCard": {
+    "openInMaps": "點擊開啟 Google 地圖"
   }
 }

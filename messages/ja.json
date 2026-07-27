@@ -11,5 +11,8 @@
     "future": "2ヶ月以上先",
     "recent": "近日開催",
     "history": "実施済み"
+  },
+  "ShinsaCard": {
+    "openInMaps": "Googleマップで開く"
   }
 }

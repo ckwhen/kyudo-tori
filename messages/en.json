@@ -11,5 +11,8 @@
     "future": "2+ Months Ahead",
     "recent": "Upcoming",
     "history": "History"
+  },
+  "ShinsaCard": {
+    "openInMaps": "Open in Google Maps"
   }
 }

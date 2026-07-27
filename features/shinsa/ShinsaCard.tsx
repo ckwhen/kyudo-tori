@@ -1,5 +1,6 @@
 import { useFormatter } from 'next-intl';
-import { Map } from 'lucide-react';
+import { MapPinned } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { parse } from 'date-fns';
 import { ShinsaResponse } from './types';
 
@@ -19,6 +20,7 @@ export default function ShinsaCard({
   }
 }: Props) {
   const format = useFormatter();
+  const t = useTranslations('ShinsaCard');
   const parsedStartAt = startAt ? parse(startAt, 'yyyy-MM-dd HH:mm:ss', new Date()) : null;
 
   let formatStartAt = '隨時公告';
@@ -40,32 +42,27 @@ export default function ShinsaCard({
           : (kyudojo.address || kyudojo.name || ''))
       : '';
     const locationLink = encodeURIComponent(mapQuery);
-    const locationName = kyudojo?.name || location || '指定弓道場';
+    const displayName = kyudojo?.name || location || '指定弓道場';
+
+    if (kyudojo && mapQuery) {
+      return (
+        <a
+          href={`https://www.google.com.tw/maps/search/${locationLink}`}
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium text-moss hover:underline inline-flex items-center gap-1 w-full max-w-full min-w-0"
+          title={`${displayName} | ${t('openInMaps')}`}
+        >
+          <MapPinned className="w-4 h-4 shrink-0 opacity-80" />
+          <span className="truncate">{displayName}</span>
+        </a>
+      );
+    }
 
     return (
-      <div className="flex-1 flex flex-col gap-1">
-        <div className="font-medium text-ink/90" title={locationName}>
-          {locationName}
-        </div>
-        {kyudojo && mapQuery && (
-          <div className="flex justify-end mt-2">
-            <a 
-              href={`https://www.google.com.tw/maps/search/${locationLink}`}
-              target="_blank" 
-              rel="noreferrer" 
-              className={`
-                text-xs text-moss font-bold tracking-wide py-1.5 px-3
-                flex items-center justify-center gap-1.5 min-w-20
-                border border-moss/20 rounded-md bg-canvas/40
-                hover:bg-moss/5 hover:border-moss/40 transition-colors duration-200
-              `}
-            >
-              <Map className="w-3.5 h-3.5 opacity-80" />
-              <span>地圖</span>
-            </a>
-          </div>
-        )}
-      </div>
+      <span className="font-medium text-ink/90 block truncate" title={displayName}>
+        {displayName}
+      </span>
     );
   };
 
@@ -110,10 +107,12 @@ export default function ShinsaCard({
           </div>
           <div className="flex items-start">
             <span className="w-14 text-xs text-ink/40 font-bold tracking-wider shrink-0 pt-0.5">地點</span>
-            {renderLocationMap(kyudojo, location)}
+            <div className="flex-1 min-w-0">
+              {renderLocationMap(kyudojo, location)}
+            </div>
           </div>
           {note && note.trim() !== "" && (
-            <div className="mt-5 border-t border-dashed border-ink/10 pt-4">
+            <div className="mt-4 border-t border-dashed border-ink/10 pt-4">
               <div className={`
                 bg-canvas/60 border border-ink/5 rounded-sm p-3
                 text-xs text-ink/70 leading-relaxed font-mono tracking-wide
