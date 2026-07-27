@@ -14,7 +14,8 @@ export default function ShinsaCard({
     startAt,
     ranks,
     federation,
-    kyudojo
+    kyudojo,
+    note
   }
 }: Props) {
   const format = useFormatter();
@@ -111,6 +112,16 @@ export default function ShinsaCard({
             <span className="w-14 text-xs text-ink/40 font-bold tracking-wider shrink-0 pt-0.5">地點</span>
             {renderLocationMap(kyudojo, location)}
           </div>
+          {note && note.trim() !== "" && (
+            <div className="mt-5 border-t border-dashed border-ink/10 pt-4">
+              <div className={`
+                bg-canvas/60 border border-ink/5 rounded-sm p-3
+                text-xs text-ink/70 leading-relaxed font-mono tracking-wide
+              `}>
+                {note}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </li>
