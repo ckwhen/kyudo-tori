@@ -6,5 +6,10 @@
     "zh-TW": "中国語 (繁体字)",
     "ja": "日本語",
     "en": "英語"
+  },
+  "ShinsaDashboard": {
+    "future": "2ヶ月以上先",
+    "recent": "近日開催",
+    "history": "実施済み"
   }
 }

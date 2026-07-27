@@ -6,5 +6,10 @@
     "zh-TW": "Chinese (Traditional)",
     "ja": "Japanese",
     "en": "English"
+  },
+  "ShinsaDashboard": {
+    "future": "2+ Months Ahead",
+    "recent": "Upcoming",
+    "history": "History"
   }
 }
