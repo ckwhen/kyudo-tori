@@ -1,4 +1,5 @@
 import { eq, sql } from "drizzle-orm";
+import { addMonths, formatISO } from "date-fns";
 import { db } from "@/shared/database";
 import { ShinsaResponse, ShinsaRequest } from './types';
 import {
@@ -24,10 +25,38 @@ export async function getFilteredShinsas({
     .leftJoin(prefectures, eq(federations.prefectureCode, prefectures.code))
     .leftJoin(kyudojos, eq(shinsas.kyudojoId, kyudojos.id));
 
+  const now = new Date();
+  const twoMonthsLater = addMonths(now, 2);
+
+  const nowStr = formatISO(now, { representation: 'complete' })
+    .replace('T', ' ').substring(0, 19);
+  const twoMonthsStr = formatISO(twoMonthsLater, { representation: 'complete' })
+    .replace('T', ' ').substring(0, 19);
+
   const rows = await baseQuery
     .limit(limit)
     .offset(offset)
-    .orderBy(shinsas.startAt);
+    .orderBy(
+      sql`
+        CASE
+        WHEN ${shinsas.startAt} > ${twoMonthsStr} THEN 0
+        WHEN ${shinsas.startAt} >= ${nowStr} AND ${shinsas.startAt} <= ${twoMonthsStr} THEN 1
+        ELSE 2
+        END
+      `,
+      sql`
+        CASE
+        WHEN ${shinsas.startAt} >= ${nowStr} THEN ${shinsas.startAt}
+        ELSE NULL
+        END ASC NULLS LAST
+      `,
+      sql`
+        CASE
+        WHEN ${shinsas.startAt} < ${nowStr} THEN ${shinsas.startAt}
+        ELSE NULL
+        END DESC NULLS LAST
+      `
+    );
 
   if (rows.length === 0) return [];
   const shinsaIds = rows.map((r) => r.shinsa.id);
@@ -53,8 +82,8 @@ export async function getFilteredShinsas({
       ranks: extractedRanks,
       federation: federation ? {
         ...federation,
-        region,     // 自帶來自 DB 的大區域欄位（如 id, code, name_ja 等）
-        prefecture, // 自帶來自 DB 的都道府縣欄位（如 code, name_ja, name_zh 等）
+        region,
+        prefecture,
       } : null,
     };
   });
