@@ -112,7 +112,7 @@ export default function ShinsaCard({
           {name}
         </h4>
         <div className="space-y-4 text-xs md:text-sm text-ink/80 border-t border-ink/5 pt-5">
-          {ranks && renderRankGrid()}
+          {ranks && ranks.length > 0 && renderRankGrid()}
           <div className="flex flex-col gap-0.5">
             <span className="text-sm text-ink/40 font-bold tracking-wider">{t('startDate')}</span>
             <span className="font-medium text-ink/90">
