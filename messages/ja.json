@@ -9,6 +9,9 @@
   },
   "ShinsaDashboard": {
     "filter": "検索条件",
+    "showingAllInfo": "現在、すべての審査情報を表示中",
+    "removeCondition": "条件「{condition}」を削除",
+    "clearAll": "すべてクリア",
     "shinsaStatus": {
       "future": "2ヶ月以上先",
       "recent": "近日開催",

@@ -9,6 +9,9 @@
   },
   "ShinsaDashboard": {
     "filter": "篩選條件",
+    "showingAllInfo": "目前顯示所有審查資訊",
+    "removeCondition": "移除 {condition} 條件",
+    "clearAll": "全部清除",
     "shinsaStatus": {
       "future": "超過 2 個月",
       "recent": "即將舉辦",

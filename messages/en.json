@@ -9,6 +9,9 @@
   },
   "ShinsaDashboard": {
     "filter": "Filters",
+    "showingAllInfo": "Currently showing all shinsa information",
+    "removeCondition": "Remove {condition} filter",
+    "clearAll": "Clear All",
     "shinsaStatus": {
       "future": "2+ Months Ahead",
       "recent": "Upcoming",
