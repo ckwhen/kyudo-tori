@@ -130,13 +130,6 @@ export async function getFilteredShinsas({
   return { data, total };
 }
 
-export async function getShinsasCount(): Promise<number> {
-  const result = await db.query.shinsas.findMany({
-    columns: { id: true },
-  });
-  return result.length;
-};
-
 export async function getFilterOptionsGroup() {
   const [ rawRegions, rawRanks ] = await Promise.all([
     db.query.regions.findMany({
