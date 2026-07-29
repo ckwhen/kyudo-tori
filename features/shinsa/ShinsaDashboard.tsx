@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Pagination } from '@/shared/components';
 import { types, constants } from '@/shared/utils';
 import { ShinsaResponse } from './types';
-import ShinsaFilterModal, { FilterState } from './ShinsaFiltersModal';
+import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
 
 const { MONTH_KEYS } = constants;
@@ -189,7 +189,8 @@ export default function ShinsaDashboard({
           window.scrollTo({ top: 350, behavior: 'smooth' });
         }}
       />
-      <ShinsaFilterModal
+      <ShinsaFiltersModal
+        key={JSON.stringify(currentFilters)}
         isOpen={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
         currentFilters={currentFilters}

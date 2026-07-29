@@ -40,7 +40,7 @@
     "startDate": "日期",
     "locationName": "地點"
   },
-  "ShinsaFilterModal": {
+  "ShinsaFiltersModal": {
     "filter": "篩選條件",
     "regionAndPref": "舉辦地區與縣市",
     "reviewRank": "審查段位",

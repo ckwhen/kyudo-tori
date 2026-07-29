@@ -22,7 +22,7 @@ type Props = {
   onClose: () => void;
 };
 
-export default function ShinsaFilterModal({
+export default function ShinsaFiltersModal({
   isOpen,
   regionOptions,
   rankOptions,
@@ -31,7 +31,7 @@ export default function ShinsaFilterModal({
   onApply,
   onClose,
 }: Props) {
-  const t = useTranslations('ShinsaFilterModal');
+  const t = useTranslations('ShinsaFiltersModal');
   const [ tempFilters, setTempFilters ] = useState<FilterState>({
     prefectures: [...currentFilters.prefectures],
     ranks: [...currentFilters.ranks],

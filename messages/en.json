@@ -40,7 +40,7 @@
     "startDate": "Date",
     "locationName": "Location"
   },
-  "ShinsaFilterModal": {
+  "ShinsaFiltersModal": {
     "filter": "Filters",
     "regionAndPref": "Region & Prefecture",
     "reviewRank": "Rank",
