@@ -1,4 +1,4 @@
-import { eq, sql } from "drizzle-orm";
+import { eq, sql, asc, lt, and, gte } from "drizzle-orm";
 import { addMonths, formatISO } from "date-fns";
 import { db } from "@/shared/database";
 import { ShinsaResponse, ShinsaRequest } from './types';
@@ -95,3 +95,43 @@ export async function getShinsasCount(): Promise<number> {
   });
   return result.length;
 };
+
+export async function getFilterOptionsGroup() {
+  const [ rawRegions, rawRanks ] = await Promise.all([
+    db.query.regions.findMany({
+      orderBy: [ asc(regions.weight) ],
+      with: {
+        prefectures: {
+          columns: {
+            code: true,
+            nameJa: true,
+          }
+        }
+      }
+    }),
+    db.select({
+        value: ranks.code,
+        label: ranks.name,
+      })
+      .from(ranks)
+      .where(and(
+        gte(ranks.weight, 10),
+        lt(ranks.weight, 50)
+      ))
+      .orderBy(asc(ranks.weight))
+  ]);
+
+  const extractedRegions = rawRegions.map((r) => ({
+    value: r.code,
+    label: r.nameJa,
+    prefectures: r.prefectures.map((p) => ({
+      value: p.code,
+      label: p.nameJa
+    }))
+  }));
+
+  return {
+    regions: extractedRegions,
+    ranks: rawRanks
+  };
+}
