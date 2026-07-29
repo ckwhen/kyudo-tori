@@ -1,16 +1,21 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation'; 
+import { useState, useMemo } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { SlidersHorizontal } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Pagination } from '@/shared/components';
+import { types, constants } from '@/shared/utils';
 import { ShinsaResponse } from './types';
-import ShinsaFilterModal from './ShinsaFiltersModal'; 
+import ShinsaFilterModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
+
+const { MONTH_KEYS } = constants;
 
 type Props = {
   data: ShinsaResponse[],
+  regionOptions: types.RegionOption[],
+  rankOptions: types.Option[],
   pagination: {
     offset: number,
     limit: number,
@@ -20,15 +25,38 @@ type Props = {
 
 export default function ShinsaDashboard({
   data,
+  regionOptions,
+  rankOptions,
   pagination,
 }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = useTranslations('ShinsaDashboard');
-
   const { limit } = pagination;
-
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const monthOptions = useMemo(() => {
+    return MONTH_KEYS.map((month, i) => ({
+      value: `${i + 1}`,
+      label: t(`monthOptions.${month}`),
+    }));
+  }, [ t ]);
+
+  const currentFilters: FilterState = {
+    prefectures: searchParams.get('prefectures')?.split(',').filter(Boolean) || [],
+    ranks: searchParams.get('ranks')?.split(',').filter(Boolean) || [],
+    months: searchParams.get('months')?.split(',').filter(Boolean) || [],
+  };
+  const updateUrl = (nextFilters: FilterState) => {
+    const params = new URLSearchParams();
+
+    if (nextFilters.prefectures.length > 0) params.set('prefectures', nextFilters.prefectures.join(','));
+    if (nextFilters.ranks.length > 0) params.set('ranks', nextFilters.ranks.join(','));
+    if (nextFilters.months.length > 0) params.set('months', nextFilters.months.join(','));
+
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   return (
     <div className="w-full flex flex-col">
@@ -86,6 +114,11 @@ export default function ShinsaDashboard({
       <ShinsaFilterModal
         isOpen={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
+        currentFilters={currentFilters}
+        regionOptions={regionOptions}
+        rankOptions={rankOptions}
+        monthOptions={monthOptions}
+        onApply={updateUrl}
       />
     </div>
   )
