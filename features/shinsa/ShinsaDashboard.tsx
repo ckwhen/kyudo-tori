@@ -71,10 +71,10 @@ export default function ShinsaDashboard({
     return value;
   };
 
-  const handleRemoveBadge = (key: keyof FilterState, id: string) => {
+  const handleRemoveBadge = (key: keyof FilterState, value: string) => {
     const nextFilters = {
       ...currentFilters,
-      [key]: currentFilters[key].filter((item) => item !== id),
+      [key]: currentFilters[key].filter((item) => item !== value),
     };
     updateUrl(nextFilters);
   };
