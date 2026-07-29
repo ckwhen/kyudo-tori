@@ -10,7 +10,21 @@
   "ShinsaDashboard": {
     "future": "2+ Months Ahead",
     "recent": "Upcoming",
-    "history": "History"
+    "history": "History",
+    "monthOptions": {
+      "January": "January",
+      "February": "February",
+      "March": "March",
+      "April": "April",
+      "May": "May",
+      "June": "June",
+      "July": "July",
+      "August": "August",
+      "September": "September",
+      "October": "October",
+      "November": "November",
+      "December": "December"
+    }
   },
   "ShinsaCard": {
     "openInMaps": "Open in Google Maps",
@@ -19,5 +33,16 @@
     "unknownFederation": "Unknown Federation",
     "startDate": "Date",
     "locationName": "Location"
+  },
+  "ShinsaFilterModal": {
+    "filter": "Filters",
+    "regionAndPref": "Region & Prefecture",
+    "reviewRank": "Rank",
+    "holdingMonth": "Month",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All",
+    "clearAll": "Clear All",
+    "confirm": "Confirm",
+    "closeWindow": "Close"
   }
 }

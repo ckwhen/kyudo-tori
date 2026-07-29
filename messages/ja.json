@@ -10,7 +10,21 @@
   "ShinsaDashboard": {
     "future": "2ヶ月以上先",
     "recent": "近日開催",
-    "history": "実施済み"
+    "history": "実施済み",
+    "monthOptions": {
+      "January": "1月",
+      "February": "2月",
+      "March": "3月",
+      "April": "4月",
+      "May": "5月",
+      "June": "6月",
+      "July": "7月",
+      "August": "8月",
+      "September": "9月",
+      "October": "10月",
+      "November": "11月",
+      "December": "12月"
+    }
   },
   "ShinsaCard": {
     "openInMaps": "Googleマップで開く",
@@ -19,5 +33,16 @@
     "unknownFederation": "未知の連盟",
     "startDate": "実施日",
     "locationName": "場所"
+  },
+  "ShinsaFilterModal": {
+    "filter": "検索条件",
+    "regionAndPref": "開催地域・都道府県",
+    "reviewRank": "審査段位",
+    "holdingMonth": "開催月",
+    "selectAll": "すべて選択",
+    "deselectAll": "すべての選択を解除",
+    "clearAll": "すべてクリア",
+    "confirm": "確定",
+    "closeWindow": "閉じる"
   }
 }

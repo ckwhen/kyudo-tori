@@ -10,7 +10,21 @@
   "ShinsaDashboard": {
     "future": "超過 2 個月",
     "recent": "即將舉辦",
-    "history": "歷史資料"
+    "history": "歷史資料",
+    "monthOptions": {
+      "January": "一月",
+      "February": "二月",
+      "March": "三月",
+      "April": "四月",
+      "May": "五月",
+      "June": "六月",
+      "July": "七月",
+      "August": "八月",
+      "September": "九月",
+      "October": "十月",
+      "November": "十一月",
+      "December": "十二月"
+    }
   },
   "ShinsaCard": {
     "openInMaps": "點擊開啟 Google 地圖",
@@ -19,5 +33,16 @@
     "unknownFederation": "未知連盟",
     "startDate": "日期",
     "locationName": "地點"
+  },
+  "ShinsaFilterModal": {
+    "filter": "篩選條件",
+    "regionAndPref": "舉辦地區與縣市",
+    "reviewRank": "審查段位",
+    "holdingMonth": "舉辦月份",
+    "selectAll": "全選",
+    "deselectAll": "取消全選",
+    "clearAll": "清除全部",
+    "confirm": "確認",
+    "closeWindow": "關閉視窗"
   }
 }
