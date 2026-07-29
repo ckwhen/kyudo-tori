@@ -10,7 +10,7 @@ import { ShinsaResponse } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
 
-const { MONTH_KEYS } = constants;
+const { MONTH_KEYS, FILTER_SEPARATOR } = constants;
 
 type Props = {
   data: ShinsaResponse[],
@@ -44,9 +44,12 @@ export default function ShinsaDashboard({
   }, [ t ]);
 
   const currentFilters: FilterState = {
-    prefectures: searchParams.get('prefectures')?.split(',').filter(Boolean) || [],
-    ranks: searchParams.get('ranks')?.split(',').filter(Boolean) || [],
-    months: searchParams.get('months')?.split(',').filter(Boolean) || [],
+    prefectures: searchParams.get('prefectures')?.split(FILTER_SEPARATOR)
+      .filter(Boolean) || [],
+    ranks: searchParams.get('ranks')?.split(FILTER_SEPARATOR)
+      .filter(Boolean) || [],
+    months: searchParams.get('months')?.split(FILTER_SEPARATOR)
+      .filter(Boolean) || [],
   };
   const updateUrl = ({
     prefectures: nextPrefectures,
@@ -55,9 +58,9 @@ export default function ShinsaDashboard({
   }: FilterState) => {
     const params = new URLSearchParams();
 
-    if (nextPrefectures.length > 0) params.set('prefectures', nextPrefectures.join(','));
-    if (nextRanks.length > 0) params.set('ranks', nextRanks.join(','));
-    if (nextMonths.length > 0) params.set('months', nextMonths.join(','));
+    if (nextPrefectures.length > 0) params.set('prefectures', nextPrefectures.join(FILTER_SEPARATOR));
+    if (nextRanks.length > 0) params.set('ranks', nextRanks.join(FILTER_SEPARATOR));
+    if (nextMonths.length > 0) params.set('months', nextMonths.join(FILTER_SEPARATOR));
 
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
