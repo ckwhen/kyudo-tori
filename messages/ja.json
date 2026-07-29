@@ -8,9 +8,12 @@
     "en": "英語"
   },
   "ShinsaDashboard": {
-    "future": "2ヶ月以上先",
-    "recent": "近日開催",
-    "history": "実施済み",
+    "filter": "検索条件",
+    "shinsaStatus": {
+      "future": "2ヶ月以上先",
+      "recent": "近日開催",
+      "history": "実施済み"
+    },
     "monthOptions": {
       "January": "1月",
       "February": "2月",

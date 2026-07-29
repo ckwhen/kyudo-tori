@@ -8,9 +8,12 @@
     "en": "English"
   },
   "ShinsaDashboard": {
-    "future": "2+ Months Ahead",
-    "recent": "Upcoming",
-    "history": "History",
+    "filter": "Filters",
+    "shinsaStatus": {
+      "future": "2+ Months Ahead",
+      "recent": "Upcoming",
+      "history": "History"
+    },
     "monthOptions": {
       "January": "January",
       "February": "February",

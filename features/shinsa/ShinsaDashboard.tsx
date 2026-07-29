@@ -64,15 +64,15 @@ export default function ShinsaDashboard({
         <div className="flex flex-wrap items-center gap-4 text-xs">
           <div className="flex items-center gap-1.5 bg-[#E8F2EC] text-[#2D6A4F] border border-[#2D6A4F]/10 px-2 py-1 rounded-sm font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]"></span>
-            <span>{t('future')}</span>
+            <span>{t('shinsaStatus.future')}</span>
           </div>
           <div className="flex items-center gap-1.5 bg-[#FFF8E7] text-[#D9A013] border border-[#D9A013]/15 px-2 py-1 rounded-sm font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D9A013] animate-pulse"></span>
-            <span>{t('recent')}</span>
+            <span>{t('shinsaStatus.recent')}</span>
           </div>
           <div className="flex items-center gap-1.5 bg-[#F0F1F3] text-[#7A828A] border border-[#7A828A]/15 px-2 py-1 rounded-sm font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-[#7A828A]"></span>
-            <span>{t('history')}</span>
+            <span>{t('shinsaStatus.history')}</span>
           </div>
         </div>
         <div className="text-right shrink-0">
@@ -89,7 +89,7 @@ export default function ShinsaDashboard({
           >
             <div className="flex items-center gap-2.5">
               <SlidersHorizontal className="w-4 h-4 text-moss/70" />
-              <span className="tracking-wide">篩選條件</span>
+              <span className="tracking-wide">{t('filter')}</span>
             </div>
           </button>
         </div>

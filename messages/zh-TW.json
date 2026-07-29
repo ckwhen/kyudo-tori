@@ -8,9 +8,12 @@
     "en": "英文"
   },
   "ShinsaDashboard": {
-    "future": "超過 2 個月",
-    "recent": "即將舉辦",
-    "history": "歷史資料",
+    "filter": "篩選條件",
+    "shinsaStatus": {
+      "future": "超過 2 個月",
+      "recent": "即將舉辦",
+      "history": "歷史資料"
+    },
     "monthOptions": {
       "January": "一月",
       "February": "二月",
