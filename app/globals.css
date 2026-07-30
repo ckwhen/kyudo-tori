@@ -10,6 +10,13 @@
   --font-sans: var(--font-sans), sans-serif;
 }
 
+@utility prose-readable {
+  max-width: 576px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.625;
+}
+
 @layer base {
   body {
     background-color: var(--color-canvas);

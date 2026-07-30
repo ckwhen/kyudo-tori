@@ -1,6 +1,27 @@
+import { useTranslations, useFormatter } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
-export default function Footer() {
+type Props = {
+  latestSyncAt: string | null,
+}
+
+export default function Footer({ latestSyncAt }: Props) {
+  const format = useFormatter();
+  const t = useTranslations('LandingPage.footer');
+
+  let formatLatestSyncAt = '--';
+  if (latestSyncAt) {
+    const parsedDate = new Date(latestSyncAt);
+
+    formatLatestSyncAt = format.dateTime(parsedDate, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'Etc/UTC',
+        timeZoneName: 'short',
+      });
+  }
+
   return (
     <footer className="bg-ink text-canvas/70 border-t border-canvas/10 py-8 mt-auto">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -14,21 +35,27 @@ export default function Footer() {
         </div>
 
         <div className="space-y-2 md:pl-16">
-          <h4 className="font-bold text-canvas uppercase tracking-widest">網站導覽</h4>
+          <h4 className="font-bold text-canvas uppercase tracking-widest">
+            {t('sitemap')}
+          </h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/" className="hover:text-gold transition-colors">審查情報首頁</Link>
+              <Link href="/" className="hover:text-gold transition-colors">{t('shinsa')}</Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-gold transition-colors">關於本站 & 免責聲明</Link>
+              <Link href="/about" className="hover:text-gold transition-colors">{t('about')}</Link>
             </li>
           </ul>
         </div>
 
         <div className="space-y-2">
-          <h4 className="font-bold text-canvas uppercase tracking-widest">資料透明度</h4>
+          <h4 className="font-bold text-canvas uppercase tracking-widest">
+            {t('changelog')}
+          </h4>
           <div className="font-mono text-sm">
-            <div className="text-gold">最後同步：2026/06/30 (JST)</div>
+            <div className="text-gold">
+              {t('lastProofread', { date: formatLatestSyncAt })}
+            </div>
           </div>
         </div>
 

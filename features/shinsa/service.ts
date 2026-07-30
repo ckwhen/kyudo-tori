@@ -1,6 +1,6 @@
 import {
   sql, asc, inArray,
-  eq, lt, and, gte,
+  eq, lt, and, gte, desc
 } from "drizzle-orm";
 import { addMonths, formatISO } from "date-fns";
 import { db } from "@/database";
@@ -168,4 +168,14 @@ export async function getFilterOptionsGroup() {
     regions: extractedRegions,
     ranks: rawRanks
   };
+}
+
+export async function getLatestSyncAt(): Promise<string | null> {
+  const [ latestShinsa ] = await db
+    .select({ updatedAt: shinsas.updatedAt })
+    .from(shinsas)
+    .orderBy(desc(shinsas.updatedAt))
+    .limit(1)
+
+  return latestShinsa?.updatedAt ? latestShinsa.updatedAt.toISOString() : null
 }
