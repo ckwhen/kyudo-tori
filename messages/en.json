@@ -1,6 +1,13 @@
 {
   "LandingPage": {
-    "subtitle": "All Japan Kyudo Shinsa Information. Structured Search Platform."
+    "subtitle": "All Japan Kyudo Shinsa Information. Structured Search Platform.",
+    "footer": {
+      "sitemap": "Sitemap",
+      "shinsa": "Shinsa Info",
+      "about": "About",
+      "changelog": "Changelog",
+      "lastProofread": "Last Proofread: {date}"
+    }
   },
   "LocaleSwitcher": {
     "zh-TW": "Chinese (Traditional)",
