@@ -4,11 +4,11 @@ import {
 } from "drizzle-orm";
 import { addMonths, formatISO } from "date-fns";
 import { db } from "@/database";
-import { ShinsaResponse, ShinsaRequest, ShinsaListResponse } from './types';
 import {
   shinsas, ranksShinsas, ranks,
   regions, prefectures, federations, kyudojos
-} from "./schema";
+} from '@/database/schema';
+import { ShinsaResponse, ShinsaRequest, ShinsaListResponse } from './types';
 
 export async function getFilteredShinsas({
   offset,
