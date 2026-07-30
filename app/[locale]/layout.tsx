@@ -5,6 +5,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing, Locale } from '@/i18n/routing';
 import { Header, Footer } from '@/shared/components';
+import { services as shinsaServices } from '@/features/shinsa';
 
 import "@/app/globals.css";
 
@@ -40,6 +41,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const latestSyncAt = await shinsaServices.getLatestSyncAt();
 
   return (
     <html lang={locale} className={`${sansJP.variable} ${serifJP.variable}`}>
@@ -51,7 +53,9 @@ export default async function LocaleLayout({
             {children}
           </div>
 
-          <Footer />
+          <Footer
+            latestSyncAt={latestSyncAt}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

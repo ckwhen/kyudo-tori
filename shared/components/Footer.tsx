@@ -1,8 +1,26 @@
+import { useTranslations, useFormatter } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
 
-export default function Footer() {
+type Props = {
+  latestSyncAt: string | null,
+}
+
+export default function Footer({ latestSyncAt }: Props) {
+  const format = useFormatter();
   const t = useTranslations('LandingPage.footer');
+
+  let formatLatestSyncAt = '--';
+  if (latestSyncAt) {
+    const parsedDate = new Date(latestSyncAt);
+
+    formatLatestSyncAt = format.dateTime(parsedDate, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'Etc/UTC',
+        timeZoneName: 'short',
+      });
+  }
 
   return (
     <footer className="bg-ink text-canvas/70 border-t border-canvas/10 py-8 mt-auto">
@@ -36,7 +54,7 @@ export default function Footer() {
           </h4>
           <div className="font-mono text-sm">
             <div className="text-gold">
-              {t('lastProofread', { date: '2026/06/30 (JST)' })}
+              {t('lastProofread', { date: formatLatestSyncAt })}
             </div>
           </div>
         </div>
