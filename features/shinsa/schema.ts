@@ -18,19 +18,31 @@ export const shinsas = pgTable("shinsas", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export const prefectures = pgTable("prefectures", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  code: varchar("code", { length: 10 }).notNull().unique(),
-  nameJa: varchar("name_ja", { length: 100 }).notNull().unique(),
-  nameEn: varchar("name_en", { length: 100 }).notNull().unique(),
-});
-
 export const regions = pgTable("regions", {
   id: uuid("id").primaryKey().defaultRandom(),
   code: varchar("code", { length: 50 }).notNull().unique(),
   nameJa: varchar("name_ja", { length: 100 }).notNull().unique(),
   weight: integer("weight").notNull(),
 });
+
+export const prefectures = pgTable("prefectures", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  code: varchar("code", { length: 10 }).notNull().unique(),
+  nameJa: varchar("name_ja", { length: 100 }).notNull().unique(),
+  nameEn: varchar("name_en", { length: 100 }).notNull().unique(),
+  regionId: uuid("region_id").references(() => regions.id),
+});
+
+export const regionsRelations = relations(regions, ({ many }) => ({
+  prefectures: many(prefectures),
+}));
+
+export const prefecturesRelations = relations(prefectures, ({ one }) => ({
+  region: one(regions, {
+    fields: [prefectures.regionId],
+    references: [regions.id],
+  }),
+}));
 
 export const federations = pgTable("federations", {
   id: uuid("id").primaryKey().defaultRandom(),

@@ -41,21 +41,29 @@ export type RankResponse = {
 
 export type ShinsaRequest = {
   offset: number,
-  limit: number
+  limit: number,
+  prefectures?: string[],
+  ranks?: string[],
+  months?: string[],
 }
 
 export type ShinsaResponse = {
-  id: string;
-  name: string;
-  type: number | null;
-  location: string | null;
-  startAt: string | null;
-  deliveryMethodType: number | null;
-  note: string | null;
-  ranks: RankResponse[];
-  createdAt: Date;
-  federationId: string | null;
-  kyudojoId: string | null;
-  federation: FederationResponse | null;
-  kyudojo: KyudojoResponse | null;
+  id: string,
+  name: string,
+  type: number | null,
+  location: string | null,
+  startAt: string | null,
+  deliveryMethodType: number | null,
+  note: string | null,
+  ranks: RankResponse[],
+  createdAt: Date,
+  federationId: string | null,
+  kyudojoId: string | null,
+  federation: FederationResponse | null,
+  kyudojo: KyudojoResponse | null,
 }
+
+export type ShinsaListResponse<T> = {
+  data: T[];
+  total: number;
+};

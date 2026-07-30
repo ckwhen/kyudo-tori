@@ -1,7 +1,10 @@
-import { eq, sql } from "drizzle-orm";
+import {
+  sql, asc, inArray,
+  eq, lt, and, gte,
+} from "drizzle-orm";
 import { addMonths, formatISO } from "date-fns";
 import { db } from "@/shared/database";
-import { ShinsaResponse, ShinsaRequest } from './types';
+import { ShinsaResponse, ShinsaRequest, ShinsaListResponse } from './types';
 import {
   shinsas, ranksShinsas, ranks,
   regions, prefectures, federations, kyudojos
@@ -10,7 +13,32 @@ import {
 export async function getFilteredShinsas({
   offset,
   limit,
-}: ShinsaRequest): Promise<Array<ShinsaResponse>> {
+  ...filters
+}: ShinsaRequest): Promise<ShinsaListResponse<ShinsaResponse>> {
+  const whereConditions = [];
+
+  if (filters.prefectures && filters.prefectures.length > 0) {
+    whereConditions.push(inArray(federations.prefectureCode, filters.prefectures));
+  }
+
+  if (filters.ranks && filters.ranks.length > 0) {
+    whereConditions.push(
+      sql`EXISTS (
+        SELECT 1 FROM ${ranksShinsas}
+        INNER JOIN ${ranks} ON ${ranksShinsas.rankId} = ${ranks.id}
+        WHERE ${ranksShinsas.shinsaId} = ${shinsas.id}
+          AND ${ranks.code} IN ${filters.ranks}
+      )`
+    );
+  }
+
+  if (filters.months && filters.months.length > 0) {
+    const monthNumbers = filters.months.map(Number);
+    whereConditions.push(
+      sql`EXTRACT(MONTH FROM ${shinsas.startAt}) IN ${monthNumbers}`
+    );
+  }
+
   const baseQuery = db
     .select({
       shinsa: shinsas,
@@ -23,7 +51,8 @@ export async function getFilteredShinsas({
     .leftJoin(federations, eq(shinsas.federationId, federations.id))
     .leftJoin(regions, eq(federations.regionId, regions.id))
     .leftJoin(prefectures, eq(federations.prefectureCode, prefectures.code))
-    .leftJoin(kyudojos, eq(shinsas.kyudojoId, kyudojos.id));
+    .leftJoin(kyudojos, eq(shinsas.kyudojoId, kyudojos.id))
+    .where(and(...whereConditions));
 
   const now = new Date();
   const twoMonthsLater = addMonths(now, 2);
@@ -33,32 +62,42 @@ export async function getFilteredShinsas({
   const twoMonthsStr = formatISO(twoMonthsLater, { representation: 'complete' })
     .replace('T', ' ').substring(0, 19);
 
-  const rows = await baseQuery
-    .limit(limit)
-    .offset(offset)
-    .orderBy(
-      sql`
-        CASE
-        WHEN ${shinsas.startAt} > ${twoMonthsStr} THEN 0
-        WHEN ${shinsas.startAt} >= ${nowStr} AND ${shinsas.startAt} <= ${twoMonthsStr} THEN 1
-        ELSE 2
-        END
-      `,
-      sql`
-        CASE
-        WHEN ${shinsas.startAt} >= ${nowStr} THEN ${shinsas.startAt}
-        ELSE NULL
-        END ASC NULLS LAST
-      `,
-      sql`
-        CASE
-        WHEN ${shinsas.startAt} < ${nowStr} THEN ${shinsas.startAt}
-        ELSE NULL
-        END DESC NULLS LAST
-      `
-    );
+  const [ rows, countResult ] = await Promise.all([
+    baseQuery
+      .limit(limit)
+      .offset(offset)
+      .orderBy(
+        sql`
+          CASE
+          WHEN ${shinsas.startAt} > ${twoMonthsStr} THEN 0
+          WHEN ${shinsas.startAt} >= ${nowStr} AND ${shinsas.startAt} <= ${twoMonthsStr} THEN 1
+          ELSE 2
+          END
+        `,
+        sql`
+          CASE
+          WHEN ${shinsas.startAt} >= ${nowStr} THEN ${shinsas.startAt}
+          ELSE NULL
+          END ASC NULLS LAST
+        `,
+        sql`
+          CASE
+          WHEN ${shinsas.startAt} < ${nowStr} THEN ${shinsas.startAt}
+          ELSE NULL
+          END DESC NULLS LAST
+        `
+      ),
+    db
+      .select({ count: sql<number>`count(*)` })
+      .from(shinsas)
+      .leftJoin(federations, eq(shinsas.federationId, federations.id))
+      .where(and(...whereConditions))
+  ]);
 
-  if (rows.length === 0) return [];
+  const total = countResult[0]?.count ? Number(countResult[0].count) : 0;
+
+  if (rows.length === 0) return { data: [], total: 0 };
+
   const shinsaIds = rows.map((r) => r.shinsa.id);
 
   const allRanks = await db
@@ -70,7 +109,7 @@ export async function getFilteredShinsas({
     .innerJoin(ranks, eq(ranksShinsas.rankId, ranks.id))
     .where(sql`${ranksShinsas.shinsaId} IN ${shinsaIds}`);
 
-  return rows.map(({ shinsa, region, prefecture, federation, kyudojo }) => {
+  const data = rows.map(({ shinsa, region, prefecture, federation, kyudojo }) => {
     const extractedRanks = allRanks
       .filter((r) => r.shinsaId === shinsa.id)
       .map((r) => r.rank)
@@ -86,12 +125,47 @@ export async function getFilteredShinsas({
         prefecture,
       } : null,
     };
-  });
+  })
+
+  return { data, total };
 }
 
-export async function getShinsasCount(): Promise<number> {
-  const result = await db.query.shinsas.findMany({
-    columns: { id: true },
-  });
-  return result.length;
-};
+export async function getFilterOptionsGroup() {
+  const [ rawRegions, rawRanks ] = await Promise.all([
+    db.query.regions.findMany({
+      orderBy: [ asc(regions.weight) ],
+      with: {
+        prefectures: {
+          columns: {
+            code: true,
+            nameJa: true,
+          }
+        }
+      }
+    }),
+    db.select({
+        value: ranks.code,
+        label: ranks.name,
+      })
+      .from(ranks)
+      .where(and(
+        gte(ranks.weight, 10),
+        lt(ranks.weight, 50)
+      ))
+      .orderBy(asc(ranks.weight))
+  ]);
+
+  const extractedRegions = rawRegions.map((r) => ({
+    value: r.code,
+    label: r.nameJa,
+    prefectures: r.prefectures.map((p) => ({
+      value: p.code,
+      label: p.nameJa
+    }))
+  }));
+
+  return {
+    regions: extractedRegions,
+    ranks: rawRanks
+  };
+}
