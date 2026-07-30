@@ -3,7 +3,7 @@ import {
   eq, lt, and, gte,
 } from "drizzle-orm";
 import { addMonths, formatISO } from "date-fns";
-import { db } from "@/shared/database";
+import { db } from "@/database";
 import { ShinsaResponse, ShinsaRequest, ShinsaListResponse } from './types';
 import {
   shinsas, ranksShinsas, ranks,
