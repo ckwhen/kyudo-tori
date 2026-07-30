@@ -54,5 +54,14 @@
   "NotFound": {
     "stray_arrow": "箭已脫靶，找不到方向。",
     "adjust_breath": "請利用上方連結重新調整呼吸，返回正確的射位。"
+  },
+  "About": {
+    "pageTitle": "關於 Kyudo Tori",
+    "whyTitle": "開發初衷",
+    "whyParagraph1": "目前日本各弓道連盟的審查公告，多依循各地方的傳統與習慣呈現，在格式與排版上各具特色。對於計畫跨海或跨區參與審查的學習者而言，由於跨區域的資訊較為分散，往往需要花費較多心力進行多方搜集與整理。",
+    "whyParagraph2": "為了讓這條審查之路能更加專注流暢，這個專案因而誕生。我希望建立一個簡潔、直覺的查詢介面，協助弓道學習者一目了然地整合與檢索各地審查資訊，將心力留給每一次的行射。",
+    "techTitle": "Tech Stack 與運作",
+    "techParagraph1": "本站前端基於 <bold>Next.js</bold> 與 <bold>Tailwind CSS</bold> 建構，具備完整的響應式設計（<bold>RWD</bold>），在電腦、平板與手機上皆能提供流暢的瀏覽體驗。",
+    "techParagraph2": "在底層架構上，採用 <bold>Python</bold> 開發的資料處理模組，將各地分散的審查資料進行結構化彙整，並穩定儲存於 <bold>PostgreSQL</bold> 資料庫中。嘗試在確保資料精確的前提下，以高透明度、直覺的方式呈現給所有使用者。"
   }
 }

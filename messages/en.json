@@ -54,5 +54,14 @@
   "NotFound": {
     "stray_arrow": "The arrow has missed the target and lost its path.",
     "adjust_breath": "Please take a deep breath, use the link above, and return to your shooting position."
+  },
+  "About": {
+    "pageTitle": "About Kyudo Tori",
+    "whyTitle": "The Vision Behind",
+    "whyParagraph1": "Currently, the examination announcements from various Kyudo federations across Japan are presented according to local traditions and customs, each featuring its own unique layout and format. For learners wishing to participate in examinations across regions or from overseas, collecting and organizing this scattered, cross-regional information can often be an exhausting task requiring multifaceted effort.",
+    "whyParagraph2": "This project was born to streamline your examination journey, allowing you to stay focused on what truly matters. I aim to build a clean, intuitive search interface that helps Kyudo learners consolidate and retrieve examination updates from all over Japan at a single glance, saving your energy for every single shot.",
+    "techTitle": "Tech Stack & Operation",
+    "techParagraph1": "The frontend of this website is built on <bold>Next.js</bold> and <bold>Tailwind CSS</bold>, featuring a fully responsive web design (<bold>RWD</bold>) to ensure a seamless browsing experience across desktops, tablets, and mobile devices.",
+    "techParagraph2": "For the underlying architecture, a data processing module developed in <bold>Python</bold> is utilized to structure and aggregate the scattered examination data, which is then securely stored in a <bold>PostgreSQL</bold> database. This approach strives to present data to all users in a highly transparent and intuitive manner while strictly ensuring accuracy."
   }
 }
