@@ -50,5 +50,9 @@
     "clearAll": "すべてクリア",
     "confirm": "確定",
     "closeWindow": "閉じる"
+  },
+  "NotFound": {
+    "stray_arrow": "矢は的を外れ、行方を見失ってしまいました。",
+    "adjust_breath": "上部のナビゲーションバーを利用して息を整え、正しい射位へお戻りください。"
   }
 }

@@ -50,5 +50,9 @@
     "clearAll": "清除全部",
     "confirm": "確認",
     "closeWindow": "關閉視窗"
+  },
+  "NotFound": {
+    "stray_arrow": "箭已脫靶，找不到方向。",
+    "adjust_breath": "請利用上方導覽列重新調整呼吸，返回正確的射位。"
   }
 }

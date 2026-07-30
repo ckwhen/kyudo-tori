@@ -50,5 +50,9 @@
     "clearAll": "Clear All",
     "confirm": "Confirm",
     "closeWindow": "Close"
+  },
+  "NotFound": {
+    "stray_arrow": "The arrow has missed the target and lost its path.",
+    "adjust_breath": "Please take a deep breath, use the navigation bar above, and return to your shooting position."
   }
 }
