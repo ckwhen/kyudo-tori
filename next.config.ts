@@ -5,6 +5,14 @@ const withNextIntl = createNextIntlPlugin(
   './i18n/request.ts'
 );
 
-const nextConfig: NextConfig = {};
+const envOrigins = process.env.ALLOWED_DEV_ORIGINS || '';
+
+const allowedDevOrigins = envOrigins.split(',')
+  .map(origin => origin.trim())
+  .filter(Boolean);
+
+const nextConfig: NextConfig = {
+  allowedDevOrigins,
+};
 
 export default withNextIntl(nextConfig);
