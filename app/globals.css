@@ -11,10 +11,7 @@
 }
 
 @utility prose-readable {
-  max-width: 576px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.625;
+  @apply max-w-xl mx-auto leading-relaxed;
 }
 
 @layer base {
