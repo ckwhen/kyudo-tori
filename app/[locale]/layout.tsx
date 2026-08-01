@@ -47,6 +47,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${sansJP.variable} ${serifJP.variable}`}>
       <body className="antialiased flex flex-col min-h-screen">
+        <Toaster
+          position="top-center"
+          closeButton
+        />
         <NextIntlClientProvider messages={messages}>
           <Header />
 
@@ -58,10 +62,6 @@ export default async function LocaleLayout({
             latestSyncAt={latestSyncAtRes?.data || null}
           />
         </NextIntlClientProvider>
-        <Toaster
-          position="top-center"
-          closeButton
-        />
       </body>
     </html>
   );

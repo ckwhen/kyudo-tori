@@ -74,5 +74,8 @@
   "Errors": {
     "ERR_SYSTEM_UNKNOWN": "系統發生未知錯誤，請稍後再試。",
     "ERR_DB_OPERATION_FAILED": "資料庫處理失敗，請檢查連線。"
+  },
+  "Notifications": {
+    "NOTIFY_COPY_SUCCESS": "連結已複製到剪貼簿"
   }
 }

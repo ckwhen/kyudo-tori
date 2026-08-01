@@ -31,6 +31,7 @@ export default async function Home({ searchParams }: Props) {
   ]);
   const {
     meta,
+    errorCode: shinsaErrorCode,
     data: shinsas = [],
   } = shinsasRes;
   const optionsGroup = optionsGroupRes.data ?? { regions: [], ranks: [] };
@@ -40,6 +41,7 @@ export default async function Home({ searchParams }: Props) {
       <main className="max-w-6xl w-full mx-auto px-6 py-12 md:py-16">
         <ShinsaDashboard
           data={shinsas}
+          errorCode={shinsaErrorCode}
           regionOptions={optionsGroup.regions}
           rankOptions={optionsGroup.ranks}
           pagination={{

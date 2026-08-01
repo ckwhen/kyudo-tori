@@ -74,5 +74,8 @@
   "Errors": {
     "ERR_SYSTEM_UNKNOWN": "予期せぬエラーが発生しました。時間をおいてもう一度お試しください。",
     "ERR_DB_OPERATION_FAILED": "データベース処理に失敗しました。接続状況を確認してください。"
+  },
+  "Notifications": {
+    "NOTIFY_COPY_SUCCESS": "リンクをクリップボードにコピーしました"
   }
 }

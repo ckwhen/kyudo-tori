@@ -1,18 +1,21 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { SlidersHorizontal, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useAppToast } from "@/shared/hooks/useAppToast";
 import { Pagination } from '@/shared/components';
 import { MONTH_KEYS, FILTER_SEPARATOR } from '@/shared/utils/constants';
 import type { RegionOption, Option } from '@/shared/utils/types';
+import { type ErrorCode } from "@/shared/utils/error-handler";
 import type { ShinsaData } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
 
 type Props = {
   data: ShinsaData[],
+  errorCode?: ErrorCode;
   regionOptions: RegionOption[],
   rankOptions: Option[],
   pagination: {
@@ -24,6 +27,7 @@ type Props = {
 
 export default function ShinsaDashboard({
   data,
+  errorCode,
   regionOptions,
   rankOptions,
   pagination,
@@ -32,8 +36,15 @@ export default function ShinsaDashboard({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = useTranslations('ShinsaDashboard');
+  const { showError } = useAppToast();
   const { limit } = pagination;
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  useEffect(() => {
+    if (errorCode) {
+      showError(errorCode);
+    }
+  }, [ errorCode, showError ]);
 
   const monthOptions = useMemo(() => {
     return MONTH_KEYS.map((month, i) => ({
