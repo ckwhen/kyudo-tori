@@ -5,17 +5,16 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { SlidersHorizontal, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Pagination } from '@/shared/components';
-import { types, constants } from '@/shared/utils';
+import { MONTH_KEYS, FILTER_SEPARATOR } from '@/shared/utils/constants';
+import type { RegionOption, Option } from '@/shared/utils/types';
 import { ShinsaResponse } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
 
-const { MONTH_KEYS, FILTER_SEPARATOR } = constants;
-
 type Props = {
   data: ShinsaResponse[],
-  regionOptions: types.RegionOption[],
-  rankOptions: types.Option[],
+  regionOptions: RegionOption[],
+  rankOptions: Option[],
   pagination: {
     offset: number,
     limit: number,

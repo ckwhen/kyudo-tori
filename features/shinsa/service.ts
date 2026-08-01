@@ -8,7 +8,11 @@ import {
   shinsas, ranksShinsas, ranks,
   regions, prefectures, federations, kyudojos
 } from '@/database/schema';
-import { type ActionResponse } from "@/shared/utils/types";
+import type {
+  ActionResponse,
+  Option,
+  RegionOption
+} from "@/shared/utils/types";
 import { safeDatabaseCall } from "@/shared/utils/error-handler";
 import { ShinsaResponse, ShinsaRequest, ShinsaListResponse } from './types';
 
@@ -132,44 +136,54 @@ export async function getFilteredShinsas({
   return { data, total };
 }
 
-export async function getFilterOptionsGroup() {
-  const [ rawRegions, rawRanks ] = await Promise.all([
-    db.query.regions.findMany({
-      orderBy: [ asc(regions.weight) ],
-      with: {
-        prefectures: {
-          columns: {
-            code: true,
-            nameJa: true,
+type FilterOptionsGroupData = {
+  regions: RegionOption[];
+  ranks: Option[];
+}
+
+export async function getFilterOptionsGroup(): Promise<ActionResponse<FilterOptionsGroupData>> {
+  return safeDatabaseCall(async () => {
+    const [ rawRegions, rawRanks ] = await Promise.all([
+      db.query.regions.findMany({
+        orderBy: [ asc(regions.weight) ],
+        with: {
+          prefectures: {
+            columns: {
+              code: true,
+              nameJa: true,
+            }
           }
         }
-      }
-    }),
-    db.select({
-        value: ranks.code,
-        label: ranks.name,
-      })
-      .from(ranks)
-      .where(and(
-        gte(ranks.weight, 10),
-        lt(ranks.weight, 50)
-      ))
-      .orderBy(asc(ranks.weight))
-  ]);
+      }),
+      db.select({
+          value: ranks.code,
+          label: ranks.name,
+        })
+        .from(ranks)
+        .where(and(
+          gte(ranks.weight, 10),
+          lt(ranks.weight, 50)
+        ))
+        .orderBy(asc(ranks.weight))
+    ]);
 
-  const extractedRegions = rawRegions.map((r) => ({
-    value: r.code,
-    label: r.nameJa,
-    prefectures: r.prefectures.map((p) => ({
-      value: p.code,
-      label: p.nameJa
-    }))
-  }));
+    const extractedRegions = rawRegions.map((r) => ({
+      value: r.code,
+      label: r.nameJa,
+      prefectures: r.prefectures.map((p) => ({
+        value: p.code,
+        label: p.nameJa
+      }))
+    }));
 
-  return {
-    regions: extractedRegions,
-    ranks: rawRanks
-  };
+    return {
+      data: {
+        regions: extractedRegions,
+        ranks: rawRanks
+      },
+      meta: {}
+    };
+  });
 }
 
 export async function getLatestSyncAt(): Promise<ActionResponse<string | null>> {
