@@ -42,7 +42,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
-  const latestSyncAt = await shinsaServices.getLatestSyncAt();
+  const latestSyncAtRes = await shinsaServices.getLatestSyncAt();
 
   return (
     <html lang={locale} className={`${sansJP.variable} ${serifJP.variable}`}>
@@ -55,7 +55,7 @@ export default async function LocaleLayout({
           </div>
 
           <Footer
-            latestSyncAt={latestSyncAt}
+            latestSyncAt={latestSyncAtRes?.data || null}
           />
         </NextIntlClientProvider>
         <Toaster

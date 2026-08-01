@@ -8,6 +8,8 @@ import {
   shinsas, ranksShinsas, ranks,
   regions, prefectures, federations, kyudojos
 } from '@/database/schema';
+import { type ActionResponse } from "@/shared/utils/types";
+import { safeDatabaseCall } from "@/shared/utils/error-handler";
 import { ShinsaResponse, ShinsaRequest, ShinsaListResponse } from './types';
 
 export async function getFilteredShinsas({
@@ -170,12 +172,17 @@ export async function getFilterOptionsGroup() {
   };
 }
 
-export async function getLatestSyncAt(): Promise<string | null> {
-  const [ latestShinsa ] = await db
-    .select({ updatedAt: shinsas.updatedAt })
-    .from(shinsas)
-    .orderBy(desc(shinsas.updatedAt))
-    .limit(1)
+export async function getLatestSyncAt(): Promise<ActionResponse<string | null>> {
+  return safeDatabaseCall(async () => {
+    const [ latestShinsa ] = await db
+      .select({ updatedAt: shinsas.updatedAt })
+      .from(shinsas)
+      .orderBy(desc(shinsas.updatedAt))
+      .limit(1);
 
-  return latestShinsa?.updatedAt ? latestShinsa.updatedAt.toISOString() : null
+    return {
+      data: latestShinsa?.updatedAt ? latestShinsa.updatedAt.toISOString() : null,
+      meta: {}
+    };
+  });
 }
