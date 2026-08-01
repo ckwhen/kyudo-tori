@@ -70,5 +70,9 @@
     "techTitle": "Tech Stack & Architecture",
     "techParagraph1": "The frontend is built on <bold>Next.js</bold> and <bold>Tailwind CSS</bold>, featuring a fully responsive web design (<bold>RWD</bold>) to ensure a seamless browsing experience across desktops, tablets, and mobile devices.",
     "techParagraph2": "Under the hood, a <bold>Python</bold>-driven data module aggregates and structures scattered shinsa updates, storing them securely in a <bold>PostgreSQL</bold> database. This approach strives to present data to all users in a highly transparent and intuitive manner while strictly maintaining accuracy."
+  },
+  "Errors": {
+    "ERR_SYSTEM_UNKNOWN": "An unknown system error occurred. Please try again later.",
+    "ERR_DB_OPERATION_FAILED": "Database operation failed. Please check the connection."
   }
 }
