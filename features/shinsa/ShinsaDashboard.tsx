@@ -7,12 +7,12 @@ import { useTranslations } from 'next-intl';
 import { Pagination } from '@/shared/components';
 import { MONTH_KEYS, FILTER_SEPARATOR } from '@/shared/utils/constants';
 import type { RegionOption, Option } from '@/shared/utils/types';
-import { ShinsaResponse } from './types';
+import type { ShinsaData } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
 
 type Props = {
-  data: ShinsaResponse[],
+  data: ShinsaData[],
   regionOptions: RegionOption[],
   rankOptions: Option[],
   pagination: {

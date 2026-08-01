@@ -19,7 +19,7 @@ export default async function Home({ searchParams }: Props) {
   const currentPage = Math.max(1, parseInt(params.page || '1', 10));
   const computedOffset = (currentPage - 1) * SHINSA_PAGE_LIMIT;
 
-  const [ shinsaListResponse, optionsGroupRes ] = await Promise.all([
+  const [ shinsasRes, optionsGroupRes ] = await Promise.all([
     shinsaServices.getFilteredShinsas({
       offset: computedOffset,
       limit: SHINSA_PAGE_LIMIT,
@@ -30,9 +30,9 @@ export default async function Home({ searchParams }: Props) {
     shinsaServices.getFilterOptionsGroup(),
   ]);
   const {
-    total,
-    data: shinsas,
-  } = shinsaListResponse;
+    meta,
+    data: shinsas = [],
+  } = shinsasRes;
   const optionsGroup = optionsGroupRes.data ?? { regions: [], ranks: [] };
 
   return (
@@ -45,7 +45,7 @@ export default async function Home({ searchParams }: Props) {
           pagination={{
             offset: computedOffset,
             limit: SHINSA_PAGE_LIMIT,
-            count: total,
+            count: meta?.total ?? 0,
           }}
         />
       </main>
