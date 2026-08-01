@@ -9,6 +9,11 @@ export type RegionOption = Option & {
   prefectures: Option[];
 };
 
+export type Pager = {
+  offset: number,
+  limit: number,
+}
+
 export type ActionResponse<T, M = Record<string, unknown>> =
   | { data: T; meta: M; errorCode?: never }
   | { errorCode: ErrorCode; data?: never; meta?: never };

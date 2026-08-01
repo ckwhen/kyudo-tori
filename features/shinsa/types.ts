@@ -1,3 +1,5 @@
+import { type Pager } from '@/shared/utils/types';
+
 export type PrefectureResponse = {
   id: string;
   code: string;
@@ -39,15 +41,13 @@ export type RankResponse = {
   type: string;
 }
 
-export type ShinsaRequest = {
-  offset: number,
-  limit: number,
+export type ShinsaRequest = Pager & {
   prefectures?: string[],
   ranks?: string[],
   months?: string[],
 }
 
-export type ShinsaResponse = {
+export type ShinsaData = {
   id: string,
   name: string,
   type: number | null,
@@ -61,6 +61,10 @@ export type ShinsaResponse = {
   kyudojoId: string | null,
   federation: FederationResponse | null,
   kyudojo: KyudojoResponse | null,
+}
+
+export type ShinsaMetaData = {
+  total: number,
 }
 
 export type ShinsaListResponse<T> = {
