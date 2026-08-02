@@ -2,10 +2,10 @@ import { useFormatter } from 'next-intl';
 import { MapPinned } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { parse } from 'date-fns';
-import { ShinsaResponse } from './types';
+import { ShinsaData } from './types';
 
 type Props = {
-  data: ShinsaResponse;
+  data: ShinsaData;
 }
 
 export default function ShinsaCard({
@@ -52,7 +52,7 @@ export default function ShinsaCard({
   };
 
   const renderLocationMap = (
-    kyudojo: ShinsaResponse['kyudojo'],
+    kyudojo: ShinsaData['kyudojo'],
     location: string | null
   ) => {
     const mapQuery = kyudojo
