@@ -70,5 +70,13 @@
     "techTitle": "技術スタックと運用について",
     "techParagraph1": "当サイトのフロントエンドは <bold>Next.js</bold> と <bold>Tailwind CSS</bold> をベースに構築されており、完全なレスポンシブウェブデザイン（<bold>RWD</bold>）に対応しています。PC、タブレット、スマートフォンを問わず、シームレスな閲覧体験を提供します。",
     "techParagraph2": "バックエンドのアーキテクチャには <bold>Python</bold> で開発されたデータ処理モジュールを採用し、各地に分散した審査データを構造化して統合した上で、<bold>PostgreSQL</bold> データベースに安定して保存しています。データの正確性を担保した上で、すべてのユーザーに高い透明性をもって、直感的に提供できるよう取り組んでいます。"
+  },
+  "Errors": {
+    "ERR_SYSTEM_UNKNOWN": "予期せぬエラーが発生しました。時間をおいてもう一度お試しください。",
+    "ERR_DB_OPERATION_FAILED": "データベース処理に失敗しました。接続状況を確認してください。",
+    "ERR_COPY_OPERATION_FAILED": "コピーに失敗しました。お手数ですが手動で選択してコピーしてください。"
+  },
+  "Notifications": {
+    "NOTIFY_COPY_SUCCESS": "リンクをクリップボードにコピーしました"
   }
 }

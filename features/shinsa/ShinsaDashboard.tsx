@@ -1,21 +1,28 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { SlidersHorizontal, X } from 'lucide-react';
+import { SlidersHorizontal, X, Share2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Pagination } from '@/shared/components';
-import { types, constants } from '@/shared/utils';
-import { ShinsaResponse } from './types';
+import { useCopyToClipboard } from "usehooks-ts";
+import { useAppToast } from "@/shared/hooks/useAppToast";
+import { Pagination, Button } from '@/shared/components';
+import {
+  MONTH_KEYS,
+  FILTER_SEPARATOR,
+  NOTIFICATION_CODES
+} from '@/shared/utils/constants';
+import type { RegionOption, Option } from '@/shared/utils/types';
+import { ERROR_CODES, type ErrorCode } from "@/shared/utils/error-handler";
+import type { ShinsaData } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
 
-const { MONTH_KEYS, FILTER_SEPARATOR } = constants;
-
 type Props = {
-  data: ShinsaResponse[],
-  regionOptions: types.RegionOption[],
-  rankOptions: types.Option[],
+  data: ShinsaData[],
+  errorCode?: ErrorCode;
+  regionOptions: RegionOption[],
+  rankOptions: Option[],
   pagination: {
     offset: number,
     limit: number,
@@ -25,6 +32,7 @@ type Props = {
 
 export default function ShinsaDashboard({
   data,
+  errorCode,
   regionOptions,
   rankOptions,
   pagination,
@@ -33,8 +41,16 @@ export default function ShinsaDashboard({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = useTranslations('ShinsaDashboard');
+  const { showError, showNotification } = useAppToast();
+  const [ _copiedText, copyToClipboard ] = useCopyToClipboard();
   const { limit } = pagination;
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [ isFilterOpen, setIsFilterOpen ] = useState(false);
+
+  useEffect(() => {
+    if (errorCode) {
+      showError(errorCode);
+    }
+  }, [ errorCode, showError ]);
 
   const monthOptions = useMemo(() => {
     return MONTH_KEYS.map((month, i) => ({
@@ -83,6 +99,19 @@ export default function ShinsaDashboard({
   };
   const handleClearAllBadges = () => {
     router.push(pathname, { scroll: false });
+  };
+
+  const handleShareLink = async () => {
+    const queryString = searchParams.toString();
+    const currentFullUrl = `${window.location.origin}${pathname}${queryString ? `?${queryString}` : ""}`;
+
+    const success = await copyToClipboard(currentFullUrl);
+
+    if (success) {
+      showNotification(NOTIFICATION_CODES.COPY_SUCCESS);
+    } else {
+      showError(ERROR_CODES.COPY_OPERATION_FAILED);
+    }
   };
 
   const hasAnyFilter = Object.values(currentFilters).some((arr) => arr.length > 0);
@@ -153,22 +182,17 @@ export default function ShinsaDashboard({
             </div>
           </div>
           <div className="flex items-end gap-2">
-            <button
-              type="button"
-              className={`
-                px-3 py-2 rounded-sm
-                bg-white border border-ink/10 text-ink/80 text-sm font-medium shadow-2xs
-                transition-all duration-200 cursor-pointer select-none
-                hover:border-moss/40 hover:text-moss
-                active:scale-95
-              `}
-              onClick={() => setIsFilterOpen(true)}
-            >
+            <Button onClick={() => setIsFilterOpen(true)}>
               <div className="flex items-center gap-2.5">
                 <SlidersHorizontal className="w-4 h-4 text-moss/70" />
                 <span className="tracking-wide">{t('filter')}</span>
               </div>
-            </button>
+            </Button>
+            <Button
+              onClick={handleShareLink}
+            >
+              <Share2 className="w-4 h-4 text-ink/70" />
+            </Button>
           </div>
         </div>
         <div className="flex justify-end border-t w-full pt-2 mt-2 border-ink/5">

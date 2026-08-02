@@ -3,6 +3,7 @@ import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { Toaster } from "sonner";
 import { routing, Locale } from '@/i18n/routing';
 import { Header, Footer } from '@/shared/components';
 import { services as shinsaServices } from '@/features/shinsa';
@@ -41,11 +42,15 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
-  const latestSyncAt = await shinsaServices.getLatestSyncAt();
+  const latestSyncAtRes = await shinsaServices.getLatestSyncAt();
 
   return (
     <html lang={locale} className={`${sansJP.variable} ${serifJP.variable}`}>
       <body className="antialiased flex flex-col min-h-screen">
+        <Toaster
+          position="top-center"
+          closeButton
+        />
         <NextIntlClientProvider messages={messages}>
           <Header />
 
@@ -54,7 +59,7 @@ export default async function LocaleLayout({
           </div>
 
           <Footer
-            latestSyncAt={latestSyncAt}
+            latestSyncAt={latestSyncAtRes?.data || null}
           />
         </NextIntlClientProvider>
       </body>
