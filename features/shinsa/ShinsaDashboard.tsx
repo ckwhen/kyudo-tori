@@ -2,13 +2,18 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { SlidersHorizontal, X } from 'lucide-react';
+import { SlidersHorizontal, X, Share2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useCopyToClipboard } from "usehooks-ts";
 import { useAppToast } from "@/shared/hooks/useAppToast";
-import { Pagination } from '@/shared/components';
-import { MONTH_KEYS, FILTER_SEPARATOR } from '@/shared/utils/constants';
+import { Pagination, Button } from '@/shared/components';
+import {
+  MONTH_KEYS,
+  FILTER_SEPARATOR,
+  NOTIFICATION_CODES
+} from '@/shared/utils/constants';
 import type { RegionOption, Option } from '@/shared/utils/types';
-import { type ErrorCode } from "@/shared/utils/error-handler";
+import { ERROR_CODES, type ErrorCode } from "@/shared/utils/error-handler";
 import type { ShinsaData } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
@@ -36,9 +41,10 @@ export default function ShinsaDashboard({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = useTranslations('ShinsaDashboard');
-  const { showError } = useAppToast();
+  const { showError, showNotification } = useAppToast();
+  const [ _copiedText, copyToClipboard ] = useCopyToClipboard();
   const { limit } = pagination;
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [ isFilterOpen, setIsFilterOpen ] = useState(false);
 
   useEffect(() => {
     if (errorCode) {
@@ -93,6 +99,19 @@ export default function ShinsaDashboard({
   };
   const handleClearAllBadges = () => {
     router.push(pathname, { scroll: false });
+  };
+
+  const handleShareLink = async () => {
+    const queryString = searchParams.toString();
+    const currentFullUrl = `${window.location.origin}${pathname}${queryString ? `?${queryString}` : ""}`;
+
+    const success = await copyToClipboard(currentFullUrl);
+
+    if (success) {
+      showNotification(NOTIFICATION_CODES.COPY_SUCCESS);
+    } else {
+      showError(ERROR_CODES.COPY_OPERATION_FAILED);
+    }
   };
 
   const hasAnyFilter = Object.values(currentFilters).some((arr) => arr.length > 0);
@@ -163,22 +182,17 @@ export default function ShinsaDashboard({
             </div>
           </div>
           <div className="flex items-end gap-2">
-            <button
-              type="button"
-              className={`
-                px-3 py-2 rounded-sm
-                bg-white border border-ink/10 text-ink/80 text-sm font-medium shadow-2xs
-                transition-all duration-200 cursor-pointer select-none
-                hover:border-moss/40 hover:text-moss
-                active:scale-95
-              `}
-              onClick={() => setIsFilterOpen(true)}
-            >
+            <Button onClick={() => setIsFilterOpen(true)}>
               <div className="flex items-center gap-2.5">
                 <SlidersHorizontal className="w-4 h-4 text-moss/70" />
                 <span className="tracking-wide">{t('filter')}</span>
               </div>
-            </button>
+            </Button>
+            <Button
+              onClick={handleShareLink}
+            >
+              <Share2 className="w-4 h-4 text-ink/70" />
+            </Button>
           </div>
         </div>
         <div className="flex justify-end border-t w-full pt-2 mt-2 border-ink/5">

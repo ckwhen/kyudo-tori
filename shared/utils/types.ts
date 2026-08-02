@@ -1,3 +1,4 @@
+import { NOTIFICATION_CODES } from "./constants";
 import { ErrorCode } from "./error-handler";
 
 export type Option = {
@@ -17,3 +18,5 @@ export type Pager = {
 export type ActionResponse<T, M = Record<string, unknown>> =
   | { data: T; meta: M; errorCode?: never }
   | { errorCode: ErrorCode; data?: never; meta?: never };
+
+export type NotificationCode = (typeof NOTIFICATION_CODES)[keyof typeof NOTIFICATION_CODES];

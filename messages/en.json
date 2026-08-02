@@ -73,7 +73,8 @@
   },
   "Errors": {
     "ERR_SYSTEM_UNKNOWN": "An unknown system error occurred. Please try again later.",
-    "ERR_DB_OPERATION_FAILED": "Database operation failed. Please check the connection."
+    "ERR_DB_OPERATION_FAILED": "Database operation failed. Please check the connection.",
+    "ERR_COPY_OPERATION_FAILED": "Copy failed. Please select and copy the link manually."
   },
   "Notifications": {
     "NOTIFY_COPY_SUCCESS": "Link copied to clipboard"
