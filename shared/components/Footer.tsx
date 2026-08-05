@@ -1,5 +1,6 @@
 import { useTranslations, useFormatter } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { getDateByTimezone, UTC_TIMEZONE } from '@/shared/utils/date';
 
 type Props = {
   latestSyncAt: string | null,
@@ -8,16 +9,17 @@ type Props = {
 export default function Footer({ latestSyncAt }: Props) {
   const format = useFormatter();
   const t = useTranslations('LandingPage.footer');
+    const latestSyncAtObj = latestSyncAt
+      ? getDateByTimezone(latestSyncAt, UTC_TIMEZONE)
+      : null;
 
   let formatLatestSyncAt = '--';
-  if (latestSyncAt) {
-    const parsedDate = new Date(latestSyncAt);
-
-    formatLatestSyncAt = format.dateTime(parsedDate, {
+  if (latestSyncAtObj && latestSyncAtObj.isValid()) {
+    formatLatestSyncAt = format.dateTime(latestSyncAtObj.toDate(), {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-        timeZone: 'Etc/UTC',
+        timeZone: UTC_TIMEZONE,
         timeZoneName: 'short',
       });
   }
