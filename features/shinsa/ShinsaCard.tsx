@@ -6,6 +6,7 @@ import {
   getDateByTimezone,
   JST_TIMEZONE,
   TWO_MONTHS_IN_DAYS,
+  DEFAULT_DATE_TEXT,
 } from '@/shared/utils/date';
 import { ShinsaData } from './types';
 
@@ -65,7 +66,7 @@ export default function ShinsaCard({
     ? getDateByTimezone(startAt, JST_TIMEZONE)
     : null;
 
-  let formatStartAt = '隨時公告';
+  let formatStartAt = DEFAULT_DATE_TEXT;
   if (startAtJSTObj && startAtJSTObj.isValid()) {
     formatStartAt = format.dateTime(startAtJSTObj.toDate(), {
         year: 'numeric',

@@ -5,6 +5,7 @@ import timezone from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
+export const DEFAULT_DATE_TEXT = '--';
 export const UTC_TIMEZONE = 'Etc/UTC';
 export const JST_TIMEZONE = 'Asia/Tokyo';
 export const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
