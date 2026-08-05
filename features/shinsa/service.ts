@@ -2,7 +2,6 @@ import {
   sql, asc, inArray,
   eq, lt, and, gte, desc
 } from "drizzle-orm";
-import { addMonths, formatISO } from "date-fns";
 import { db } from "@/database";
 import {
   shinsas, ranksShinsas, ranks,
@@ -14,6 +13,12 @@ import type {
   RegionOption
 } from "@/shared/utils/types";
 import { safeDatabaseCall } from "@/shared/utils/error-handler";
+import {
+  getCurrentUTCDate,
+  JST_TIMEZONE,
+  TWO_MONTHS_IN_DAYS,
+  DATETIME_FORMAT,
+} from '@/shared/utils/date';
 import type { ShinsaRequest, ShinsaData, ShinsaMetaData } from './types';
 
 export async function getFilteredShinsas({
@@ -61,13 +66,11 @@ export async function getFilteredShinsas({
       .leftJoin(kyudojos, eq(shinsas.kyudojoId, kyudojos.id))
       .where(and(...whereConditions));
 
-    const now = new Date();
-    const twoMonthsLater = addMonths(now, 2);
+    const now = getCurrentUTCDate().tz(JST_TIMEZONE);
+    const twoMonthsLater = now.add(TWO_MONTHS_IN_DAYS, 'day');
 
-    const nowStr = formatISO(now, { representation: 'complete' })
-      .replace('T', ' ').substring(0, 19);
-    const twoMonthsStr = formatISO(twoMonthsLater, { representation: 'complete' })
-      .replace('T', ' ').substring(0, 19);
+    const nowStr = now.format(DATETIME_FORMAT);
+    const twoMonthsStr = twoMonthsLater.format(DATETIME_FORMAT);
 
     const [ rows, countResult ] = await Promise.all([
       baseQuery

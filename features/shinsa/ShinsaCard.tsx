@@ -1,11 +1,51 @@
-import { useFormatter } from 'next-intl';
-import { MapPinned } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { parse } from 'date-fns';
+import dayjs from 'dayjs';
+import { useFormatter, useTranslations } from 'next-intl';
+import { MapPinned, Feather } from 'lucide-react';
+import {
+  getCurrentUTCDate,
+  getDateByTimezone,
+  JST_TIMEZONE,
+  TWO_MONTHS_IN_DAYS,
+} from '@/shared/utils/date';
 import { ShinsaData } from './types';
+
+const SHINSA_STATUSES = {
+  FUTURE: "FUTURE",
+  RECENT: "RECENT",
+  HISTORY: "HISTORY"
+} as const;
+const statusColorMap = {
+  [SHINSA_STATUSES.FUTURE]: 'text-[#2D6A4F]/30',
+  [SHINSA_STATUSES.RECENT]: 'text-[#D9A013]/20',
+  [SHINSA_STATUSES.HISTORY]: 'text-[#7A828A]/20',
+};
+
+type ShinsaStatusType = (typeof SHINSA_STATUSES)[keyof typeof SHINSA_STATUSES];
 
 type Props = {
   data: ShinsaData;
+}
+
+function getShinsaStatus(startAtJSTObj: dayjs.Dayjs | null): ShinsaStatusType {
+  const now = getCurrentUTCDate().tz(JST_TIMEZONE);
+
+  let status: ShinsaStatusType = SHINSA_STATUSES.FUTURE;
+
+  if (!startAtJSTObj || !startAtJSTObj.isValid()) {
+    return SHINSA_STATUSES.FUTURE;
+  }
+
+  const diffDays = startAtJSTObj.diff(now, 'day');
+
+  if (diffDays < 0) {
+    status = SHINSA_STATUSES.HISTORY;
+  } else if (diffDays <= TWO_MONTHS_IN_DAYS) {
+    status = SHINSA_STATUSES.RECENT;
+  } else {
+    status = SHINSA_STATUSES.FUTURE;
+  }
+
+  return status;
 }
 
 export default function ShinsaCard({
@@ -21,16 +61,22 @@ export default function ShinsaCard({
 }: Props) {
   const format = useFormatter();
   const t = useTranslations('ShinsaCard');
-  const parsedStartAt = startAt ? parse(startAt, 'yyyy-MM-dd HH:mm:ss', new Date()) : null;
+  const startAtJSTObj = startAt
+    ? getDateByTimezone(startAt, JST_TIMEZONE)
+    : null;
 
   let formatStartAt = '隨時公告';
-  if (parsedStartAt) {
-    formatStartAt = format.dateTime(parsedStartAt, {
+  if (startAtJSTObj && startAtJSTObj.isValid()) {
+    formatStartAt = format.dateTime(startAtJSTObj.toDate(), {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
+        timeZone: JST_TIMEZONE,
+        timeZoneName: 'short',
       });
   }
+
+  const status = getShinsaStatus(startAtJSTObj);
 
   const renderRankGrid = () => {
     return (
@@ -94,9 +140,15 @@ export default function ShinsaCard({
         transition-all duration-300 overflow-hidden
       `}
     >
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-moss scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center" />
+      <div className="absolute right-4 top-4 z-0 pointer-events-none transition-colors duration-300">
+        <Feather
+          strokeWidth={1.5}
+          className={`w-16 h-16 ${statusColorMap[status]}`}
+        />
+      </div>
 
-      <div>
+      <div className="relative z-10">
         <div className="mb-3">
           {federation ? (
             <>
