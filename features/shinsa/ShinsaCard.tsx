@@ -62,6 +62,7 @@ export default function ShinsaCard({
 }: Props) {
   const format = useFormatter();
   const t = useTranslations('ShinsaCard');
+  const tParams = useTranslations('parameters');
   const startAtJSTObj = startAt
     ? getDateByTimezone(startAt, JST_TIMEZONE)
     : null;
@@ -81,7 +82,7 @@ export default function ShinsaCard({
 
   const renderRankGrid = () => {
     return (
-      <div className="grid grid-cols-5 gap-0 w-full">
+      <div className="grid grid-cols-4 gap-0 w-full">
         {ranks.map((rank) => (
           <div 
             key={rank.id} 
@@ -91,7 +92,7 @@ export default function ShinsaCard({
               tracking-wide leading-none flex items-center justify-center
             `}
           >
-            {rank.name}
+            {tParams(`ranks.${rank.code}`)}
           </div>
         ))}
       </div>

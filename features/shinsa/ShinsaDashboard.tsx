@@ -7,13 +7,15 @@ import { useTranslations } from 'next-intl';
 import { useCopyToClipboard } from "usehooks-ts";
 import { useAppToast } from "@/shared/hooks/useAppToast";
 import { Pagination, Button } from '@/shared/components';
-import {
-  MONTH_KEYS,
-  FILTER_SEPARATOR,
-  NOTIFICATION_CODES
-} from '@/shared/utils/constants';
-import type { RegionOption, Option } from '@/shared/utils/types';
+import { FILTER_SEPARATOR, NOTIFICATION_CODES } from '@/shared/utils/constants';
+import type {
+  Option,
+  RegionOption,
+  RegionOptionData,
+  RankOptionData
+} from '@/shared/utils/types';
 import { ERROR_CODES, type ErrorCode } from "@/shared/utils/error-handler";
+import { MONTH_KEYS } from '@/shared/utils/date';
 import type { ShinsaData } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
@@ -21,8 +23,8 @@ import ShinsaCard from './ShinsaCard';
 type Props = {
   data: ShinsaData[],
   errorCode?: ErrorCode;
-  regionOptions: RegionOption[],
-  rankOptions: Option[],
+  regionOptionData: RegionOptionData[],
+  rankOptionData: RankOptionData[],
   pagination: {
     offset: number,
     limit: number,
@@ -33,14 +35,15 @@ type Props = {
 export default function ShinsaDashboard({
   data,
   errorCode,
-  regionOptions,
-  rankOptions,
+  regionOptionData,
+  rankOptionData,
   pagination,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = useTranslations('ShinsaDashboard');
+  const tParams = useTranslations('parameters');
   const { showError, showNotification } = useAppToast();
   const [ _copiedText, copyToClipboard ] = useCopyToClipboard();
   const { limit } = pagination;
@@ -52,12 +55,28 @@ export default function ShinsaDashboard({
     }
   }, [ errorCode, showError ]);
 
-  const monthOptions = useMemo(() => {
+  const monthOptions: Option[] = useMemo(() => {
     return MONTH_KEYS.map((month, i) => ({
       value: `${i + 1}`,
-      label: t(`monthOptions.${month}`),
+      label: tParams(`months.${month}`),
     }));
-  }, [ t ]);
+  }, [ tParams ]);
+  const regionOptions: RegionOption[] = useMemo(() => {
+    return regionOptionData.map((r) => ({
+      value: r.code,
+      label: tParams(`regions.${r.code}`),
+      prefectures: r.prefectures.map((p) => ({
+        value: p.code,
+        label: tParams(`prefectures.${p.code}`)
+      }))
+    }));
+  }, [ regionOptionData, tParams ]);
+  const rankOptions: Option[] = useMemo(() => {
+    return rankOptionData.map((r) => ({
+      value: r.code,
+      label: tParams(`ranks.${r.code}`)
+    }));
+  }, [ rankOptionData, tParams ]);
 
   const currentFilters: FilterState = {
     prefectures: searchParams.get('prefectures')?.split(FILTER_SEPARATOR)

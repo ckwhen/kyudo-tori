@@ -1,4 +1,8 @@
-import { type Pager } from '@/shared/utils/types';
+import type {
+  Pager,
+  RegionOptionData,
+  RankOptionData
+} from '@/shared/utils/types';
 
 export type PrefectureResponse = {
   id: string;
@@ -67,7 +71,7 @@ export type ShinsaMetaData = {
   total: number,
 }
 
-export type ShinsaListResponse<T> = {
-  data: T[];
-  total: number;
-};
+export type FilterOptionsGroupData = {
+  regions: RegionOptionData[];
+  ranks: RankOptionData[];
+}

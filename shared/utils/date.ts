@@ -11,6 +11,11 @@ export const JST_TIMEZONE = 'Asia/Tokyo';
 export const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 export const TWO_MONTHS_IN_DAYS = 60;
 
+const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
+export const MONTH_KEYS = Array.from({ length: 12 }, (_, i) => (
+  formatter.format(new Date(0, i)).toLocaleLowerCase()
+));
+
 export function getCurrentUTCDate(): dayjs.Dayjs {
   return dayjs.utc();
 }

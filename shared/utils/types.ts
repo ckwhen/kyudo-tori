@@ -7,12 +7,24 @@ export type Option = {
 }
 
 export type RegionOption = Option & {
-  prefectures: Option[];
-};
+  prefectures: Option[],
+}
 
 export type Pager = {
   offset: number,
   limit: number,
+}
+
+type PrefectureOptionData = {
+  code: string,
+};
+export type RegionOptionData = {
+  code: string,
+  prefectures: PrefectureOptionData[],
+}
+
+export type RankOptionData = {
+  code: string,
 }
 
 export type ActionResponse<T, M = Record<string, unknown>> =

@@ -42,8 +42,8 @@ export default async function Home({ searchParams }: Props) {
         <ShinsaDashboard
           data={shinsas}
           errorCode={shinsaErrorCode}
-          regionOptions={optionsGroup.regions}
-          rankOptions={optionsGroup.ranks}
+          regionOptionData={optionsGroup.regions}
+          rankOptionData={optionsGroup.ranks}
           pagination={{
             offset: computedOffset,
             limit: SHINSA_PAGE_LIMIT,
