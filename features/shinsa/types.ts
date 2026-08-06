@@ -21,6 +21,7 @@ export type RegionResponse = {
 export type FederationResponse = {
   id: string;
   name: string;
+  code: string;
   prefectureCode: string | null;
   regionId: string | null;
   region: RegionResponse | null;

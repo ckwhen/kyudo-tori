@@ -1,9 +1,9 @@
 import { type ActionResponse } from './types';
 
 export const ERROR_CODES = {
-  SYSTEM_UNKNOWN: "ERR_SYSTEM_UNKNOWN",
-  DB_OPERATION_FAILED: "ERR_DB_OPERATION_FAILED",
-  COPY_OPERATION_FAILED: "ERR_COPY_OPERATION_FAILED",
+  SYSTEM_UNKNOWN: "err_system_unknown",
+  DB_OPERATION_FAILED: "err_db_operation_failed",
+  COPY_OPERATION_FAILED: "err_copy_operation_failed",
 } as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[keyof typeof ERROR_CODES];

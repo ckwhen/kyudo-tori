@@ -1,69 +1,82 @@
 {
-  "LandingPage": {
+  "landing_page": {
     "subtitle": "全日本弓道審査情報 · 構造化検索プラットフォーム",
     "footer": {
       "sitemap": "サイトマップ",
       "shinsa": "審査情報",
       "about": "当サイトについて",
       "changelog": "更新履歴",
-      "lastProofread": "最終校正：{date}"
+      "last_proofread": "最終校正：{date}"
     }
   },
-  "LocaleSwitcher": {
-    "zh-TW": "中国語 (繁体字)",
+  "locale_switcher": {
+    "zh-tw": "中国語 (繁体字)",
     "ja": "日本語",
     "en": "英語"
   },
-  "ShinsaDashboard": {
+  "shinsa_dashboard": {
     "filter": "検索条件",
-    "showingAllInfo": "現在、すべての審査情報を表示中",
-    "removeCondition": "条件「{condition}」を削除",
-    "clearAll": "すべてクリア",
-    "shinsaStatus": {
+    "showing_all_info": "現在、すべての審査情報を表示中",
+    "remove_condition": "条件「{condition}」を削除",
+    "clear_all": "すべてクリア",
+    "shinsa_status": {
       "future": "2ヶ月以上先",
       "recent": "近日開催",
       "history": "実施済み"
     }
   },
-  "ShinsaCard": {
-    "openInMaps": "Googleマップで開く",
-    "defaultKyudojo": "指定弓道場",
-    "unknownPrefecture": "不明な県",
-    "unknownFederation": "未知の連盟",
-    "startDate": "実施日",
-    "locationName": "場所"
+  "shinsa_card": {
+    "open_in_map": "Googleマップで開く",
+    "default_kyudojo": "指定弓道場",
+    "unknown_prefecture": "不明な県",
+    "unknown_federation": "未知の連盟",
+    "start_date": "実施日",
+    "location_name": "場所",
+    "federations": {
+      "hokkaido": "北海道弓道連盟", "sapporo": "札幌弓道連盟", "eniwa": "恵庭弓道連盟", "otaru": "小樽弓道連盟", "chitose": "千歳弓道連盟",
+      "aomori": "青森県弓道連盟", "iwate": "岩手県弓道連盟", "miyagi": "宮城県弓道連盟", "akita": "秋田県弓道連盟", "yamagata": "山形県弓道連盟",
+      "fukushima": "福島県弓道連盟", "ibaraki": "茨城県弓道連盟", "tochigi": "栃木県弓道連盟", "gunma": "群馬県弓道連盟", "saitama": "埼玉県弓道連盟",
+      "chiba": "千葉県弓道連盟", "tokyo": "東京都弓道連盟", "tokyo-dist-1": "東京都弓道連盟 第一地区", "tokyo-dist-2": "東京都弓道連盟 第二地区", "tokyo-dist-3": "東京都弓道連盟 第三地区",
+      "kanagawa": "神奈川県弓道連盟", "yamanashi": "山梨県弓道連盟", "niigata": "新潟県弓道連盟", "nagano": "長野県弓道連盟", "toyama": "富山県弓道連盟",
+      "ishikawa": "石川県弓道連盟", "fukui": "福井県弓道連盟", "shizuoka": "静岡県弓道連盟", "aichi": "愛知県弓道連盟", "gifu": "岐阜県弓道連盟",
+      "mie": "三重県弓道連盟", "shiga": "滋賀県弓道連盟", "kyoto": "京都府弓道連盟", "osaka": "大阪府弓道連盟", "hyogo": "兵庫県弓道連盟",
+      "nara": "奈良県弓道連盟", "wakayama": "和歌山県弓道連盟", "kagawa": "香川県弓道連盟", "tokushima": "徳島県弓道連盟", "kochi": "高知県弓道連盟",
+      "ehime": "愛媛県弓道連盟", "tottori": "鳥取県弓道連盟", "shimane": "島根県弓道連盟", "okayama": "岡山県弓道連盟", "hiroshima": "広島県弓道連盟",
+      "yamaguchi": "山口県弓道連盟", "fukuoka": "福岡県弓道連盟", "saga": "佐賀県弓道連盟", "nagasaki": "長崎県弓道連盟", "kumamoto": "熊本県弓道連盟",
+      "oita": "大分県弓道連盟", "miyazaki": "宮崎県弓道連盟", "kagoshima": "鹿児島県弓道連盟", "okinawa": "沖縄県弓道連盟"
+    }
   },
-  "ShinsaFiltersModal": {
+  "shinsa_filters_modal": {
     "filter": "検索条件",
-    "regionAndPref": "開催地域・都道府県",
-    "reviewRank": "審査段位",
-    "holdingMonth": "開催月",
-    "selectAll": "すべて選択",
-    "deselectAll": "すべての選択を解除",
-    "clearAll": "すべてクリア",
+    "region_and_pref": "開催地域・都道府県",
+    "review_rank": "審査段位",
+    "holding_month": "開催月",
+    "select_all": "すべて選択",
+    "deselect_all": "すべての選択を解除",
+    "clear_all": "すべてクリア",
     "confirm": "確定",
-    "closeWindow": "閉じる"
+    "close_window": "閉じる"
   },
-  "NotFound": {
-    "stray_arrow": "矢は的を外れ、行方を見失ってしまいました。",
-    "adjust_breath": "上部のリンクを利用して息を整え、正しい射位へお戻りください。"
+  "not_found": {
+    "stray_arrow": "矢は、おのずから赴くところがあり、今は旅の途中のようです。",
+    "adjust_breath": "上部のリンクに寄り添い、息合いを整えて、再び射位へお進みください。"
   },
-  "About": {
-    "pageTitle": "Kyudo Tori について",
-    "whyTitle": "開発の背景",
-    "whyParagraph1": "現在、日本国内の各弓道連盟による審査公告は、それぞれの地方の伝統や慣習に沿って公開されており、レイアウトやフォーマットも多種多様です。そのため、海外や他地域から審査に挑戦しようとする学習者にとって、地域ごとに分散した情報を多方面から収集・整理することは、少なくない労力を要するものとなっています。",
-    "whyParagraph2": "この審査への道のりをよりスムーズにし、行射に集中できるようにという思いから、本プロジェクトは誕生しました。シンプルで直感的な検索インターフェースを構築することで、弓道学習者が各地の審査情報を一目で統合・検索できるようサポートし、その大切な気力を一射一射のために残せるようにすることを目指しています。",
-    "techTitle": "技術スタックと運用について",
-    "techParagraph1": "当サイトのフロントエンドは <bold>Next.js</bold> と <bold>Tailwind CSS</bold> をベースに構築されており、完全なレスポンシブウェブデザイン（<bold>RWD</bold>）に対応しています。PC、タブレット、スマートフォンを問わず、シームレスな閲覧体験を提供します。",
-    "techParagraph2": "バックエンドのアーキテクチャには <bold>Python</bold> で開発されたデータ処理モジュールを採用し、各地に分散した審査データを構造化して統合した上で、<bold>PostgreSQL</bold> データベースに安定して保存しています。データの正確性を担保した上で、すべてのユーザーに高い透明性をもって、直感的に提供できるよう取り組んでいます。"
+  "about": {
+    "page_title": "Kyudo Tori について",
+    "why_title": "開発の背景",
+    "why_paragraph1": "現在、日本国内の各弓道連盟による審査公告は、それぞれの地方の伝統や慣習に沿って公開されており、レイアウトやフォーマットも多種多様です。そのため、海外や他地域から審査に挑戦しようとする学習者にとって、地域ごとに分散した情報を多方面から収集・整理することは、少なくない労力を要するものとなっています。",
+    "why_paragraph2": "この審査への道のりをよりスムーズにし、行射に集中できるようにという思いから、本プロジェクトは誕生しました。シンプルで直感的な検索インターフェースを構築することで、弓道学習者が各地の審査情報を一目で統合・検索できるようサポートし、その大切な気力を一射一射のために残せるようにすることを目指しています。",
+    "tech_title": "技術スタックと運用について",
+    "tech_paragraph1": "当サイトのフロントエンドは <bold>Next.js</bold> と <bold>Tailwind CSS</bold> をベースに構築されており、完全なレスポンシブウェブデザイン（<bold>RWD</bold>）に対応しています。PC、タブレット、スマートフォンを問わず、シームレスな閲覧体験を提供します。",
+    "tech_paragraph2": "バックエンドのアーキテクチャには <bold>Python</bold> で開発されたデータ処理モジュールを採用し、各地に分散した審査データを構造化して統合した上で、<bold>PostgreSQL</bold> データベースに安定して保存しています。データの正確性を担保した上で、すべてのユーザーに高い透明性をもって、直感的に提供できるよう取り組んでいます。"
   },
-  "Errors": {
-    "ERR_SYSTEM_UNKNOWN": "予期せぬエラーが発生しました。時間をおいてもう一度お試しください。",
-    "ERR_DB_OPERATION_FAILED": "データベース処理に失敗しました。接続状況を確認してください。",
-    "ERR_COPY_OPERATION_FAILED": "コピーに失敗しました。お手数ですが手動で選択してコピーしてください。"
+  "errors": {
+    "err_system_unknown": "予期せぬエラーが発生しました。時間をおいてもう一度お試しください。",
+    "err_db_operation_failed": "データベース処理に失敗しました。接続状況を確認してください。",
+    "err_copy_operation_failed": "コピーに失敗しました。お手数ですが手動で選択してコピーしてください。"
   },
-  "Notifications": {
-    "NOTIFY_COPY_SUCCESS": "リンクをクリップボードにコピーしました"
+  "notifications": {
+    "notify_copy_success": "リンクをクリップボードにコピーしました"
   },
   "parameters": {
     "months": {

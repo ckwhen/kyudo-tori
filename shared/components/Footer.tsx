@@ -8,7 +8,7 @@ type Props = {
 
 export default function Footer({ latestSyncAt }: Props) {
   const format = useFormatter();
-  const t = useTranslations('LandingPage.footer');
+  const tFooter = useTranslations('landing_page.footer');
     const latestSyncAtObj = latestSyncAt
       ? getDateByTimezone(latestSyncAt, UTC_TIMEZONE)
       : null;
@@ -38,25 +38,25 @@ export default function Footer({ latestSyncAt }: Props) {
 
         <div className="space-y-2 md:pl-16">
           <h4 className="font-bold text-canvas uppercase tracking-widest">
-            {t('sitemap')}
+            {tFooter('sitemap')}
           </h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/" className="hover:text-gold transition-colors">{t('shinsa')}</Link>
+              <Link href="/" className="hover:text-gold transition-colors">{tFooter('shinsa')}</Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-gold transition-colors">{t('about')}</Link>
+              <Link href="/about" className="hover:text-gold transition-colors">{tFooter('about')}</Link>
             </li>
           </ul>
         </div>
 
         <div className="space-y-2">
           <h4 className="font-bold text-canvas uppercase tracking-widest">
-            {t('changelog')}
+            {tFooter('changelog')}
           </h4>
           <div className="font-mono text-sm">
             <div className="text-gold">
-              {t('lastProofread', { date: formatLatestSyncAt })}
+              {tFooter('last_proofread', { date: formatLatestSyncAt })}
             </div>
           </div>
         </div>

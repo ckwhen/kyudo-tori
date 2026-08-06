@@ -1,69 +1,82 @@
 {
-  "LandingPage": {
+  "landing_page": {
     "subtitle": "All Japan Kyudo Shinsa Information. Structured Search Platform.",
     "footer": {
       "sitemap": "Sitemap",
       "shinsa": "Shinsa Info",
       "about": "About",
       "changelog": "Changelog",
-      "lastProofread": "Last Proofread: {date}"
+      "last_proofread": "Last Proofread: {date}"
     }
   },
-  "LocaleSwitcher": {
-    "zh-TW": "Chinese (Traditional)",
+  "locale_switcher": {
+    "zh-tw": "Chinese (Traditional)",
     "ja": "Japanese",
     "en": "English"
   },
-  "ShinsaDashboard": {
+  "shinsa_dashboard": {
     "filter": "Filters",
-    "showingAllInfo": "Currently showing all shinsa information",
-    "removeCondition": "Remove {condition} filter",
-    "clearAll": "Clear All",
-    "shinsaStatus": {
+    "showing_all_info": "Currently showing all shinsa information",
+    "remove_condition": "Remove {condition} filter",
+    "clear_all": "Clear All",
+    "shinsa_status": {
       "future": "2+ Months Ahead",
       "recent": "Upcoming",
       "history": "History"
     }
   },
-  "ShinsaCard": {
-    "openInMaps": "Open in Google Maps",
-    "defaultKyudojo": "Designated Kyudojo",
-    "unknownPrefecture": "Unknown Prefecture",
-    "unknownFederation": "Unknown Federation",
-    "startDate": "Date",
-    "locationName": "Location"
+  "shinsa_card": {
+    "open_in_map": "Open in Google Maps",
+    "default_kyudojo": "Designated Kyudojo",
+    "unknown_prefecture": "Unknown Prefecture",
+    "unknown_federation": "Unknown Federation",
+    "start_date": "Date",
+    "location_name": "Location",
+    "federations": {
+      "hokkaido": "Hokkaido Kyudo Federation", "sapporo": "Sapporo Kyudo Federation", "eniwa": "Eniwa Kyudo Federation", "otaru": "Otaru Kyudo Federation", "chitose": "Chitose Kyudo Federation",
+      "aomori": "Aomori Kyudo Federation", "iwate": "Iwate Kyudo Federation", "miyagi": "Miyagi Kyudo Federation", "akita": "Akita Kyudo Federation", "yamagata": "Yamagata Kyudo Federation",
+      "fukushima": "Fukushima Kyudo Federation", "ibaraki": "Ibaraki Kyudo Federation", "tochigi": "Tochigi Kyudo Federation", "gunma": "Gunma Kyudo Federation", "saitama": "Saitama Kyudo Federation",
+      "chiba": "Chiba Kyudo Federation", "tokyo": "Tokyo Kyudo Federation", "tokyo-dist-1": "Tokyo Kyudo Federation District 1", "tokyo-dist-2": "Tokyo Kyudo Federation District 2", "tokyo-dist-3": "Tokyo Kyudo Federation District 3",
+      "kanagawa": "Kanagawa Kyudo Federation", "yamanashi": "Yamanashi Kyudo Federation", "niigata": "Niigata Kyudo Federation", "nagano": "Nagano Kyudo Federation", "toyama": "Toyama Kyudo Federation",
+      "ishikawa": "Ishikawa Kyudo Federation", "fukui": "Fukui Kyudo Federation", "shizuoka": "Shizuoka Kyudo Federation", "aichi": "Aichi Kyudo Federation", "gifu": "Gifu Kyudo Federation",
+      "mie": "Mie Kyudo Federation", "shiga": "Shiga Kyudo Federation", "kyoto": "Kyoto Kyudo Federation", "osaka": "Osaka Kyudo Federation", "hyogo": "Hyogo Kyudo Federation",
+      "nara": "Nara Kyudo Federation", "wakayama": "Wakayama Kyudo Federation", "kagawa": "Kagawa Kyudo Federation", "tokushima": "Tokushima Kyudo Federation", "kochi": "Kochi Kyudo Federation",
+      "ehime": "Ehime Kyudo Federation", "tottori": "Tottori Kyudo Federation", "shimane": "Shimane Kyudo Federation", "okayama": "Okayama Kyudo Federation", "hiroshima": "Hiroshima Kyudo Federation",
+      "yamaguchi": "Yamaguchi Kyudo Federation", "fukuoka": "Fukuoka Kyudo Federation", "saga": "Saga Kyudo Federation", "nagasaki": "Nagasaki Kyudo Federation", "kumamoto": "Kumamoto Kyudo Federation",
+      "oita": "Oita Kyudo Federation", "miyazaki": "Miyazaki Kyudo Federation", "kagoshima": "Kagoshima Kyudo Federation", "okinawa": "Okinawa Kyudo Federation"
+    }
   },
-  "ShinsaFiltersModal": {
+  "shinsa_filters_modal": {
     "filter": "Filters",
-    "regionAndPref": "Region & Prefecture",
-    "reviewRank": "Rank",
-    "holdingMonth": "Month",
-    "selectAll": "Select All",
-    "deselectAll": "Deselect All",
-    "clearAll": "Clear All",
+    "region_and_pref": "Region & Prefecture",
+    "review_rank": "Rank",
+    "holding_month": "Month",
+    "select_all": "Select All",
+    "deselect_all": "Deselect All",
+    "clear_all": "Clear All",
     "confirm": "Confirm",
-    "closeWindow": "Close"
+    "close_window": "Close"
   },
-  "NotFound": {
+  "not_found": {
     "stray_arrow": "The arrow has missed the target and lost its path.",
     "adjust_breath": "Please take a deep breath, use the link above, and return to your shooting position."
   },
-  "About": {
-    "pageTitle": "About Kyudo Tori",
-    "whyTitle": "The Vision Behind the Project",
-    "whyParagraph1": "Currently, shinsa announcements from local Kyudo federations across Japan vary widely, reflecting regional traditions and preferences in their layout and formatting. For Kyudo learners planning to travel across regions or from overseas to take their shinsa, tracking down and consolidating this scattered information can be a daunting, time-consuming process.",
-    "whyParagraph2": "This project was born to streamline that journey, allowing you to focus entirely on what matters most. By providing a clean, intuitive search interface, Kyudo Tori helps Kyudo learners aggregate and retrieve shinsa updates from all over Japan at a single glance, saving your energy for every single shot.",
-    "techTitle": "Tech Stack & Architecture",
-    "techParagraph1": "The frontend is built on <bold>Next.js</bold> and <bold>Tailwind CSS</bold>, featuring a fully responsive web design (<bold>RWD</bold>) to ensure a seamless browsing experience across desktops, tablets, and mobile devices.",
-    "techParagraph2": "Under the hood, a <bold>Python</bold>-driven data module aggregates and structures scattered shinsa updates, storing them securely in a <bold>PostgreSQL</bold> database. This approach strives to present data to all users in a highly transparent and intuitive manner while strictly maintaining accuracy."
+  "about": {
+    "page_title": "About Kyudo Tori",
+    "why_title": "The Vision Behind the Project",
+    "why_paragraph1": "Currently, shinsa announcements from local Kyudo federations across Japan vary widely, reflecting regional traditions and preferences in their layout and formatting. For Kyudo learners planning to travel across regions or from overseas to take their shinsa, tracking down and consolidating this scattered information can be a daunting, time-consuming process.",
+    "why_paragraph2": "This project was born to streamline that journey, allowing you to focus entirely on what matters most. By providing a clean, intuitive search interface, Kyudo Tori helps Kyudo learners aggregate and retrieve shinsa updates from all over Japan at a single glance, saving your energy for every single shot.",
+    "tech_title": "Tech Stack & Architecture",
+    "tech_paragraph1": "The frontend is built on <bold>Next.js</bold> and <bold>Tailwind CSS</bold>, featuring a fully responsive web design (<bold>RWD</bold>) to ensure a seamless browsing experience across desktops, tablets, and mobile devices.",
+    "tech_paragraph2": "Under the hood, a <bold>Python</bold>-driven data module aggregates and structures scattered shinsa updates, storing them securely in a <bold>PostgreSQL</bold> database. This approach strives to present data to all users in a highly transparent and intuitive manner while strictly maintaining accuracy."
   },
-  "Errors": {
-    "ERR_SYSTEM_UNKNOWN": "An unknown system error occurred. Please try again later.",
-    "ERR_DB_OPERATION_FAILED": "Database operation failed. Please check the connection.",
-    "ERR_COPY_OPERATION_FAILED": "Copy failed. Please select and copy the link manually."
+  "errors": {
+    "err_system_unknown": "An unknown system error occurred. Please try again later.",
+    "err_db_operation_failed": "Database operation failed. Please check the connection.",
+    "err_copy_operation_failed": "Copy failed. Please select and copy the link manually."
   },
-  "Notifications": {
-    "NOTIFY_COPY_SUCCESS": "Link copied to clipboard"
+  "notifications": {
+    "notify_copy_success": "Link copied to clipboard"
   },
   "parameters": {
     "months": {

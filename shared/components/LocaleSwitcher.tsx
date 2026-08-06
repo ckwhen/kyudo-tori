@@ -9,15 +9,15 @@ export default function LocaleSwitcher() {
   const currentLocale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
-  const [isOpen, setIsOpen] = useState(false);
+  const [ isPending, startTransition ] = useTransition();
+  const [ isOpen, setIsOpen ] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const t = useTranslations('LocaleSwitcher');
+  const tSwitcher = useTranslations('locale_switcher');
   const langOptions = [
-    { code: 'zh-TW', label: t('zh-TW') },
-    { code: 'ja', label: t('ja') },
-    { code: 'en', label: t('en') }
+    { code: 'zh-tw', label: tSwitcher('zh-tw') },
+    { code: 'ja', label: tSwitcher('ja') },
+    { code: 'en', label: tSwitcher('en') }
   ];
 
   const handleLocaleChange = (nextLocale: string) => {

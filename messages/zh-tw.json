@@ -1,0 +1,134 @@
+{
+  "landing_page": {
+    "subtitle": "全日本弓道審查情報 · 結構化檢索平台",
+    "footer": {
+      "sitemap": "網站導覽",
+      "shinsa": "審查情報",
+      "about": "關於本站",
+      "changelog": "更新紀錄",
+      "last_proofread": "最後校對：{date}"
+    }
+  },
+  "locale_switcher": {
+    "zh-tw": "中文 (繁體)",
+    "ja": "日文",
+    "en": "英文"
+  },
+  "shinsa_dashboard": {
+    "filter": "篩選條件",
+    "showing_all_info": "目前顯示所有審查資訊",
+    "remove_condition": "移除 {condition} 條件",
+    "clear_all": "全部清除",
+    "shinsa_status": {
+      "future": "超過 2 個月",
+      "recent": "即將舉辦",
+      "history": "歷史資料"
+    }
+  },
+  "shinsa_card": {
+    "open_in_map": "點擊開啟 Google 地圖",
+    "default_kyudojo": "指定弓道場",
+    "unknown_prefecture": "未知縣市",
+    "unknown_federation": "未知連盟",
+    "start_date": "日期",
+    "location_name": "地點",
+    "federations": {
+      "hokkaido": "北海道弓道連盟", "sapporo": "札幌弓道連盟", "eniwa": "惠庭弓道連盟", "otaru": "小樽弓道連盟", "chitose": "千歲弓道連盟",
+      "aomori": "青森縣弓道連盟", "iwate": "岩手縣弓道連盟", "miyagi": "宮城縣弓道連盟", "akita": "秋田縣弓道連盟", "yamagata": "山形縣弓道連盟",
+      "fukushima": "福島縣弓道連盟", "ibaraki": "茨城縣弓道連盟", "tochigi": "栃木縣弓道連盟", "gunma": "群馬縣弓道連盟", "saitama": "埼玉縣弓道連盟",
+      "chiba": "千葉縣弓道連盟", "tokyo": "東京都弓道連盟", "tokyo-dist-1": "東京都弓道連盟 第一地區", "tokyo-dist-2": "東京都弓道連盟 第二地區", "tokyo-dist-3": "東京都弓道連盟 第三地區",
+      "kanagawa": "神奈川縣弓道連盟", "yamanashi": "山梨縣弓道連盟", "niigata": "新潟縣弓道連盟", "nagano": "長野縣弓道連盟", "toyama": "富山縣弓道連盟",
+      "ishikawa": "石川縣弓道連盟", "fukui": "福井縣弓道連盟", "shizuoka": "靜岡縣弓道連盟", "aichi": "愛知縣弓道連盟", "gifu": "岐阜縣弓道連盟",
+      "mie": "三重縣弓道連盟", "shiga": "滋賀縣弓道連盟", "kyoto": "京都府弓道連盟", "osaka": "大阪府弓道連盟", "hyogo": "兵庫縣弓道連盟",
+      "nara": "奈良縣弓道連盟", "wakayama": "和歌山縣弓道連盟", "kagawa": "香川縣弓道連盟", "tokushima": "德島縣弓道連盟", "kochi": "高知縣弓道連盟",
+      "ehime": "愛媛縣弓道連盟", "tottori": "鳥取縣弓道連盟", "shimane": "島根縣弓道連盟", "okayama": "岡山縣弓道連盟", "hiroshima": "廣島縣弓道連盟",
+      "yamaguchi": "山口縣弓道連盟", "fukuoka": "福岡縣弓道連盟", "saga": "佐賀縣弓道連盟", "nagasaki": "長崎縣弓道連盟", "kumamoto": "熊本縣弓道連盟",
+      "oita": "大分縣弓道連盟", "miyazaki": "宮崎縣弓道連盟", "kagoshima": "鹿兒島縣弓道連盟", "okinawa": "沖繩縣弓道連盟"
+    }
+  },
+  "shinsa_filters_modal": {
+    "filter": "篩選條件",
+    "region_and_pref": "舉辦地區與縣市",
+    "review_rank": "審查段位",
+    "holding_month": "舉辦月份",
+    "select_all": "全選",
+    "deselect_all": "取消全選",
+    "clear_all": "清除全部",
+    "confirm": "確認",
+    "close_window": "關閉視窗"
+  },
+  "not_found": {
+    "stray_arrow": "箭矢似乎有它想去的地方，正處於尋覓的旅途中。",
+    "adjust_breath": "請跟著上方的連結重新調整呼吸，再次步入射位吧。"
+  },
+  "about": {
+    "page_title": "關於 Kyudo Tori",
+    "why_title": "開發初衷",
+    "why_paragraph1": "目前日本各弓道連盟的審査公告，往往各自承襲了當地的傳統與習慣，格式與排版也因此大相徑庭。這讓計畫跨區、甚至跨海遠征審查的弓道同好，在初期搜集與整理資訊時，總得面臨資訊分散各處的考驗，得耗費不少心力多方翻找。",
+    "why_paragraph2": "為了讓這條審查之路能走得更專注、流暢，這個專案因而誕生。我希望打造一個簡潔、直覺的查詢介面，協助大家一目了然地整合與檢索各地審查資訊，把最珍貴的心力，留給每一次站在射位上的行射。",
+    "tech_title": "Tech Stack 與運作機制",
+    "tech_paragraph1": "本站前端基於 <bold>Next.js</bold> 與 <bold>Tailwind CSS</bold> 建構，具備完善的響應式網頁設計（<bold>RWD</bold>），不論是使用電腦、平板還是手機，都能享有流暢的瀏覽體驗。",
+    "tech_paragraph2": "在底層架構方面，採用以 <bold>Python</bold> 開發的資料處理模組，將各地分散的審查公告進行結構化彙整，並穩定儲存於 <bold>PostgreSQL</bold> 資料庫中。在確保資料精確的前提下，致力於用最高透明度且直覺的方式，將資訊呈現給所有使用者。"
+  },
+  "errors": {
+    "err_system_unknown": "系統發生未知錯誤，請稍後再試。",
+    "err_db_operation_failed": "資料庫處理失敗，請檢查連線。",
+    "err_copy_operation_failed": "複製失敗，請手動選取並複製連結。"
+  },
+  "notifications": {
+    "notify_copy_success": "連結已複製到剪貼簿"
+  },
+  "parameters": {
+    "months": {
+      "january": "一月",
+      "february": "二月",
+      "march": "三月",
+      "april": "四月",
+      "may": "五月",
+      "june": "六月",
+      "july": "七月",
+      "august": "八月",
+      "september": "九月",
+      "october": "十月",
+      "november": "十一月",
+      "december": "十二月"
+    },
+    "regions": {
+      "hokkaido": "北海道",
+      "tohoku": "東北",
+      "kanto": "關東",
+      "hokushinetsu": "北信越",
+      "tokai": "東海",
+      "kinki": "近畿",
+      "chugoku": "中國",
+      "shikoku": "四國",
+      "kyushu": "九州"
+    },
+    "prefectures": {
+      "JP-01": "北海道", "JP-02": "青森", "JP-03": "岩手", "JP-04": "宮城", "JP-05": "秋田",
+      "JP-06": "山形", "JP-07": "福島", "JP-08": "茨城", "JP-09": "栃木", "JP-10": "群馬",
+      "JP-11": "埼玉", "JP-12": "千葉", "JP-13": "東京", "JP-14": "神奈川", "JP-15": "新潟",
+      "JP-16": "富山", "JP-17": "石川", "JP-18": "福井", "JP-19": "山梨", "JP-20": "長野",
+      "JP-21": "岐阜", "JP-22": "靜岡", "JP-23": "愛知", "JP-24": "三重", "JP-25": "滋賀",
+      "JP-26": "京都", "JP-27": "大阪", "JP-28": "兵庫", "JP-29": "奈良", "JP-30": "和歌山",
+      "JP-31": "鳥取", "JP-32": "島根", "JP-33": "岡山", "JP-34": "廣島", "JP-35": "山口",
+      "JP-36": "德島", "JP-37": "香川", "JP-38": "愛媛", "JP-39": "高知", "JP-40": "福岡",
+      "JP-41": "佐賀", "JP-42": "長崎", "JP-43": "熊本", "JP-44": "大分", "JP-45": "宮崎",
+      "JP-46": "鹿兒島", "JP-47": "沖繩"
+    },
+    "ranks": {
+      "none": "無指定",
+      "kyo": "級位",
+      "shodan": "初段",
+      "nidan": "貳段",
+      "sandan": "參段",
+      "yondan": "四段",
+      "godan": "五段",
+      "rokudan": "六段",
+      "nanadan": "七段",
+      "hachidan": "八段",
+      "renshi": "鍊士",
+      "kyoshi": "教士"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 export default function NotFoundPage() {
-  const t = useTranslations('NotFound');
+  const t = useTranslations('not_found');
 
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">

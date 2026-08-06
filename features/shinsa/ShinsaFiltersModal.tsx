@@ -31,7 +31,7 @@ export default function ShinsaFiltersModal({
   onApply,
   onClose,
 }: Props) {
-  const t = useTranslations('ShinsaFiltersModal');
+  const tModal = useTranslations('shinsa_filters_modal');
   const [ tempFilters, setTempFilters ] = useState<FilterState>({
     prefectures: [...currentFilters.prefectures],
     ranks: [...currentFilters.ranks],
@@ -67,7 +67,7 @@ export default function ShinsaFiltersModal({
     return (
       <div className="space-y-4">
         <h4 className="font-serif font-bold text-ink/60 tracking-wider mb-3">
-          {t('regionAndPref')}
+          {tModal('region_and_pref')}
         </h4>
         <div className="grid grid-cols-3 gap-2 mb-0">
           {regionOptions.map(region => {
@@ -118,14 +118,14 @@ export default function ShinsaFiltersModal({
               let selectLabel = (
                 <>
                   <Check className="w-3 h-3 mr-1" />
-                  <span>{t('selectAll')}</span>
+                  <span>{tModal('select_all')}</span>
                 </>
               );
               if (isAllSelected) {
                 selectLabel = (
                   <>
                     <X className="w-3 h-3 mr-1" />
-                    <span>{t('deselectAll')}</span>
+                    <span>{tModal('deselect_all')}</span>
                   </>
                 );
               }
@@ -209,7 +209,7 @@ export default function ShinsaFiltersModal({
         <div className="flex justify-between items-center px-6 pt-6 pb-3 border-b border-ink/10 shrink-0">
           <h3 className="text-lg font-serif font-bold flex items-center gap-2">
             <SlidersHorizontal className="w-4 h-4 text-moss" />
-            <span>{t('filter')}</span>
+            <span>{tModal('filter')}</span>
           </h3>
           <button 
             type="button"
@@ -218,7 +218,7 @@ export default function ShinsaFiltersModal({
               onClose();
             }}
             className="text-ink/40 hover:text-ink hover:bg-ink/5 p-1.5 rounded-full transition-colors cursor-pointer active:scale-95"
-            aria-label={t('closeWindow')}
+            aria-label={tModal('close_window')}
           >
             <X className="w-4 h-4" />
           </button>
@@ -227,7 +227,7 @@ export default function ShinsaFiltersModal({
           {renderRegionsBlock(regionOptions)}
           <div>
             <h4 className="font-serif font-bold text-ink/60 tracking-wider mb-3">
-              {t('reviewRank')}
+              {tModal('review_rank')}
             </h4>
             <div className="grid grid-cols-4 gap-2">
               {rankOptions.map(rank => renderRankOption(rank))}
@@ -235,7 +235,7 @@ export default function ShinsaFiltersModal({
           </div>
           <div>
             <h4 className="font-serif font-bold text-ink/60 tracking-wider mb-3">
-              {t('holdingMonth')}
+              {tModal('holding_month')}
             </h4>
             <div className="grid grid-cols-4 gap-2">
               {monthOptions.map(month => renderMonthOption(month))}
@@ -248,7 +248,7 @@ export default function ShinsaFiltersModal({
             onClick={resetFilter}
             className="font-bold text-ink/50 hover:text-ink transition-colors cursor-pointer select-none active:scale-98"
           >
-            {t('clearAll')}
+            {tModal('clear_all')}
           </button>
           <button
             type="button"
@@ -258,7 +258,7 @@ export default function ShinsaFiltersModal({
             }}
             className="bg-moss hover:bg-ink text-canvas font-bold px-7 py-2 rounded-md tracking-wider transition-colors cursor-pointer active:scale-[0.97] transform shadow-xs"
           >
-            {t('confirm')}
+            {tModal('confirm')}
           </button>
         </div>
       </div>

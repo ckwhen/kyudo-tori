@@ -4,6 +4,7 @@ import { regions, prefectures } from './region';
 export const federations = pgTable("federations", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: varchar("name", { length: 255 }).notNull().unique(),
+  code: varchar("code", { length: 50 }).notNull().unique(),
   prefectureCode: varchar("prefecture_code", { length: 10 })
     .references(() => prefectures.code, { onDelete: 'set null' }),
   regionId: uuid("region_id")
