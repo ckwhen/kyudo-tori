@@ -102,6 +102,20 @@
       "JP-36": "Tokushima", "JP-37": "Kagawa", "JP-38": "Ehime", "JP-39": "Kochi", "JP-40": "Fukuoka",
       "JP-41": "Saga", "JP-42": "Nagasaki", "JP-43": "Kumamoto", "JP-44": "Oita", "JP-45": "Miyazaki",
       "JP-46": "Kagoshima", "JP-47": "Okinawa"
+    },
+    "ranks": {
+      "none": "Mushitei",
+      "kyo": "Kyu Rank",
+      "shodan": "Shodan",
+      "nidan": "Nidan",
+      "sandan": "Sandan",
+      "yondan": "Yondan",
+      "godan": "Godan",
+      "rokudan": "Rokudan",
+      "nanadan": "Nanadan",
+      "hachidan": "Hachidan",
+      "renshi": "Renshi",
+      "kyoshi": "Kyoshi"
     }
   }
 }

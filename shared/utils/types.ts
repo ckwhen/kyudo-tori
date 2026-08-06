@@ -23,6 +23,10 @@ export type RegionOptionData = {
   prefectures: PrefectureOptionData[],
 }
 
+export type RankOptionData = {
+  code: string,
+}
+
 export type ActionResponse<T, M = Record<string, unknown>> =
   | { data: T; meta: M; errorCode?: never }
   | { errorCode: ErrorCode; data?: never; meta?: never };

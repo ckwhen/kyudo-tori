@@ -11,7 +11,8 @@ import { FILTER_SEPARATOR, NOTIFICATION_CODES } from '@/shared/utils/constants';
 import type {
   Option,
   RegionOption,
-  RegionOptionData
+  RegionOptionData,
+  RankOptionData
 } from '@/shared/utils/types';
 import { ERROR_CODES, type ErrorCode } from "@/shared/utils/error-handler";
 import { MONTH_KEYS } from '@/shared/utils/date';
@@ -23,7 +24,7 @@ type Props = {
   data: ShinsaData[],
   errorCode?: ErrorCode;
   regionOptionData: RegionOptionData[],
-  rankOptions: Option[],
+  rankOptionData: RankOptionData[],
   pagination: {
     offset: number,
     limit: number,
@@ -35,7 +36,7 @@ export default function ShinsaDashboard({
   data,
   errorCode,
   regionOptionData,
-  rankOptions,
+  rankOptionData,
   pagination,
 }: Props) {
   const router = useRouter();
@@ -70,6 +71,12 @@ export default function ShinsaDashboard({
       }))
     }));
   }, [ regionOptionData, tParams ]);
+  const rankOptions: Option[] = useMemo(() => {
+    return rankOptionData.map((r) => ({
+      value: r.code,
+      label: tParams(`ranks.${r.code}`)
+    }));
+  }, [ rankOptionData, tParams ]);
 
   const currentFilters: FilterState = {
     prefectures: searchParams.get('prefectures')?.split(FILTER_SEPARATOR)

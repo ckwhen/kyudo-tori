@@ -1,7 +1,7 @@
 import type {
   Pager,
-  Option,
-  RegionOptionData
+  RegionOptionData,
+  RankOptionData
 } from '@/shared/utils/types';
 
 export type PrefectureResponse = {
@@ -78,5 +78,5 @@ export type ShinsaListResponse<T> = {
 
 export type FilterOptionsGroupData = {
   regions: RegionOptionData[];
-  ranks: Option[];
+  ranks: RankOptionData[];
 }

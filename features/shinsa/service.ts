@@ -159,10 +159,7 @@ export async function getFilterOptionsGroup(): Promise<ActionResponse<FilterOpti
           }
         }
       }),
-      db.select({
-          value: ranks.code,
-          label: ranks.name,
-        })
+      db.select({ code: ranks.code })
         .from(ranks)
         .where(and(
           gte(ranks.weight, 0),
