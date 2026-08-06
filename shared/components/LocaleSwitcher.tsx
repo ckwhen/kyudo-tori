@@ -15,7 +15,7 @@ export default function LocaleSwitcher() {
 
   const tSwitcher = useTranslations('locale_switcher');
   const langOptions = [
-    { code: 'zh-TW', label: tSwitcher('zh-TW') },
+    { code: 'zh-tw', label: tSwitcher('zh-tw') },
     { code: 'ja', label: tSwitcher('ja') },
     { code: 'en', label: tSwitcher('en') }
   ];
