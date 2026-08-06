@@ -23,20 +23,6 @@
       "future": "2ヶ月以上先",
       "recent": "近日開催",
       "history": "実施済み"
-    },
-    "monthOptions": {
-      "January": "1月",
-      "February": "2月",
-      "March": "3月",
-      "April": "4月",
-      "May": "5月",
-      "June": "6月",
-      "July": "7月",
-      "August": "8月",
-      "September": "9月",
-      "October": "10月",
-      "November": "11月",
-      "December": "12月"
     }
   },
   "ShinsaCard": {
@@ -78,5 +64,21 @@
   },
   "Notifications": {
     "NOTIFY_COPY_SUCCESS": "リンクをクリップボードにコピーしました"
+  },
+  "parameters": {
+    "months": {
+      "january": "1月",
+      "february": "2月",
+      "march": "3月",
+      "april": "4月",
+      "may": "5月",
+      "june": "6月",
+      "july": "7月",
+      "august": "8月",
+      "september": "9月",
+      "october": "10月",
+      "november": "11月",
+      "december": "12月"
+    }
   }
 }

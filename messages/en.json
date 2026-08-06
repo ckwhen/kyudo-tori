@@ -23,20 +23,6 @@
       "future": "2+ Months Ahead",
       "recent": "Upcoming",
       "history": "History"
-    },
-    "monthOptions": {
-      "January": "January",
-      "February": "February",
-      "March": "March",
-      "April": "April",
-      "May": "May",
-      "June": "June",
-      "July": "July",
-      "August": "August",
-      "September": "September",
-      "October": "October",
-      "November": "November",
-      "December": "December"
     }
   },
   "ShinsaCard": {
@@ -78,5 +64,21 @@
   },
   "Notifications": {
     "NOTIFY_COPY_SUCCESS": "Link copied to clipboard"
+  },
+  "parameters": {
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
   }
 }

@@ -7,13 +7,10 @@ import { useTranslations } from 'next-intl';
 import { useCopyToClipboard } from "usehooks-ts";
 import { useAppToast } from "@/shared/hooks/useAppToast";
 import { Pagination, Button } from '@/shared/components';
-import {
-  MONTH_KEYS,
-  FILTER_SEPARATOR,
-  NOTIFICATION_CODES
-} from '@/shared/utils/constants';
+import { FILTER_SEPARATOR, NOTIFICATION_CODES } from '@/shared/utils/constants';
 import type { RegionOption, Option } from '@/shared/utils/types';
 import { ERROR_CODES, type ErrorCode } from "@/shared/utils/error-handler";
+import { MONTH_KEYS } from '@/shared/utils/date';
 import type { ShinsaData } from './types';
 import ShinsaFiltersModal, { FilterState } from './ShinsaFiltersModal';
 import ShinsaCard from './ShinsaCard';
@@ -41,6 +38,7 @@ export default function ShinsaDashboard({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = useTranslations('ShinsaDashboard');
+  const tParams = useTranslations('parameters');
   const { showError, showNotification } = useAppToast();
   const [ _copiedText, copyToClipboard ] = useCopyToClipboard();
   const { limit } = pagination;
@@ -52,12 +50,12 @@ export default function ShinsaDashboard({
     }
   }, [ errorCode, showError ]);
 
-  const monthOptions = useMemo(() => {
+  const monthOptions: Option[] = useMemo(() => {
     return MONTH_KEYS.map((month, i) => ({
       value: `${i + 1}`,
-      label: t(`monthOptions.${month}`),
+      label: tParams(`months.${month}`),
     }));
-  }, [ t ]);
+  }, [ tParams ]);
 
   const currentFilters: FilterState = {
     prefectures: searchParams.get('prefectures')?.split(FILTER_SEPARATOR)
