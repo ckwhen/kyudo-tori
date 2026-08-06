@@ -8,7 +8,11 @@ import { useCopyToClipboard } from "usehooks-ts";
 import { useAppToast } from "@/shared/hooks/useAppToast";
 import { Pagination, Button } from '@/shared/components';
 import { FILTER_SEPARATOR, NOTIFICATION_CODES } from '@/shared/utils/constants';
-import type { RegionOption, Option } from '@/shared/utils/types';
+import type {
+  Option,
+  RegionOption,
+  RegionOptionData
+} from '@/shared/utils/types';
 import { ERROR_CODES, type ErrorCode } from "@/shared/utils/error-handler";
 import { MONTH_KEYS } from '@/shared/utils/date';
 import type { ShinsaData } from './types';
@@ -18,7 +22,7 @@ import ShinsaCard from './ShinsaCard';
 type Props = {
   data: ShinsaData[],
   errorCode?: ErrorCode;
-  regionOptions: RegionOption[],
+  regionOptionData: RegionOptionData[],
   rankOptions: Option[],
   pagination: {
     offset: number,
@@ -30,7 +34,7 @@ type Props = {
 export default function ShinsaDashboard({
   data,
   errorCode,
-  regionOptions,
+  regionOptionData,
   rankOptions,
   pagination,
 }: Props) {
@@ -56,6 +60,16 @@ export default function ShinsaDashboard({
       label: tParams(`months.${month}`),
     }));
   }, [ tParams ]);
+  const regionOptions: RegionOption[] = useMemo(() => {
+    return regionOptionData.map((r) => ({
+      value: r.code,
+      label: tParams(`regions.${r.code}`),
+      prefectures: r.prefectures.map((p) => ({
+        value: p.code,
+        label: tParams(`prefectures.${p.code}`)
+      }))
+    }));
+  }, [ regionOptionData, tParams ]);
 
   const currentFilters: FilterState = {
     prefectures: searchParams.get('prefectures')?.split(FILTER_SEPARATOR)

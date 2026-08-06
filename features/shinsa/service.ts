@@ -7,11 +7,7 @@ import {
   shinsas, ranksShinsas, ranks,
   regions, prefectures, federations, kyudojos
 } from '@/database/schema';
-import type {
-  ActionResponse,
-  Option,
-  RegionOption
-} from "@/shared/utils/types";
+import type { ActionResponse } from "@/shared/utils/types";
 import { safeDatabaseCall } from "@/shared/utils/error-handler";
 import {
   getCurrentUTCDate,
@@ -19,7 +15,12 @@ import {
   TWO_MONTHS_IN_DAYS,
   DATETIME_FORMAT,
 } from '@/shared/utils/date';
-import type { ShinsaRequest, ShinsaData, ShinsaMetaData } from './types';
+import type {
+  ShinsaRequest,
+  ShinsaData,
+  ShinsaMetaData,
+  FilterOptionsGroupData
+} from './types';
 
 export async function getFilteredShinsas({
   offset,
@@ -145,11 +146,6 @@ export async function getFilteredShinsas({
   });
 }
 
-type FilterOptionsGroupData = {
-  regions: RegionOption[];
-  ranks: Option[];
-}
-
 export async function getFilterOptionsGroup(): Promise<ActionResponse<FilterOptionsGroupData>> {
   return safeDatabaseCall(async () => {
     const [ rawRegions, rawRanks ] = await Promise.all([
@@ -158,8 +154,7 @@ export async function getFilterOptionsGroup(): Promise<ActionResponse<FilterOpti
         with: {
           prefectures: {
             columns: {
-              code: true,
-              nameJa: true,
+              code: true
             }
           }
         }
@@ -177,11 +172,9 @@ export async function getFilterOptionsGroup(): Promise<ActionResponse<FilterOpti
     ]);
 
     const extractedRegions = rawRegions.map((r) => ({
-      value: r.code,
-      label: r.nameJa,
+      code: r.code,
       prefectures: r.prefectures.map((p) => ({
-        value: p.code,
-        label: p.nameJa
+        code: p.code
       }))
     }));
 
