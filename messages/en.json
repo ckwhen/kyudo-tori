@@ -1,15 +1,15 @@
 {
-  "LandingPage": {
+  "landing_page": {
     "subtitle": "All Japan Kyudo Shinsa Information. Structured Search Platform.",
     "footer": {
       "sitemap": "Sitemap",
       "shinsa": "Shinsa Info",
       "about": "About",
       "changelog": "Changelog",
-      "lastProofread": "Last Proofread: {date}"
+      "last_proofread": "Last Proofread: {date}"
     }
   },
-  "LocaleSwitcher": {
+  "locale_switcher": {
     "zh-TW": "Chinese (Traditional)",
     "ja": "Japanese",
     "en": "English"

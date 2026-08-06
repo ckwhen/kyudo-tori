@@ -1,15 +1,15 @@
 {
-  "LandingPage": {
+  "landing_page": {
     "subtitle": "全日本弓道審査情報 · 構造化検索プラットフォーム",
     "footer": {
       "sitemap": "サイトマップ",
       "shinsa": "審査情報",
       "about": "当サイトについて",
       "changelog": "更新履歴",
-      "lastProofread": "最終校正：{date}"
+      "last_proofread": "最終校正：{date}"
     }
   },
-  "LocaleSwitcher": {
+  "locale_switcher": {
     "zh-TW": "中国語 (繁体字)",
     "ja": "日本語",
     "en": "英語"

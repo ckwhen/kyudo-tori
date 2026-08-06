@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation';
 import LocaleSwitcher from './LocaleSwitcher';
 
 export default function Header() {
-  const t = useTranslations('LandingPage');
+  const t = useTranslations('landing_page');
 
   return (
     <header className="bg-moss text-canvas h-22.5 px-6 md:px-12 flex items-center shadow-xs sticky top-0 z-50">
