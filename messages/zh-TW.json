@@ -14,12 +14,12 @@
     "ja": "日文",
     "en": "英文"
   },
-  "ShinsaDashboard": {
+  "shinsa_dashboard": {
     "filter": "篩選條件",
-    "showingAllInfo": "目前顯示所有審查資訊",
-    "removeCondition": "移除 {condition} 條件",
-    "clearAll": "全部清除",
-    "shinsaStatus": {
+    "showing_all_info": "目前顯示所有審查資訊",
+    "remove_condition": "移除 {condition} 條件",
+    "clear_all": "全部清除",
+    "shinsa_status": {
       "future": "超過 2 個月",
       "recent": "即將舉辦",
       "history": "歷史資料"
@@ -46,16 +46,16 @@
       "oita": "大分縣弓道連盟", "miyazaki": "宮崎縣弓道連盟", "kagoshima": "鹿兒島縣弓道連盟", "okinawa": "沖繩縣弓道連盟"
     }
   },
-  "ShinsaFiltersModal": {
+  "shinsa_filters_modal": {
     "filter": "篩選條件",
-    "regionAndPref": "舉辦地區與縣市",
-    "reviewRank": "審查段位",
-    "holdingMonth": "舉辦月份",
-    "selectAll": "全選",
-    "deselectAll": "取消全選",
-    "clearAll": "清除全部",
+    "region_and_pref": "舉辦地區與縣市",
+    "review_rank": "審查段位",
+    "holding_month": "舉辦月份",
+    "select_all": "全選",
+    "deselect_all": "取消全選",
+    "clear_all": "清除全部",
     "confirm": "確認",
-    "closeWindow": "關閉視窗"
+    "close_window": "關閉視窗"
   },
   "NotFound": {
     "stray_arrow": "箭已脫靶，找不到方向。",

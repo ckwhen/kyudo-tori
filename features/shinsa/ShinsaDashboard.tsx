@@ -42,7 +42,7 @@ export default function ShinsaDashboard({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const t = useTranslations('ShinsaDashboard');
+  const tDashboard = useTranslations('shinsa_dashboard');
   const tParams = useTranslations('parameters');
   const { showError, showNotification } = useAppToast();
   const [ _copiedText, copyToClipboard ] = useCopyToClipboard();
@@ -139,7 +139,7 @@ export default function ShinsaDashboard({
     if (!hasAnyFilter) {
       return (
         <span className="text-ink/40">
-          {t('showingAllInfo')}
+          {tDashboard('showing_all_info')}
         </span>
       );
     }
@@ -161,7 +161,7 @@ export default function ShinsaDashboard({
                 type="button"
                 onClick={() => handleRemoveBadge(key, value)}
                 className="text-ink/30 hover:text-moss p-0.5 cursor-pointer transition-colors active:scale-75"
-                aria-label={t('removeCondition', { condition: getBadgeLabel(key, value) })}
+                aria-label={tDashboard('remove_condition', { condition: getBadgeLabel(key, value) })}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -173,7 +173,7 @@ export default function ShinsaDashboard({
           onClick={handleClearAllBadges}
           className="ml-1 text-ink/40 hover:text-moss decoration-ink/20 hover:decoration-moss font-medium underline underline-offset-4 cursor-pointer"
         >
-          {t('clearAll')}
+          {tDashboard('clear_all')}
         </button>
       </>
     );
@@ -189,22 +189,22 @@ export default function ShinsaDashboard({
           <div className="flex items-center gap-2 text-xs">
             <div className="flex items-center gap-1.5 bg-[#E8F2EC] text-[#2D6A4F] border border-[#2D6A4F]/10 px-2 py-1 rounded-sm font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]"></span>
-              <span>{t('shinsaStatus.future')}</span>
+              <span>{tDashboard('shinsa_status.future')}</span>
             </div>
             <div className="flex items-center gap-1.5 bg-[#FFF8E7] text-[#D9A013] border border-[#D9A013]/15 px-2 py-1 rounded-sm font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D9A013] animate-pulse"></span>
-              <span>{t('shinsaStatus.recent')}</span>
+              <span>{tDashboard('shinsa_status.recent')}</span>
             </div>
             <div className="flex items-center gap-1.5 bg-[#F0F1F3] text-[#7A828A] border border-[#7A828A]/15 px-2 py-1 rounded-sm font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-[#7A828A]"></span>
-              <span>{t('shinsaStatus.history')}</span>
+              <span>{tDashboard('shinsa_status.history')}</span>
             </div>
           </div>
           <div className="flex items-end gap-2">
             <Button onClick={() => setIsFilterOpen(true)}>
               <div className="flex items-center gap-2.5">
                 <SlidersHorizontal className="w-4 h-4 text-moss/70" />
-                <span className="tracking-wide">{t('filter')}</span>
+                <span className="tracking-wide">{tDashboard('filter')}</span>
               </div>
             </Button>
             <Button

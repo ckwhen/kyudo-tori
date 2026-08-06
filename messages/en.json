@@ -14,12 +14,12 @@
     "ja": "Japanese",
     "en": "English"
   },
-  "ShinsaDashboard": {
+  "shinsa_dashboard": {
     "filter": "Filters",
-    "showingAllInfo": "Currently showing all shinsa information",
-    "removeCondition": "Remove {condition} filter",
-    "clearAll": "Clear All",
-    "shinsaStatus": {
+    "showing_all_info": "Currently showing all shinsa information",
+    "remove_condition": "Remove {condition} filter",
+    "clear_all": "Clear All",
+    "shinsa_status": {
       "future": "2+ Months Ahead",
       "recent": "Upcoming",
       "history": "History"
@@ -46,16 +46,16 @@
       "oita": "Oita Kyudo Federation", "miyazaki": "Miyazaki Kyudo Federation", "kagoshima": "Kagoshima Kyudo Federation", "okinawa": "Okinawa Kyudo Federation"
     }
   },
-  "ShinsaFiltersModal": {
+  "shinsa_filters_modal": {
     "filter": "Filters",
-    "regionAndPref": "Region & Prefecture",
-    "reviewRank": "Rank",
-    "holdingMonth": "Month",
-    "selectAll": "Select All",
-    "deselectAll": "Deselect All",
-    "clearAll": "Clear All",
+    "region_and_pref": "Region & Prefecture",
+    "review_rank": "Rank",
+    "holding_month": "Month",
+    "select_all": "Select All",
+    "deselect_all": "Deselect All",
+    "clear_all": "Clear All",
     "confirm": "Confirm",
-    "closeWindow": "Close"
+    "close_window": "Close"
   },
   "NotFound": {
     "stray_arrow": "The arrow has missed the target and lost its path.",

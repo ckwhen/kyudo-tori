@@ -14,12 +14,12 @@
     "ja": "日本語",
     "en": "英語"
   },
-  "ShinsaDashboard": {
+  "shinsa_dashboard": {
     "filter": "検索条件",
-    "showingAllInfo": "現在、すべての審査情報を表示中",
-    "removeCondition": "条件「{condition}」を削除",
-    "clearAll": "すべてクリア",
-    "shinsaStatus": {
+    "showing_all_info": "現在、すべての審査情報を表示中",
+    "remove_condition": "条件「{condition}」を削除",
+    "clear_all": "すべてクリア",
+    "shinsa_status": {
       "future": "2ヶ月以上先",
       "recent": "近日開催",
       "history": "実施済み"
@@ -46,16 +46,16 @@
       "oita": "大分県弓道連盟", "miyazaki": "宮崎県弓道連盟", "kagoshima": "鹿児島県弓道連盟", "okinawa": "沖縄県弓道連盟"
     }
   },
-  "ShinsaFiltersModal": {
+  "shinsa_filters_modal": {
     "filter": "検索条件",
-    "regionAndPref": "開催地域・都道府県",
-    "reviewRank": "審査段位",
-    "holdingMonth": "開催月",
-    "selectAll": "すべて選択",
-    "deselectAll": "すべての選択を解除",
-    "clearAll": "すべてクリア",
+    "region_and_pref": "開催地域・都道府県",
+    "review_rank": "審査段位",
+    "holding_month": "開催月",
+    "select_all": "すべて選択",
+    "deselect_all": "すべての選択を解除",
+    "clear_all": "すべてクリア",
     "confirm": "確定",
-    "closeWindow": "閉じる"
+    "close_window": "閉じる"
   },
   "NotFound": {
     "stray_arrow": "矢は的を外れ、行方を見失ってしまいました。",
