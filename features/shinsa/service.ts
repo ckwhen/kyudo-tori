@@ -165,7 +165,7 @@ export async function getFilterOptionsGroup(): Promise<ActionResponse<FilterOpti
         })
         .from(ranks)
         .where(and(
-          gte(ranks.weight, 10),
+          gte(ranks.weight, 0),
           lt(ranks.weight, 50)
         ))
         .orderBy(asc(ranks.weight))
