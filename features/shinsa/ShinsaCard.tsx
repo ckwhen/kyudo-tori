@@ -154,7 +154,7 @@ export default function ShinsaCard({
         <div className="mb-3">
           {federation ? (
             <>
-              <span>{federation.prefecture?.nameJa || t('unknownPrefecture')}</span>
+              <span>{tParams(`prefectures.${federation.prefecture?.code}`) || t('unknownPrefecture')}</span>
               <span className="text-ink mx-2">|</span>
               <span className="truncate">{federation.name}</span>
             </>
