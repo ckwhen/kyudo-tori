@@ -57,18 +57,18 @@
     "confirm": "Confirm",
     "close_window": "Close"
   },
-  "NotFound": {
+  "not_found": {
     "stray_arrow": "The arrow has missed the target and lost its path.",
     "adjust_breath": "Please take a deep breath, use the link above, and return to your shooting position."
   },
-  "About": {
-    "pageTitle": "About Kyudo Tori",
-    "whyTitle": "The Vision Behind the Project",
-    "whyParagraph1": "Currently, shinsa announcements from local Kyudo federations across Japan vary widely, reflecting regional traditions and preferences in their layout and formatting. For Kyudo learners planning to travel across regions or from overseas to take their shinsa, tracking down and consolidating this scattered information can be a daunting, time-consuming process.",
-    "whyParagraph2": "This project was born to streamline that journey, allowing you to focus entirely on what matters most. By providing a clean, intuitive search interface, Kyudo Tori helps Kyudo learners aggregate and retrieve shinsa updates from all over Japan at a single glance, saving your energy for every single shot.",
-    "techTitle": "Tech Stack & Architecture",
-    "techParagraph1": "The frontend is built on <bold>Next.js</bold> and <bold>Tailwind CSS</bold>, featuring a fully responsive web design (<bold>RWD</bold>) to ensure a seamless browsing experience across desktops, tablets, and mobile devices.",
-    "techParagraph2": "Under the hood, a <bold>Python</bold>-driven data module aggregates and structures scattered shinsa updates, storing them securely in a <bold>PostgreSQL</bold> database. This approach strives to present data to all users in a highly transparent and intuitive manner while strictly maintaining accuracy."
+  "about": {
+    "page_title": "About Kyudo Tori",
+    "why_title": "The Vision Behind the Project",
+    "why_paragraph1": "Currently, shinsa announcements from local Kyudo federations across Japan vary widely, reflecting regional traditions and preferences in their layout and formatting. For Kyudo learners planning to travel across regions or from overseas to take their shinsa, tracking down and consolidating this scattered information can be a daunting, time-consuming process.",
+    "why_paragraph2": "This project was born to streamline that journey, allowing you to focus entirely on what matters most. By providing a clean, intuitive search interface, Kyudo Tori helps Kyudo learners aggregate and retrieve shinsa updates from all over Japan at a single glance, saving your energy for every single shot.",
+    "tech_title": "Tech Stack & Architecture",
+    "tech_paragraph1": "The frontend is built on <bold>Next.js</bold> and <bold>Tailwind CSS</bold>, featuring a fully responsive web design (<bold>RWD</bold>) to ensure a seamless browsing experience across desktops, tablets, and mobile devices.",
+    "tech_paragraph2": "Under the hood, a <bold>Python</bold>-driven data module aggregates and structures scattered shinsa updates, storing them securely in a <bold>PostgreSQL</bold> database. This approach strives to present data to all users in a highly transparent and intuitive manner while strictly maintaining accuracy."
   },
   "Errors": {
     "ERR_SYSTEM_UNKNOWN": "An unknown system error occurred. Please try again later.",
