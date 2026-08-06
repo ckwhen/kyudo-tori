@@ -31,7 +31,20 @@
     "unknownPrefecture": "不明な県",
     "unknownFederation": "未知の連盟",
     "startDate": "実施日",
-    "locationName": "場所"
+    "locationName": "場所",
+    "federations": {
+      "hokkaido": "北海道弓道連盟", "sapporo": "札幌弓道連盟", "eniwa": "恵庭弓道連盟", "otaru": "小樽弓道連盟", "chitose": "千歳弓道連盟",
+      "aomori": "青森県弓道連盟", "iwate": "岩手県弓道連盟", "miyagi": "宮城県弓道連盟", "akita": "秋田県弓道連盟", "yamagata": "山形県弓道連盟",
+      "fukushima": "福島県弓道連盟", "ibaraki": "茨城県弓道連盟", "tochigi": "栃木県弓道連盟", "gunma": "群馬県弓道連盟", "saitama": "埼玉県弓道連盟",
+      "chiba": "千葉県弓道連盟", "tokyo": "東京都弓道連盟", "tokyo-dist-1": "東京都弓道連盟 第一地区", "tokyo-dist-2": "東京都弓道連盟 第二地区", "tokyo-dist-3": "東京都弓道連盟 第三地区",
+      "kanagawa": "神奈川県弓道連盟", "yamanashi": "山梨県弓道連盟", "niigata": "新潟県弓道連盟", "nagano": "長野県弓道連盟", "toyama": "富山県弓道連盟",
+      "ishikawa": "石川県弓道連盟", "fukui": "福井県弓道連盟", "shizuoka": "静岡県弓道連盟", "aichi": "愛知県弓道連盟", "gifu": "岐阜県弓道連盟",
+      "mie": "三重県弓道連盟", "shiga": "滋賀県弓道連盟", "kyoto": "京都府弓道連盟", "osaka": "大阪府弓道連盟", "hyogo": "兵庫県弓道連盟",
+      "nara": "奈良県弓道連盟", "wakayama": "和歌山県弓道連盟", "kagawa": "香川県弓道連盟", "tokushima": "徳島県弓道連盟", "kochi": "高知県弓道連盟",
+      "ehime": "愛媛県弓道連盟", "tottori": "鳥取県弓道連盟", "shimane": "島根県弓道連盟", "okayama": "岡山県弓道連盟", "hiroshima": "広島県弓道連盟",
+      "yamaguchi": "山口県弓道連盟", "fukuoka": "福岡県弓道連盟", "saga": "佐賀県弓道連盟", "nagasaki": "長崎県弓道連盟", "kumamoto": "熊本県弓道連盟",
+      "oita": "大分県弓道連盟", "miyazaki": "宮崎県弓道連盟", "kagoshima": "鹿児島県弓道連盟", "okinawa": "沖縄県弓道連盟"
+    }
   },
   "ShinsaFiltersModal": {
     "filter": "検索条件",

@@ -61,7 +61,7 @@ export default function ShinsaCard({
   }
 }: Props) {
   const format = useFormatter();
-  const t = useTranslations('ShinsaCard');
+  const tCard = useTranslations('ShinsaCard');
   const tParams = useTranslations('parameters');
   const startAtJSTObj = startAt
     ? getDateByTimezone(startAt, JST_TIMEZONE)
@@ -109,7 +109,7 @@ export default function ShinsaCard({
           : (kyudojo.address || kyudojo.name || ''))
       : '';
     const locationLink = encodeURIComponent(mapQuery);
-    const displayName = kyudojo?.name || location || t('defaultKyudojo');
+    const displayName = kyudojo?.name || location || tCard('defaultKyudojo');
 
     if (kyudojo && mapQuery) {
       return (
@@ -118,7 +118,7 @@ export default function ShinsaCard({
           target="_blank"
           rel="noreferrer"
           className="font-medium text-moss hover:underline inline-flex items-center gap-1 w-full max-w-full min-w-0"
-          title={`${displayName} | ${t('openInMaps')}`}
+          title={`${displayName} | ${tCard('openInMaps')}`}
         >
           <MapPinned className="w-4 h-4 shrink-0 opacity-80" />
           <span className="truncate">{displayName}</span>
@@ -154,12 +154,14 @@ export default function ShinsaCard({
         <div className="mb-3">
           {federation ? (
             <>
-              <span>{tParams(`prefectures.${federation.prefecture?.code}`) || t('unknownPrefecture')}</span>
+              <span>{tParams(`prefectures.${federation.prefecture?.code}`) || tCard('unknownPrefecture')}</span>
               <span className="text-ink mx-2">|</span>
-              <span className="truncate">{federation.name}</span>
+              <span className="truncate">
+                {tCard(`federations.${federation.code}`)}
+              </span>
             </>
           ) : (
-            <span>{t('unknownFederation')}</span>
+            <span>{tCard('unknownFederation')}</span>
           )}
         </div>
         <h4 className="text-base md:text-lg font-serif font-bold text-ink mb-2 leading-snug group-hover:text-moss transition-colors line-clamp-2 min-h-14">
@@ -168,13 +170,13 @@ export default function ShinsaCard({
         <div className="space-y-4 text-xs md:text-sm text-ink/80 border-t border-ink/5 pt-5">
           {ranks && ranks.length > 0 && renderRankGrid()}
           <div className="flex flex-col gap-0.5">
-            <span className="text-sm text-ink/40 font-bold tracking-wider">{t('startDate')}</span>
+            <span className="text-sm text-ink/40 font-bold tracking-wider">{tCard('startDate')}</span>
             <span className="font-medium text-ink/90">
               {formatStartAt}
             </span>
           </div>
           <div className="flex flex-col gap-0.5">
-            <span className="text-sm text-ink/40 font-bold tracking-wider">{t('locationName')}</span>
+            <span className="text-sm text-ink/40 font-bold tracking-wider">{tCard('locationName')}</span>
             <div className="flex-1 min-w-0">
               {renderLocationMap(kyudojo, location)}
             </div>

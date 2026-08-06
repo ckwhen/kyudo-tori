@@ -31,7 +31,20 @@
     "unknownPrefecture": "Unknown Prefecture",
     "unknownFederation": "Unknown Federation",
     "startDate": "Date",
-    "locationName": "Location"
+    "locationName": "Location",
+    "federations": {
+      "hokkaido": "Hokkaido Kyudo Federation", "sapporo": "Sapporo Kyudo Federation", "eniwa": "Eniwa Kyudo Federation", "otaru": "Otaru Kyudo Federation", "chitose": "Chitose Kyudo Federation",
+      "aomori": "Aomori Kyudo Federation", "iwate": "Iwate Kyudo Federation", "miyagi": "Miyagi Kyudo Federation", "akita": "Akita Kyudo Federation", "yamagata": "Yamagata Kyudo Federation",
+      "fukushima": "Fukushima Kyudo Federation", "ibaraki": "Ibaraki Kyudo Federation", "tochigi": "Tochigi Kyudo Federation", "gunma": "Gunma Kyudo Federation", "saitama": "Saitama Kyudo Federation",
+      "chiba": "Chiba Kyudo Federation", "tokyo": "Tokyo Kyudo Federation", "tokyo-dist-1": "Tokyo Kyudo Federation District 1", "tokyo-dist-2": "Tokyo Kyudo Federation District 2", "tokyo-dist-3": "Tokyo Kyudo Federation District 3",
+      "kanagawa": "Kanagawa Kyudo Federation", "yamanashi": "Yamanashi Kyudo Federation", "niigata": "Niigata Kyudo Federation", "nagano": "Nagano Kyudo Federation", "toyama": "Toyama Kyudo Federation",
+      "ishikawa": "Ishikawa Kyudo Federation", "fukui": "Fukui Kyudo Federation", "shizuoka": "Shizuoka Kyudo Federation", "aichi": "Aichi Kyudo Federation", "gifu": "Gifu Kyudo Federation",
+      "mie": "Mie Kyudo Federation", "shiga": "Shiga Kyudo Federation", "kyoto": "Kyoto Kyudo Federation", "osaka": "Osaka Kyudo Federation", "hyogo": "Hyogo Kyudo Federation",
+      "nara": "Nara Kyudo Federation", "wakayama": "Wakayama Kyudo Federation", "kagawa": "Kagawa Kyudo Federation", "tokushima": "Tokushima Kyudo Federation", "kochi": "Kochi Kyudo Federation",
+      "ehime": "Ehime Kyudo Federation", "tottori": "Tottori Kyudo Federation", "shimane": "Shimane Kyudo Federation", "okayama": "Okayama Kyudo Federation", "hiroshima": "Hiroshima Kyudo Federation",
+      "yamaguchi": "Yamaguchi Kyudo Federation", "fukuoka": "Fukuoka Kyudo Federation", "saga": "Saga Kyudo Federation", "nagasaki": "Nagasaki Kyudo Federation", "kumamoto": "Kumamoto Kyudo Federation",
+      "oita": "Oita Kyudo Federation", "miyazaki": "Miyazaki Kyudo Federation", "kagoshima": "Kagoshima Kyudo Federation", "okinawa": "Okinawa Kyudo Federation"
+    }
   },
   "ShinsaFiltersModal": {
     "filter": "Filters",
