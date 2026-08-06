@@ -71,11 +71,6 @@ export type ShinsaMetaData = {
   total: number,
 }
 
-export type ShinsaListResponse<T> = {
-  data: T[];
-  total: number;
-};
-
 export type FilterOptionsGroupData = {
   regions: RegionOptionData[];
   ranks: RankOptionData[];
