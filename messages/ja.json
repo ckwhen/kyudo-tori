@@ -25,13 +25,13 @@
       "history": "実施済み"
     }
   },
-  "ShinsaCard": {
-    "openInMaps": "Googleマップで開く",
-    "defaultKyudojo": "指定弓道場",
-    "unknownPrefecture": "不明な県",
-    "unknownFederation": "未知の連盟",
-    "startDate": "実施日",
-    "locationName": "場所",
+  "shinsa_card": {
+    "open_in_map": "Googleマップで開く",
+    "default_kyudojo": "指定弓道場",
+    "unknown_prefecture": "不明な県",
+    "unknown_federation": "未知の連盟",
+    "start_date": "実施日",
+    "location_name": "場所",
     "federations": {
       "hokkaido": "北海道弓道連盟", "sapporo": "札幌弓道連盟", "eniwa": "恵庭弓道連盟", "otaru": "小樽弓道連盟", "chitose": "千歳弓道連盟",
       "aomori": "青森県弓道連盟", "iwate": "岩手県弓道連盟", "miyagi": "宮城県弓道連盟", "akita": "秋田県弓道連盟", "yamagata": "山形県弓道連盟",

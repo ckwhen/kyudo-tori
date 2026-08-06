@@ -25,13 +25,13 @@
       "history": "History"
     }
   },
-  "ShinsaCard": {
-    "openInMaps": "Open in Google Maps",
-    "defaultKyudojo": "Designated Kyudojo",
-    "unknownPrefecture": "Unknown Prefecture",
-    "unknownFederation": "Unknown Federation",
-    "startDate": "Date",
-    "locationName": "Location",
+  "shinsa_card": {
+    "open_in_map": "Open in Google Maps",
+    "default_kyudojo": "Designated Kyudojo",
+    "unknown_prefecture": "Unknown Prefecture",
+    "unknown_federation": "Unknown Federation",
+    "start_date": "Date",
+    "location_name": "Location",
     "federations": {
       "hokkaido": "Hokkaido Kyudo Federation", "sapporo": "Sapporo Kyudo Federation", "eniwa": "Eniwa Kyudo Federation", "otaru": "Otaru Kyudo Federation", "chitose": "Chitose Kyudo Federation",
       "aomori": "Aomori Kyudo Federation", "iwate": "Iwate Kyudo Federation", "miyagi": "Miyagi Kyudo Federation", "akita": "Akita Kyudo Federation", "yamagata": "Yamagata Kyudo Federation",
