@@ -58,8 +58,8 @@
     "close_window": "關閉視窗"
   },
   "not_found": {
-    "stray_arrow": "箭已脫靶，找不到方向。",
-    "adjust_breath": "請利用上方連結重新調整呼吸，返回正確的射位。"
+    "stray_arrow": "箭矢似乎有它想去的地方，正處於尋覓的旅途中。",
+    "adjust_breath": "請跟著上方的連結重新調整呼吸，再次步入射位吧。"
   },
   "about": {
     "page_title": "關於 Kyudo Tori",
