@@ -70,13 +70,13 @@
     "tech_paragraph1": "本站前端基於 <bold>Next.js</bold> 與 <bold>Tailwind CSS</bold> 建構，具備完善的響應式網頁設計（<bold>RWD</bold>），不論是使用電腦、平板還是手機，都能享有流暢的瀏覽體驗。",
     "tech_paragraph2": "在底層架構方面，採用以 <bold>Python</bold> 開發的資料處理模組，將各地分散的審查公告進行結構化彙整，並穩定儲存於 <bold>PostgreSQL</bold> 資料庫中。在確保資料精確的前提下，致力於用最高透明度且直覺的方式，將資訊呈現給所有使用者。"
   },
-  "Errors": {
-    "ERR_SYSTEM_UNKNOWN": "系統發生未知錯誤，請稍後再試。",
-    "ERR_DB_OPERATION_FAILED": "資料庫處理失敗，請檢查連線。",
-    "ERR_COPY_OPERATION_FAILED": "複製失敗，請手動選取並複製連結。"
+  "errors": {
+    "err_system_unknown": "系統發生未知錯誤，請稍後再試。",
+    "err_db_operation_failed": "資料庫處理失敗，請檢查連線。",
+    "err_copy_operation_failed": "複製失敗，請手動選取並複製連結。"
   },
-  "Notifications": {
-    "NOTIFY_COPY_SUCCESS": "連結已複製到剪貼簿"
+  "notifications": {
+    "notify_copy_success": "連結已複製到剪貼簿"
   },
   "parameters": {
     "months": {

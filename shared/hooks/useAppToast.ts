@@ -3,8 +3,8 @@ import { toast } from "sonner";
 import { type ErrorCode } from "@/shared/utils/error-handler";
 
 export function useAppToast() {
-  const tError = useTranslations("Errors");
-  const tNotify = useTranslations("Notifications");
+  const tError = useTranslations("errors");
+  const tNotify = useTranslations("notifications");
 
   return {
     showError: (code: ErrorCode) => {
