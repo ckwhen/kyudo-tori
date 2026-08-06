@@ -1,6 +1,6 @@
 import { useTranslations, useFormatter } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { getDateByTimezone, UTC_TIMEZONE } from '@/shared/utils/date';
+import { getDateByTimezone, UTC_TIMEZONE, DEFAULT_DATE_TEXT } from '@/shared/utils/date';
 
 type Props = {
   latestSyncAt: string | null,
@@ -13,7 +13,7 @@ export default function Footer({ latestSyncAt }: Props) {
       ? getDateByTimezone(latestSyncAt, UTC_TIMEZONE)
       : null;
 
-  let formatLatestSyncAt = '--';
+  let formatLatestSyncAt = DEFAULT_DATE_TEXT;
   if (latestSyncAtObj && latestSyncAtObj.isValid()) {
     formatLatestSyncAt = format.dateTime(latestSyncAtObj.toDate(), {
         year: 'numeric',

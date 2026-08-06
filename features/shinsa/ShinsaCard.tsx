@@ -6,6 +6,7 @@ import {
   getDateByTimezone,
   JST_TIMEZONE,
   TWO_MONTHS_IN_DAYS,
+  DEFAULT_DATE_TEXT,
 } from '@/shared/utils/date';
 import { ShinsaData } from './types';
 
@@ -65,7 +66,7 @@ export default function ShinsaCard({
     ? getDateByTimezone(startAt, JST_TIMEZONE)
     : null;
 
-  let formatStartAt = '隨時公告';
+  let formatStartAt = DEFAULT_DATE_TEXT;
   if (startAtJSTObj && startAtJSTObj.isValid()) {
     formatStartAt = format.dateTime(startAtJSTObj.toDate(), {
         year: 'numeric',
@@ -140,7 +141,7 @@ export default function ShinsaCard({
         transition-all duration-300 overflow-hidden
       `}
     >
-      <div className="absolute left-0 top-0 bottom-0 w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center" />
+      <div className="absolute left-0 top-0 z-20 bottom-0 w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center bg-current/70" />
       <div className="absolute right-4 top-4 z-0 pointer-events-none transition-colors duration-300">
         <Feather
           strokeWidth={1.5}
