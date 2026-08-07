@@ -6,7 +6,9 @@
       "shinsa": "審査情報",
       "about": "当サイトについて",
       "changelog": "更新履歴",
-      "last_proofread": "最終校正：{date}"
+      "last_proofread": "最終校正：{date}",
+      "supported_prefectures": "現在対応済み：{count} 都道府県",
+      "wish_prefectures": "次に対応してほしい都道府県リクエスト"
     }
   },
   "locale_switcher": {

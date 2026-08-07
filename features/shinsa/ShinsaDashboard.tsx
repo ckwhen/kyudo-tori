@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { useCopyToClipboard } from "usehooks-ts";
 import { useAppToast } from "@/shared/hooks/useAppToast";
 import { Pagination, Button } from '@/shared/components';
-import { FILTER_SEPARATOR, NOTIFICATION_CODES } from '@/shared/utils/constants';
+import { FILTER_SEPARATOR, NOTIFICATION_CODES, SUPPORTED_PREFECTURE_CODES } from '@/shared/utils/constants';
 import type {
   Option,
   RegionOption,
@@ -62,14 +62,20 @@ export default function ShinsaDashboard({
     }));
   }, [ tParams ]);
   const regionOptions: RegionOption[] = useMemo(() => {
-    return regionOptionData.map((r) => ({
-      value: r.code,
-      label: tParams(`regions.${r.code}`),
-      prefectures: r.prefectures.map((p) => ({
-        value: p.code,
-        label: tParams(`prefectures.${p.code}`)
-      }))
-    }));
+    return regionOptionData.map((r) => {
+      const activatedPrefectures = r.prefectures
+        .filter((p) => SUPPORTED_PREFECTURE_CODES.includes(p.code))
+        .map((p) => ({
+          value: p.code,
+          label: tParams(`prefectures.${p.code}`)
+        }));
+
+      return {
+        value: r.code,
+        label: tParams(`regions.${r.code}`),
+        prefectures: activatedPrefectures
+      };
+    }).filter((r) => r.prefectures.length > 0);
   }, [ regionOptionData, tParams ]);
   const rankOptions: Option[] = useMemo(() => {
     return rankOptionData.map((r) => ({

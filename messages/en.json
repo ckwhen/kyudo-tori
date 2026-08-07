@@ -6,7 +6,9 @@
       "shinsa": "Shinsa Info",
       "about": "About",
       "changelog": "Changelog",
-      "last_proofread": "Last Proofread: {date}"
+      "last_proofread": "Last Proofread: {date}",
+      "supported_prefectures": "Currently supported: {count} prefecture(s)",
+      "wish_prefectures": "Vote for the next prefecture(s) to support"
     }
   },
   "locale_switcher": {

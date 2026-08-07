@@ -6,7 +6,9 @@
       "shinsa": "審查情報",
       "about": "關於本站",
       "changelog": "更新紀錄",
-      "last_proofread": "最後校對：{date}"
+      "last_proofread": "最後校對：{date}",
+      "supported_prefectures": "目前已上線：{count} 個都道府縣",
+      "wish_prefectures": "許願下一個加入的縣市"
     }
   },
   "locale_switcher": {
