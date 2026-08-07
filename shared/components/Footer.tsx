@@ -1,6 +1,7 @@
 import { useTranslations, useFormatter, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { SquareArrowOutUpRight } from 'lucide-react';
+import { SUPPORTED_PREFECTURE_CODES } from '@/shared/utils/constants';
 import { getDateByTimezone, UTC_TIMEZONE, DEFAULT_DATE_TEXT } from '@/shared/utils/date';
 
 const WISH_FORM_URLS: Record<string, string> = {
@@ -62,17 +63,24 @@ export default function Footer({ latestSyncAt }: Props) {
           <h4 className="font-bold text-canvas uppercase tracking-widest">
             {tFooter('changelog')}
           </h4>
-          <div className="font-mono">
+          <div>
             <div className="text-gold">
               {tFooter('last_proofread', { date: formatLatestSyncAt })}
             </div>
+          </div>
+          <div>
+            <span>
+              {tFooter('supported_prefectures', {
+                count: SUPPORTED_PREFECTURE_CODES.length
+              })}
+            </span>
           </div>
           <div>
             <a
               href={WISH_FORM_URLS[currentLocale] || WISH_FORM_URLS['zh']}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-gray-300 hover:text-amber-400 transition-colors duration-200 hover:underline underline-offset-4"
+              className="inline-flex items-center gap-1 hover:text-gold transition-colors duration-200 hover:underline underline-offset-4"
             >
               {tFooter('wish_prefectures')}
               <SquareArrowOutUpRight className="w-4 h-4 shrink-0" />

@@ -7,7 +7,8 @@
       "about": "About",
       "changelog": "Changelog",
       "last_proofread": "Last Proofread: {date}",
-      "wish_prefectures": "Vote for the Next Prefecture to Unlock"
+      "supported_prefectures": "Currently supported: {count} prefecture(s)",
+      "wish_prefectures": "Vote for the next prefecture(s) to support"
     }
   },
   "locale_switcher": {
