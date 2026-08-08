@@ -5,7 +5,8 @@ export const SHINSA_PAGE_LIMIT: number = 15;
 export const FILTER_SEPARATOR: string = ',';
 
 export const NOTIFICATION_CODES = {
-  COPY_SUCCESS: "notify_copy_success"
+  COPY_SUCCESS: "notify_copy_success",
+  CONTACT_SUCCESS: "notify_contact_success"
 } as const;
 
 export const SUPPORTED_PREFECTURE_CODES = [

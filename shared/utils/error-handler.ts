@@ -4,6 +4,8 @@ export const ERROR_CODES = {
   SYSTEM_UNKNOWN: "err_system_unknown",
   DB_OPERATION_FAILED: "err_db_operation_failed",
   COPY_OPERATION_FAILED: "err_copy_operation_failed",
+  CONTACT_FAILED: "err_contact_failed",
+  REQUIRED_FIELDS_MISSING: "err_required_fields_missing"
 } as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[keyof typeof ERROR_CODES];

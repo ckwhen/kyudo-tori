@@ -1,6 +1,6 @@
 import { useTranslations, useFormatter, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { SquareArrowOutUpRight } from 'lucide-react';
+import { SquareArrowOutUpRight, Mail, CupSoda } from 'lucide-react';
 import { SUPPORTED_PREFECTURE_CODES } from '@/shared/utils/constants';
 import { getDateByTimezone, UTC_TIMEZONE, DEFAULT_DATE_TEXT } from '@/shared/utils/date';
 
@@ -36,32 +36,27 @@ export default function Footer({ latestSyncAt }: Props) {
   return (
     <footer className="bg-ink text-canvas/70 border-t border-canvas/10 py-8 mt-auto text-sm">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div className="space-y-2">
-          <h4 className="font-bold text-canvas tracking-widest">
-            全日本弓道審查情報檢索
-          </h4>
-          <p className="opacity-75 leading-relaxed">
-            解決日本傳統連盟 HTML 舊網站檢索不易的痛點。本站致力於將公開數據結構化，提供全球弓道學習者最優雅、直覺的工具體驗。
-          </p>
-        </div>
-
         <div className="space-y-2 md:pl-16">
           <h4 className="font-bold text-canvas uppercase tracking-widest">
-            {tFooter('sitemap')}
+            {tFooter('title_sitemap')}
           </h4>
           <ul className="space-y-2">
             <li>
-              <Link href="/" className="hover:text-gold transition-colors">{tFooter('shinsa')}</Link>
+              <Link href="/" className="hover:text-gold transition-colors">
+                {tFooter('link_shinsa')}
+              </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-gold transition-colors">{tFooter('about')}</Link>
+              <Link href="/about" className="hover:text-gold transition-colors">
+                {tFooter('link_about')}
+              </Link>
             </li>
           </ul>
         </div>
 
         <div className="space-y-2">
           <h4 className="font-bold text-canvas uppercase tracking-widest">
-            {tFooter('changelog')}
+            {tFooter('title_changelog')}
           </h4>
           <div>
             <div className="text-gold">
@@ -82,10 +77,39 @@ export default function Footer({ latestSyncAt }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 hover:text-gold transition-colors duration-200 hover:underline underline-offset-4"
             >
-              {tFooter('wish_prefectures')}
+              {tFooter('link_wish_prefectures')}
               <SquareArrowOutUpRight className="w-4 h-4 shrink-0" />
             </a>
           </div>
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="font-bold text-canvas uppercase tracking-widest">
+            {tFooter('title_contact_support')}
+          </h4>
+          <ul className="space-y-2">
+            <li>
+              <Link 
+                href="/contact"
+                className="flex items-center gap-1 hover:text-gold transition-colors w-fit"
+              >
+                <Mail className="h-4 w-4" />
+                <span>{tFooter('link_contact')}</span>
+              </Link>
+            </li>
+            <li>
+              <a
+                href={process.env.NEXT_PUBLIC_KOFI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={tFooter('coke_title')}
+                className="flex items-center justify-center w-fit px-3 py-2 border gap-2 rounded-sm bg-moss border-gold/30 font-semibold text-canvas shadow-sm transition-all hover:bg-[#2e3d2d] hover:border-gold hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <CupSoda className="w-5 h-5" />
+                <span>Buy me an Original Coke</span>
+              </a>
+            </li>
+          </ul>
         </div>
 
       </div>

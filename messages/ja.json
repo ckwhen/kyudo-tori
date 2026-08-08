@@ -2,13 +2,16 @@
   "landing_page": {
     "subtitle": "全日本弓道審査情報 · 構造化検索プラットフォーム",
     "footer": {
-      "sitemap": "サイトマップ",
-      "shinsa": "審査情報",
-      "about": "当サイトについて",
-      "changelog": "更新履歴",
+      "title_sitemap": "SITEMAP",
+      "title_changelog": "CHANGELOG",
+      "title_contact_support": "CONTACT & SUPPORT",
+      "link_shinsa": "審査情報",
+      "link_about": "当サイトについて",
+      "link_wish_prefectures": "次に対応してほしい都道府県リクエスト",
+      "link_contact": "制作者へ連絡",
       "last_proofread": "最終校正：{date}",
       "supported_prefectures": "現在対応済み：{count} 都道府県",
-      "wish_prefectures": "次に対応してほしい都道府県リクエスト"
+      "coke_title": "王道の味、クラシックへのこだわり。"
     }
   },
   "locale_switcher": {
@@ -72,13 +75,28 @@
     "tech_paragraph1": "当サイトのフロントエンドは <bold>Next.js</bold> と <bold>Tailwind CSS</bold> をベースに構築されており、完全なレスポンシブウェブデザイン（<bold>RWD</bold>）に対応しています。PC、タブレット、スマートフォンを問わず、シームレスな閲覧体験を提供します。",
     "tech_paragraph2": "バックエンドのアーキテクチャには <bold>Python</bold> で開発されたデータ処理モジュールを採用し、各地に分散した審査データを構造化して統合した上で、<bold>PostgreSQL</bold> データベースに安定して保存しています。データの正確性を担保した上で、すべてのユーザーに高い透明性をもって、直感的に提供できるよう取り組んでいます。"
   },
+  "contact": {
+    "title": "制作者へ連絡",
+    "subtitle": "Kyudo Tori に関するご意見やフィードバックがございましたら、お気軽にお寄せください。",
+    "label_name": "お名前",
+    "placeholder_name": "例：弓道愛好者",
+    "label_email": "メールアドレス",
+    "placeholder_email": "your@email.com",
+    "label_message": "メッセージ内容",
+    "placeholder_message": "制作者へのメッセージを入力してください...",
+    "btn_submit": "メッセージを送信",
+    "btn_submitting": "処理中..."
+  },
   "errors": {
     "err_system_unknown": "予期せぬエラーが発生しました。時間をおいてもう一度お試しください。",
     "err_db_operation_failed": "データベース処理に失敗しました。接続状況を確認してください。",
-    "err_copy_operation_failed": "コピーに失敗しました。お手数ですが手動で選択してコピーしてください。"
+    "err_copy_operation_failed": "コピーに失敗しました。お手数ですが手動で選択してコピーしてください。",
+    "err_contact_failed": "メッセージの送信に失敗しました。システムエラーが発生したため、時間をおいて再度お試しいただくか、他のお問い合わせ方法にてご連絡ください。",
+    "err_required_fields_missing": "必須項目が未入力です。すべての項目に入力した上で再度送信してください。"
   },
   "notifications": {
-    "notify_copy_success": "リンクをクリップボードにコピーしました"
+    "notify_copy_success": "リンクをクリップボードにコピーしました",
+    "notify_contact_success": "メッセージが正常に送信されました。お問い合わせいただきありがとうございます。内容を確認の上、追ってご連絡いたします。"
   },
   "parameters": {
     "months": {

@@ -2,13 +2,16 @@
   "landing_page": {
     "subtitle": "全日本弓道審查情報 · 結構化檢索平台",
     "footer": {
-      "sitemap": "網站導覽",
-      "shinsa": "審查情報",
-      "about": "關於本站",
-      "changelog": "更新紀錄",
+      "title_sitemap": "SITEMAP",
+      "title_changelog": "CHANGELOG",
+      "title_contact_support": "CONTACT & SUPPORT",
+      "link_shinsa": "審查情報",
+      "link_about": "關於本站",
+      "link_wish_prefectures": "許願下一個加入的縣市",
+      "link_contact": "聯絡作者",
       "last_proofread": "最後校對：{date}",
       "supported_prefectures": "目前已上線：{count} 個都道府縣",
-      "wish_prefectures": "許願下一個加入的縣市"
+      "coke_title": "堅持經典，只喝原味。"
     }
   },
   "locale_switcher": {
@@ -72,13 +75,28 @@
     "tech_paragraph1": "本站前端基於 <bold>Next.js</bold> 與 <bold>Tailwind CSS</bold> 建構，具備完善的響應式網頁設計（<bold>RWD</bold>），不論是使用電腦、平板還是手機，都能享有流暢的瀏覽體驗。",
     "tech_paragraph2": "在底層架構方面，採用以 <bold>Python</bold> 開發的資料處理模組，將各地分散的審查公告進行結構化彙整，並穩定儲存於 <bold>PostgreSQL</bold> 資料庫中。在確保資料精確的前提下，致力於用最高透明度且直覺的方式，將資訊呈現給所有使用者。"
   },
+  "contact": {
+    "title": "聯絡作者",
+    "subtitle": "如果您對 Kyudo Tori 有任何建議或回饋，歡迎來信告知。",
+    "label_name": "您的稱呼",
+    "placeholder_name": "例如：弓道愛好者",
+    "label_email": "電子信箱",
+    "placeholder_email": "your@email.com",
+    "label_message": "訊息內容",
+    "placeholder_message": "請輸入您想向作者反應的內容...",
+    "btn_submit": "送出訊息",
+    "btn_submitting": "處理中..."
+  },
   "errors": {
     "err_system_unknown": "系統發生未知錯誤，請稍後再試。",
     "err_db_operation_failed": "資料庫處理失敗，請檢查連線。",
-    "err_copy_operation_failed": "複製失敗，請手動選取並複製連結。"
+    "err_copy_operation_failed": "複製失敗，請手動選取並複製連結。",
+    "err_contact_failed": "訊息傳送失敗。系統目前無法處理此請求，請稍後再試，或嘗試透過其他管道與我們聯絡。",
+    "err_required_fields_missing": "請填寫所有必填欄位後再行送出。"
   },
   "notifications": {
-    "notify_copy_success": "連結已複製到剪貼簿"
+    "notify_copy_success": "連結已複製到剪貼簿",
+    "notify_contact_success": "訊息已成功送出。感謝您的來信，我們將儘速審閱並予以回覆。"
   },
   "parameters": {
     "months": {

@@ -2,13 +2,16 @@
   "landing_page": {
     "subtitle": "All Japan Kyudo Shinsa Information. Structured Search Platform.",
     "footer": {
-      "sitemap": "Sitemap",
-      "shinsa": "Shinsa Info",
-      "about": "About",
-      "changelog": "Changelog",
+      "title_sitemap": "SITEMAP",
+      "title_changelog": "CHANGELOG",
+      "title_contact_support": "CONTACT & SUPPORT",
+      "link_shinsa": "Shinsa Info",
+      "link_about": "About",
+      "link_wish_prefectures": "Vote for the next prefecture(s) to support",
+      "link_contact": "Contact Author",
       "last_proofread": "Last Proofread: {date}",
       "supported_prefectures": "Currently supported: {count} prefecture(s)",
-      "wish_prefectures": "Vote for the next prefecture(s) to support"
+      "coke_title": "Pure classic flavor only."
     }
   },
   "locale_switcher": {
@@ -72,13 +75,28 @@
     "tech_paragraph1": "The frontend is built on <bold>Next.js</bold> and <bold>Tailwind CSS</bold>, featuring a fully responsive web design (<bold>RWD</bold>) to ensure a seamless browsing experience across desktops, tablets, and mobile devices.",
     "tech_paragraph2": "Under the hood, a <bold>Python</bold>-driven data module aggregates and structures scattered shinsa updates, storing them securely in a <bold>PostgreSQL</bold> database. This approach strives to present data to all users in a highly transparent and intuitive manner while strictly maintaining accuracy."
   },
+  "contact": {
+    "title": "Contact Author",
+    "subtitle": "If you have any suggestions or feedback regarding Kyudo Tori, please feel free to send us a message.",
+    "label_name": "Your Name",
+    "placeholder_name": "e.g., Kyudo Enthusiast",
+    "label_email": "Email Address",
+    "placeholder_email": "your@email.com",
+    "label_message": "Message",
+    "placeholder_message": "Enter your message for the author...",
+    "btn_submit": "Send Message",
+    "btn_submitting": "Processing..."
+  },
   "errors": {
     "err_system_unknown": "An unknown system error occurred. Please try again later.",
     "err_db_operation_failed": "Database operation failed. Please check the connection.",
-    "err_copy_operation_failed": "Copy failed. Please select and copy the link manually."
+    "err_copy_operation_failed": "Copy failed. Please select and copy the link manually.",
+    "err_contact_failed": "Failed to send message. The system is temporarily unable to process your request. Please try again later or reach out to us through alternative channels.",
+    "err_required_fields_missing": "All fields are required. Please complete the form before submitting."
   },
   "notifications": {
-    "notify_copy_success": "Link copied to clipboard"
+    "notify_copy_success": "Link copied to clipboard",
+    "notify_contact_success": "Your message has been sent successfully. Thank you for contacting us; we will review and reply as soon as possible."
   },
   "parameters": {
     "months": {
