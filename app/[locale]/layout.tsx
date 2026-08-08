@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -10,31 +9,20 @@ import { services as shinsaServices } from '@/features/shinsa';
 
 import "@/app/globals.css";
 
-const sansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const serifJP = Noto_Serif_JP({
-  weight: ["700"],
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "Kyudo Tori",
   description: "專為弓道學習者設計的結構化審查情報平台",
 };
 
+type LayoutProps = {
+  children: React.ReactNode,
+  params: Promise<{ locale: string }>,
+};
+
 export default async function LocaleLayout({
   children,
   params
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{locale: string}>;
-}>) {
+}: Readonly<LayoutProps>) {
   const { locale } = await params;
 
   if (!routing.locales.includes(locale as Locale)) {
@@ -45,7 +33,7 @@ export default async function LocaleLayout({
   const latestSyncAtRes = await shinsaServices.getLatestSyncAt();
 
   return (
-    <html lang={locale} className={`${sansJP.variable} ${serifJP.variable}`}>
+    <html lang={locale}>
       <body className="antialiased flex flex-col min-h-screen">
         <Toaster
           position="top-center"
