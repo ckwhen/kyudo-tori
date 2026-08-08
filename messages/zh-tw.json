@@ -7,10 +7,11 @@
       "title_contact_support": "CONTACT & SUPPORT",
       "link_shinsa": "審查情報",
       "link_about": "關於本站",
+      "link_wish_prefectures": "許願下一個加入的縣市",
       "link_contact": "聯絡作者",
       "last_proofread": "最後校對：{date}",
       "supported_prefectures": "目前已上線：{count} 個都道府縣",
-      "link_wish_prefectures": "許願下一個加入的縣市"
+      "coke_title": "堅持經典，只喝原味。"
     }
   },
   "locale_switcher": {

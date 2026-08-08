@@ -7,10 +7,11 @@
       "title_contact_support": "CONTACT & SUPPORT",
       "link_shinsa": "Shinsa Info",
       "link_about": "About",
+      "link_wish_prefectures": "Vote for the next prefecture(s) to support",
       "link_contact": "Contact Author",
       "last_proofread": "Last Proofread: {date}",
       "supported_prefectures": "Currently supported: {count} prefecture(s)",
-      "link_wish_prefectures": "Vote for the next prefecture(s) to support"
+      "coke_title": "Pure classic flavor only."
     }
   },
   "locale_switcher": {

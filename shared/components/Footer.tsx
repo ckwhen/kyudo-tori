@@ -1,6 +1,6 @@
 import { useTranslations, useFormatter, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { SquareArrowOutUpRight, Mail } from 'lucide-react';
+import { SquareArrowOutUpRight, Mail, CupSoda } from 'lucide-react';
 import { SUPPORTED_PREFECTURE_CODES } from '@/shared/utils/constants';
 import { getDateByTimezone, UTC_TIMEZONE, DEFAULT_DATE_TEXT } from '@/shared/utils/date';
 
@@ -96,6 +96,18 @@ export default function Footer({ latestSyncAt }: Props) {
                 <Mail className="h-4 w-4" />
                 <span>{tFooter('link_contact')}</span>
               </Link>
+            </li>
+            <li>
+              <a
+                href={process.env.NEXT_PUBLIC_KOFI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={tFooter('coke_title')}
+                className="flex items-center justify-center w-fit px-3 py-2 border gap-2 rounded-sm bg-moss border-gold/30 font-semibold text-canvas shadow-sm transition-all hover:bg-[#2e3d2d] hover:border-gold hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <CupSoda className="w-5 h-5" />
+                <span>Buy me an Original Coke</span>
+              </a>
             </li>
           </ul>
         </div>
