@@ -1,6 +1,13 @@
 import { NOTIFICATION_CODES } from "./constants";
 import { ErrorCode } from "./error-handler";
 
+type BaseLocaleParams = {
+  locale: string;
+};
+export type PageLocaleParams = {
+  params: Promise<BaseLocaleParams>;
+};
+
 export type Option = {
   value: string,
   label: string

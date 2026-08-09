@@ -1,11 +1,11 @@
+import { setRequestLocale } from 'next-intl/server';
 import { services as shinsaServices, ShinsaDashboard } from '@/features/shinsa';
-import { constants } from '@/shared/utils';
-
-const { SHINSA_PAGE_LIMIT, FILTER_SEPARATOR } = constants;
+import { SHINSA_PAGE_LIMIT, FILTER_SEPARATOR } from '@/shared/utils/constants';
+import { type PageLocaleParams } from '@/shared/utils/types';
 
 export const revalidate = 0;
 
-type Props = {
+type Props = PageLocaleParams & {
   searchParams: Promise<{
     page?: string,
     prefectures?: string,
@@ -14,18 +14,29 @@ type Props = {
   }>,
 };
 
-export default async function Home({ searchParams }: Props) {
-  const params = await searchParams;
-  const currentPage = Math.max(1, parseInt(params.page || '1', 10));
+export default async function Home({ params, searchParams }: Props) {
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  const { locale } = resolvedParams;
+  const {
+    page,
+    prefectures,
+    ranks,
+    months
+  } = resolvedSearchParams;
+
+  const currentPage = Math.max(1, parseInt(page || '1', 10));
   const computedOffset = (currentPage - 1) * SHINSA_PAGE_LIMIT;
+
+  setRequestLocale(locale);
 
   const [ shinsasRes, optionsGroupRes ] = await Promise.all([
     shinsaServices.getFilteredShinsas({
       offset: computedOffset,
       limit: SHINSA_PAGE_LIMIT,
-      prefectures: params.prefectures?.split(FILTER_SEPARATOR).filter(Boolean) || [],
-      ranks: params.ranks?.split(FILTER_SEPARATOR).filter(Boolean) || [],
-      months: params.months?.split(FILTER_SEPARATOR).filter(Boolean) || [],
+      prefectures: prefectures?.split(FILTER_SEPARATOR).filter(Boolean) || [],
+      ranks: ranks?.split(FILTER_SEPARATOR).filter(Boolean) || [],
+      months: months?.split(FILTER_SEPARATOR).filter(Boolean) || [],
     }),
     shinsaServices.getFilterOptionsGroup(),
   ]);

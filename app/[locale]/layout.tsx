@@ -1,22 +1,28 @@
+import { ReactNode } from 'react';
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
 import { Toaster } from "sonner";
-import { routing, Locale } from '@/i18n/routing';
+import { routing, locales, Locale } from '@/i18n/routing';
 import { Header, Footer } from '@/shared/components';
+import { type PageLocaleParams } from '@/shared/utils/types';
 import { services as shinsaServices } from '@/features/shinsa';
 
 import "@/app/globals.css";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   title: "Kyudo Tori",
   description: "專為弓道學習者設計的結構化審查情報平台",
 };
 
-type LayoutProps = {
-  children: React.ReactNode,
-  params: Promise<{ locale: string }>,
+type LayoutProps = PageLocaleParams & {
+  children: ReactNode,
 };
 
 export default async function LocaleLayout({
@@ -28,6 +34,8 @@ export default async function LocaleLayout({
   if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   const messages = await getMessages();
   const latestSyncAtRes = await shinsaServices.getLatestSyncAt();
