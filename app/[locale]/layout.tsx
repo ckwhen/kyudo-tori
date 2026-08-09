@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Toaster } from "sonner";
 import { routing, locales, Locale } from '@/i18n/routing';
 import { Header, Footer } from '@/shared/components';
@@ -16,10 +16,36 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: "Kyudo Tori",
-  description: "專為弓道學習者設計的結構化審查情報平台",
-};
+export async function generateMetadata({
+  params
+}: PageLocaleParams): Promise<Metadata> {
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
+
+  const tMetadata = await getTranslations({ locale, namespace: "metadata" });
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  return {
+    title: tMetadata('title'),
+    description: tMetadata('description'),
+    alternates: {
+      canonical: `${siteUrl}/${locale}`,
+      languages: {
+        "zh-tw": `${siteUrl}/zh-tw`,
+        ja: `${siteUrl}/ja`,
+        en: `${siteUrl}/en`,
+        "x-default": `${siteUrl}/en`
+      }
+    },
+    openGraph: {
+      type: 'website',
+      url: `${siteUrl}/${locale}`,
+      title: tMetadata('title'),
+      description: tMetadata('description'),
+      siteName: 'Kyudo Tori',
+    },
+  };
+}
 
 type LayoutProps = PageLocaleParams & {
   children: ReactNode,
