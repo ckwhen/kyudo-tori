@@ -1,5 +1,9 @@
 import { setRequestLocale } from 'next-intl/server';
-import { services as shinsaServices, ShinsaDashboard } from '@/features/shinsa';
+import {
+  ShinsaDashboard,
+  ShinsaSchema,
+  services as shinsaServices,
+} from '@/features/shinsa';
 import { SHINSA_PAGE_LIMIT, FILTER_SEPARATOR } from '@/shared/utils/constants';
 import { type PageLocaleParams } from '@/shared/utils/types';
 
@@ -50,6 +54,7 @@ export default async function Home({ params, searchParams }: Props) {
   return (
     <div className="w-full flex flex-col">
       <main className="max-w-6xl w-full mx-auto px-6 py-12 md:py-16">
+        <ShinsaSchema data={shinsas} />
         <ShinsaDashboard
           data={shinsas}
           errorCode={shinsaErrorCode}
