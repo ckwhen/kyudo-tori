@@ -1,51 +1,73 @@
+import { ReactNode } from 'react';
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Toaster } from "sonner";
-import { routing, Locale } from '@/i18n/routing';
+import { routing, locales, Locale } from '@/i18n/routing';
 import { Header, Footer } from '@/shared/components';
+import { type PageLocaleParams } from '@/shared/utils/types';
 import { services as shinsaServices } from '@/features/shinsa';
 
 import "@/app/globals.css";
 
-const sansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
-const serifJP = Noto_Serif_JP({
-  weight: ["700"],
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
+export async function generateMetadata({
+  params
+}: PageLocaleParams): Promise<Metadata> {
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
 
-export const metadata: Metadata = {
-  title: "Kyudo Tori",
-  description: "專為弓道學習者設計的結構化審查情報平台",
+  const tMetadata = await getTranslations({ locale, namespace: "metadata" });
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  return {
+    title: tMetadata('title'),
+    description: tMetadata('description'),
+    alternates: {
+      canonical: `${siteUrl}/${locale}`,
+      languages: {
+        "zh-tw": `${siteUrl}/zh-tw`,
+        ja: `${siteUrl}/ja`,
+        en: `${siteUrl}/en`,
+        "x-default": `${siteUrl}/en`
+      }
+    },
+    openGraph: {
+      type: 'website',
+      url: `${siteUrl}/${locale}`,
+      title: tMetadata('title'),
+      description: tMetadata('description'),
+      siteName: 'Kyudo Tori',
+    },
+  };
+}
+
+type LayoutProps = PageLocaleParams & {
+  children: ReactNode,
 };
 
 export default async function LocaleLayout({
   children,
   params
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{locale: string}>;
-}>) {
+}: Readonly<LayoutProps>) {
   const { locale } = await params;
 
   if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
 
+  setRequestLocale(locale);
+
   const messages = await getMessages();
   const latestSyncAtRes = await shinsaServices.getLatestSyncAt();
 
   return (
-    <html lang={locale} className={`${sansJP.variable} ${serifJP.variable}`}>
+    <html lang={locale}>
       <body className="antialiased flex flex-col min-h-screen">
         <Toaster
           position="top-center"

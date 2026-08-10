@@ -8,5 +8,6 @@ export const config = {
     '/',
     '/:locale(zh-TW|ja|en)/:path*',
     '/((?!_next|_vercel|.*\\..*).*)',
+    '/((?!api|_next|_vercel|.*\\..*|sitemap\\.xml|robots\\.txt).*)'
   ]
 };

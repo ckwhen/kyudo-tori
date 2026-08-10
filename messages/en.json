@@ -1,4 +1,9 @@
 {
+  "metadata": {
+    "title": "Kyudo Tori | Shinsa Info",
+    "description": "A structured shinsa information directory built for Kyudo enthusiasts.",
+    "defaultDescription": "日本弓道結構化審查情報"
+  },
   "landing_page": {
     "subtitle": "All Japan Kyudo Shinsa Information. Structured Search Platform.",
     "footer": {
