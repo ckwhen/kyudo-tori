@@ -1,4 +1,4 @@
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import {
   ShinsaDashboard,
   ShinsaSchema,
@@ -28,6 +28,7 @@ export default async function Home({ params, searchParams }: Props) {
     ranks,
     months
   } = resolvedSearchParams;
+  const tMetadata = await getTranslations('metadata');
 
   const currentPage = Math.max(1, parseInt(page || '1', 10));
   const computedOffset = (currentPage - 1) * SHINSA_PAGE_LIMIT;
@@ -54,7 +55,10 @@ export default async function Home({ params, searchParams }: Props) {
   return (
     <div className="w-full flex flex-col">
       <main className="max-w-6xl w-full mx-auto px-6 py-12 md:py-16">
-        <ShinsaSchema data={shinsas} />
+        <ShinsaSchema
+          data={shinsas}
+          defaultDescription={tMetadata('defaultDescription')}
+        />
         <ShinsaDashboard
           data={shinsas}
           errorCode={shinsaErrorCode}

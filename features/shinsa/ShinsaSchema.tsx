@@ -1,10 +1,11 @@
 import type { ShinsaData } from './types';
 
 type Props = {
-  data: ShinsaData[]
+  data: ShinsaData[],
+  defaultDescription: string
 }
 
-export default function ShinsaSchema({ data }: Props) {
+export default function ShinsaSchema({ data, defaultDescription }: Props) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   return (
@@ -50,7 +51,7 @@ export default function ShinsaSchema({ data }: Props) {
           "@type": "Event",
           "name": shinsa.name,
           "startDate": shinsa.startAt,
-          "description": shinsa.note || "日本弓道結構化審查情報",
+          "description": shinsa.note || defaultDescription,
           "eventAttendanceMode": "https://schema.org",
           "eventStatus": "https://schema.org",
           "location": locationSchema,
