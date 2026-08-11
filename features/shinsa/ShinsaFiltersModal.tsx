@@ -67,7 +67,7 @@ export default function ShinsaFiltersModal({
     return (
       <div className="space-y-4">
         <h4 className="font-serif font-bold text-ink/60 tracking-wider mb-3">
-          {tModal('region_and_pref')}
+          {tModal('title_region')}
         </h4>
         <div className="grid grid-cols-3 gap-2 mb-0">
           {regionOptions.map(region => {
@@ -96,6 +96,9 @@ export default function ShinsaFiltersModal({
             )
           })}
         </div>
+        <h4 className="font-serif font-bold text-ink/60 tracking-wider my-3">
+          {tModal('title_prefecture')}
+        </h4>
         {currentActiveRegionData && (
           <div className="flex justify-end my-2 shrink-0">
             {(() => {

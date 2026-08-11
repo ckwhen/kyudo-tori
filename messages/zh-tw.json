@@ -58,7 +58,8 @@
   },
   "shinsa_filters_modal": {
     "filter": "篩選條件",
-    "region_and_pref": "舉辦地區與縣市",
+    "title_region": "舉辦地區",
+    "title_prefecture": "舉辦縣市",
     "review_rank": "審查段位",
     "holding_month": "舉辦月份",
     "select_all": "全選",

@@ -58,7 +58,8 @@
   },
   "shinsa_filters_modal": {
     "filter": "Filters",
-    "region_and_pref": "Region & Prefecture",
+    "title_region": "Region",
+    "title_prefecture": "Prefecture",
     "review_rank": "Rank",
     "holding_month": "Month",
     "select_all": "Select All",
