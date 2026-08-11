@@ -58,7 +58,8 @@
   },
   "shinsa_filters_modal": {
     "filter": "検索条件",
-    "region_and_pref": "開催地域・都道府県",
+    "title_region": "開催地域",
+    "title_prefecture": "開催都道府県",
     "review_rank": "審査段位",
     "holding_month": "開催月",
     "select_all": "すべて選択",
@@ -93,6 +94,7 @@
     "btn_submitting": "処理中..."
   },
   "errors": {
+    "err_unauthorized": "不正なクロスサイトリクエストです。送信が拒否されました。",
     "err_system_unknown": "予期せぬエラーが発生しました。時間をおいてもう一度お試しください。",
     "err_db_operation_failed": "データベース処理に失敗しました。接続状況を確認してください。",
     "err_copy_operation_failed": "コピーに失敗しました。お手数ですが手動で選択してコピーしてください。",
