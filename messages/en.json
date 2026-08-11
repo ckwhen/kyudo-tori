@@ -93,6 +93,7 @@
     "btn_submitting": "Processing..."
   },
   "errors": {
+    "err_unauthorized": "Unauthorized cross-origin request. Submission denied.",
     "err_system_unknown": "An unknown system error occurred. Please try again later.",
     "err_db_operation_failed": "Database operation failed. Please check the connection.",
     "err_copy_operation_failed": "Copy failed. Please select and copy the link manually.",

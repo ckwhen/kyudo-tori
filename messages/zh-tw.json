@@ -93,6 +93,7 @@
     "btn_submitting": "處理中..."
   },
   "errors": {
+    "err_unauthorized": "未經授權的跨站請求，此申請已被拒絕。",
     "err_system_unknown": "系統發生未知錯誤，請稍後再試。",
     "err_db_operation_failed": "資料庫處理失敗，請檢查連線。",
     "err_copy_operation_failed": "複製失敗，請手動選取並複製連結。",
